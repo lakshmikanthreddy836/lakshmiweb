@@ -1,41 +1,5 @@
 const Login = () => {
   return (
-    // <div className="bg-[url('https://i.ibb.co/nCtx1vq/top-view-raw-pasta-with-fresh-vegetables-dark-surface-meal-salad-food-140725-102009.jpg')]">
-    //   <div class="w-full  flex justify-center items-center">
-    //     <form class="py-12 px-12 bg-[url('https://i.ibb.co/nCtx1vq/top-view-raw-pasta-with-fresh-vegetables-dark-surface-meal-salad-food-140725-102009.jpg')] rounded-2xl shadow-xl z-20">
-    //       <div>
-    //         <h1 class="text-3xl font-bold text-center mb-4 cursor-pointer">
-    //           Create An Account
-    //         </h1>
-    //         <p class="w-80 text-center text-sm mb-8 font-semibold text-gray-700 tracking-wide cursor-pointer">
-    //           Create an account to enjoy all the services without any ads for
-    //           free!
-    //         </p>
-    //       </div>
-    //       <div class="space-y-4">
-    //         <input
-    //           type="text"
-    //           placeholder="Email Addres"
-    //           class="block text-sm py-3 px-4 rounded-lg w-full border outline-purple-500"
-    //         />
-    //         <input
-    //           type="text"
-    //           placeholder="Password"
-    //           class="block text-sm py-3 px-4 rounded-lg w-full border outline-purple-500"
-    //         />
-    //       </div>
-    //       <div class="text-center mt-6">
-    //         <button class="w-full py-2 text-xl text-white bg-purple-400 rounded-lg hover:bg-purple-500 transition-all">
-    //           Create Account
-    //         </button>
-    //         <p class="mt-4 text-sm">
-    //           Already Have An Account?{" "}
-    //           <span class="underline  cursor-pointer"> Sign In</span>
-    //         </p>
-    //       </div>
-    //     </form>
-    //   </div>
-    // </div>
     <div class="bg-gray-100  flex items-center justify-center">
       <div class="absolute inset-0 z-0">
         <img
