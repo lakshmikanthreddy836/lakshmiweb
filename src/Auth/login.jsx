@@ -1,6 +1,12 @@
+import { useNavigate } from "react-router-dom";
 import bg from "../assets/bg.jpg";
 import logo from "../assets/logo.png";
+import "./login.css";
 const Login = () => {
+  const navigate = useNavigate();
+  const handleLogin = () => {
+    navigate("/dashboard");
+  };
   return (
     <div className="bg-gray-100  flex items-center justify-center">
       <div className="absolute inset-0 z-0">
@@ -60,6 +66,7 @@ const Login = () => {
             </div>
             <div>
               <button
+                onClick={handleLogin}
                 type="submit"
                 className="w-full flex justify-center bg-[#ff0018] hover:bg-[#ff0018] text-gray-100 p-3  rounded tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500"
               >
