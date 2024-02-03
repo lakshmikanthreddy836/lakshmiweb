@@ -3,7 +3,6 @@ import Login from "./Auth/login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
-
   return (
     <>
       <div>
