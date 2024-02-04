@@ -1,5 +1,8 @@
 import { useState } from "react";
 import dashbordlogo from "../assets/Dasboardlogo.png";
+// import Home from "../pages/Home/home";
+// import Orders from "../pages/Orders/Orders";
+import TodayOrders from "../pages/TodayOrders/TodayOrders";
 
 const Sidebar = () => {
   const [open, setOpen] = useState(true);
@@ -61,8 +64,8 @@ const Sidebar = () => {
           ))}
         </ul>
       </div>
-      <div className="h-screen flex-1 p-7">
-        <h1 className="text-2xl font-semibold ">Home Page</h1>
+      <div className="h-screen flex-1 ">
+        <TodayOrders />
       </div>
     </div>
   );

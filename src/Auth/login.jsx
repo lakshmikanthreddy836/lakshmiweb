@@ -8,7 +8,7 @@ const Login = () => {
     navigate("/dashboard");
   };
   return (
-    <div className="bg-gray-100  flex items-center justify-center">
+    <div className="bg-gray-100 flex mx-auto items-center justify-center">
       <div className="absolute inset-0 z-0">
         <img
           src={bg}
