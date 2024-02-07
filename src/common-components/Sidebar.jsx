@@ -1,73 +1,146 @@
 import { useState } from "react";
 import dashbordlogo from "../assets/Dasboardlogo.png";
-// import Home from "../pages/Home/home";
-// import Orders from "../pages/Orders/Orders";
-import TodayOrders from "../pages/TodayOrders/TodayOrders";
-
+import { Link, useLocation } from "react-router-dom";
+import HomeIcon from "../assets/Icons/Home";
+import DashboardIcon from "../assets/Icons/Dashboard";
+import Order from "../assets/Icons/Order";
+import Complaints from "../assets/Icons/Complaints";
+import Resturants from "../assets/Icons/Resturants";
+import Logout from "../assets/Icons/Logout";
+import Settings from "../assets/Icons/Settings";
+import Notes from "../assets/Icons/Notes";
+import Search from "../assets/Icons/Search";
+import People from "../assets/Icons/People";
+import Train from "../assets/Icons/Train";
+import Men from "../assets/Icons/Men";
+import Reporting from "../assets/Icons/Reporting";
 const Sidebar = () => {
   const [open, setOpen] = useState(true);
+  const location = useLocation();
+  const { hash, pathname, search } = location;
+  const pageName = pathname ? pathname.slice(1) : "";
   const Menus = [
-    { title: "Home", src: "Chart_fill" },
-    { title: "Dashboard", src: "Chat" },
-    { title: "Orders", src: "User", gap: true },
-    { title: "Today Orders ", src: "Calendar" },
-    { title: "Group Orders", src: "Search" },
-    { title: "Complaints", src: "Chart" },
-    { title: "Restaurant ", src: "Folder", gap: true },
-    { title: "Reporting", src: "Setting" },
-    { title: "Tour Operator", src: "Setting" },
-    { title: "Ticketing Agent", src: "Setting" },
-    { title: "Food Menu", src: "Setting" },
-    { title: "Add Train", src: "Setting" },
-    { title: "Vendor App", src: "Setting" },
-    { title: "Enquiry", src: "Setting" },
-    { title: "Reviews", src: "Setting" },
-    { title: "Settings", src: "Setting" },
-    { title: "Logout", src: "Setting" },
+    { title: "Home", src: "Chart_fill", path: "home", icon: <HomeIcon /> },
+    {
+      title: "Dashboard",
+      src: "Chat",
+      path: "dashboard",
+      icon: <DashboardIcon />,
+    },
+    {
+      title: "Orders",
+      src: "User",
+      path: "orders",
+      gap: true,
+      icon: <Order />,
+    },
+    {
+      title: "Today Orders ",
+      src: "Calendar",
+      path: "today-orders",
+      icon: <Order />,
+    },
+    {
+      title: "Group Orders",
+      src: "Search",
+      path: "group-orders",
+      icon: <Order />,
+    },
+    {
+      title: "Complaints",
+      src: "Chart",
+      path: "complaints",
+      icon: <Complaints />,
+    },
+    {
+      title: "Restaurant ",
+      src: "Folder",
+      gap: true,
+      path: "restaurant",
+      icon: <Resturants />,
+    },
+    {
+      title: "Reporting",
+      src: "Setting",
+      path: "reporting",
+      icon: <Reporting />,
+    },
+    {
+      title: "Tour Operator",
+      src: "Setting",
+      path: "tour-operator",
+      icon: <Men />,
+    },
+    {
+      title: "Ticketing Agent",
+      src: "Setting",
+      path: "ticketing-agent",
+      icon: <People />,
+    },
+    { title: "Food Menu", src: "Setting", path: "food-menu", icon: <Notes /> },
+    { title: "Add Train", src: "Setting", path: "add-train", icon: <Train /> },
+    {
+      title: "Vendor App",
+      src: "Setting",
+      path: "vendor-app",
+      icon: <People />,
+    },
+    { title: "Enquiry", src: "Setting", path: "enquiry", icon: <Search /> },
+    { title: "Reviews", src: "Setting", path: "reviews", icon: <Notes /> },
+    { title: "Settings", src: "Setting", path: "settings", icon: <Settings /> },
+    { title: "Logout", src: "Setting", path: "logout", icon: <Logout /> },
   ];
 
   return (
-    <div className="flex">
-      <div
-        className={` ${
-          open ? "w-72" : "w-20 "
-        } bg-[#ffd4ce]  p-5   relative duration-300`}
-      >
-        <div className="bg-[#7c3f38]">
+    <div className="w-72 h-full flex flex-col gap-0 justify-start bg-[#ffd4ce] duration-300 overflow-hidden ">
+      <div className="h-fit py-2 w-full flex justify-center items-center bg-[#ffb5ad]">
+        <div className=" w-[60%] h-[30px] relative">
           <img
             src="./src/assets/control.png"
-            className={`absolute cursor-pointer -right-3  w-7 border-dark-purple
+            className={`absolute cursor-pointer -right-8  w-7  border-dark-purple
              border-2 rounded-full  `}
             onClick={() => setOpen(!open)}
           />
-          <div className="flex gap-x-4 items-center ">
+          <div className="flex items-center h-full w-full">
             <img
               src={dashbordlogo}
-              className={`cursor-pointer duration-500 ${open}`}
+              className={`cursor-pointer duration-500 h-full w-full ${open}`}
             />
           </div>
         </div>
-        <ul className="pt-6 ">
-          {Menus.map((Menu, index) => (
-            <li
-              key={index}
-              className={`flex  rounded-md p-2 cursor-pointer  hover:bg-[#ff2c2c] text-[#000000] text-sm items-center gap-x-4 
-                ${Menu.gap ? "mt-2" : "mt-2"} ${
-                index === 0 && "bg-light-white"
-              } `}
-            >
-              <img src={`./src/assets/${Menu.src}.png`} />
-              <span className={`${!open && "hidden"} origin-left duration-200`}>
-                {Menu.title}
-              </span>
-            </li>
-          ))}
-        </ul>
       </div>
-      <div className="h-screen flex-1 ">
-        <TodayOrders />
+      <div className="h-full w-full flex flex-col">
+        <div className="overflow-y-auto h-full w-full">
+          {Menus?.map((items,index) => {
+            return (
+              <div
+                className={`h-12 w-full flex items-center cursor-pointer hover:bg-[#ff6859] text-[#000000] text-sm ${
+                  pageName == items?.path ? "bg-[#ff6859]" : ""
+                }`}
+
+                key={index}
+              >
+                <Link
+                  to={`${items?.path}`}
+                  className="h-12 w-full flex items-center gap-6 px-5"
+                >
+                  <div className="h-fit w-[30px] flex items-center justify-center">
+                    {/* <img src={`./src/assets/${items?.src}.png`}  className="h-full bg-black w-[350px]"/> */}
+                    {items?.icon}
+                  </div>
+                  <div className="text-black h-fit duration-200 text-[15px] font-medium w-fit">
+                    {items?.title}
+                  </div>
+                </Link>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
+    /* <div className="h-screen flex-1 ">
+        <TodayOrders />
+      </div> */
   );
 };
 

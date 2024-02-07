@@ -1,22 +1,19 @@
 import "./App.css";
 import Login from "./Auth/login";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Dashboard from "./pages/Dashboard/Dashboard";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/home";
-
+import Layout from "./Layout";
 function App() {
   return (
-    <>
-      <div>
-        <BrowserRouter>
+    <div className="w-full overflow-hidden h-full">
+      <Router>
+        <Layout>
           <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/home" element={<Home />} />
           </Routes>
-        </BrowserRouter>
-      </div>
-    </>
+        </Layout>
+      </Router>
+    </div>
   );
 }
 
