@@ -4,11 +4,11 @@ import Grid_Status from "./components/grid_status";
 
 const Orders = () => {
   return (
-    <>
+    <div className="bg-white">
       <Grid_Button />
       <Grid_Status />
       <Filter_Grid_Table />
-    </>
+    </div>
   );
 };
 

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import dashbordlogo from "../assets/Dasboardlogo.png";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import HomeIcon from "../assets/Icons/Home";
 import DashboardIcon from "../assets/Icons/Dashboard";
 import Order from "../assets/Icons/Order";
@@ -17,6 +17,7 @@ import Reporting from "../assets/Icons/Reporting";
 const Sidebar = () => {
   const [open, setOpen] = useState(true);
   const location = useLocation();
+  const navigate = useNavigate();
   const { hash, pathname, search } = location;
   const pageName = pathname ? pathname.slice(1) : "";
   const Menus = [
@@ -88,7 +89,7 @@ const Sidebar = () => {
     { title: "Enquiry", src: "Setting", path: "enquiry", icon: <Search /> },
     { title: "Reviews", src: "Setting", path: "reviews", icon: <Notes /> },
     { title: "Settings", src: "Setting", path: "settings", icon: <Settings /> },
-    { title: "Logout", src: "Setting", path: "logout", icon: <Logout /> },
+    { title: "Logout", src: "Setting", path: "/", icon: <Logout /> },
   ];
 
   return (
@@ -111,27 +112,24 @@ const Sidebar = () => {
       </div>
       <div className="h-full w-full flex flex-col">
         <div className="overflow-y-auto h-full w-full">
-          {Menus?.map((items,index) => {
+          {Menus?.map((items, index) => {
             return (
               <div
-                className={`h-12 w-full flex items-center cursor-pointer hover:bg-[#ff6859] text-[#000000] text-sm ${
+                className={`h-12 w-full flex items-center cursor-pointer gap-6 px-5 hover:bg-[#ff6859] text-[#000000] text-sm ${
                   pageName == items?.path ? "bg-[#ff6859]" : ""
                 }`}
-
                 key={index}
+                onClick={() => {
+                  navigate(`${items?.path}`);
+                }}
               >
-                <Link
-                  to={`${items?.path}`}
-                  className="h-12 w-full flex items-center gap-6 px-5"
-                >
-                  <div className="h-fit w-[30px] flex items-center justify-center">
-                    {/* <img src={`./src/assets/${items?.src}.png`}  className="h-full bg-black w-[350px]"/> */}
-                    {items?.icon}
-                  </div>
-                  <div className="text-black h-fit duration-200 text-[15px] font-medium w-fit">
-                    {items?.title}
-                  </div>
-                </Link>
+                <div className="h-fit w-[30px] flex items-center justify-center">
+                  {/* <img src={`./src/assets/${items?.src}.png`}  className="h-full bg-black w-[350px]"/> */}
+                  {items?.icon}
+                </div>
+                <div className="text-black h-fit duration-200 text-[15px] font-medium w-fit">
+                  {items?.title}
+                </div>
               </div>
             );
           })}

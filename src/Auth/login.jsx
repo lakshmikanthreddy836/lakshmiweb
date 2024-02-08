@@ -5,10 +5,11 @@ import "./login.css";
 const Login = () => {
   const navigate = useNavigate();
   const handleLogin = () => {
-    navigate("/dashboard");
+    navigate("/home");
+    // window.history.pushState(null, '', '/home');
   };
   return (
-    <div className="bg-gray-100 flex mx-auto items-center justify-center">
+    <div className="bg-gray-100 flex items-center justify-center h-screen w-screen">
       <div className="absolute inset-0 z-0">
         <img
           src={bg}
@@ -17,7 +18,7 @@ const Login = () => {
         />
       </div>
 
-      <div className="flex justify-center text-start  z-10">
+      <div className="flex justify-center text-start z-10">
         <div className="p-12 bg-[#d3d3d3] mx-auto rounded-2xl w-100 ">
           <div className="mb-4">
             <img src={logo} alt="Rail Kafe" />
@@ -67,7 +68,7 @@ const Login = () => {
             <div>
               <button
                 onClick={handleLogin}
-                type="submit"
+                type="button"
                 className="w-full flex justify-center bg-[#ff0018] hover:bg-[#ff0018] text-gray-100 p-3  rounded tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500"
               >
                 Sign in
