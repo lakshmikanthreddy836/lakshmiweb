@@ -4,7 +4,7 @@ import Grid_Status from "./components/grid_status";
 
 const Orders = () => {
   return (
-    <div className="bg-white">
+    <div className=" h-full w-full bg-white overflow-y-auto">
       <Grid_Button />
       <Grid_Status />
       <Filter_Grid_Table />
