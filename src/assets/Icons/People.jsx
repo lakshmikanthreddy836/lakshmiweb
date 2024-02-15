@@ -3,7 +3,7 @@ import User from "../multi_user.png"
 
 const People = () => {
   return (
-    <div className='h-[22px] w-[22px]'>
+    <div className='w-[17px] h-[17px]'>
         <img src={User} className='h-full w-full'/>
     </div>
   )

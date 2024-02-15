@@ -9,9 +9,8 @@ const Button = ({
   return (
     <button
       type="button"
-      className="button"
+      className={style}
       onClick={handleClick}
-      style={style}
     >
       {label}
     </button>
