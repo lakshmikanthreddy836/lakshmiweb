@@ -1,11 +1,9 @@
-import Layout from "../../Layout";
+// import React from 'react'
 
-const Home = () => {
+const home = () => {
   return (
-    <div className="bg-white text-red-500 overflow-y-auto flex flex-col h-screen w-screen pb-10">
-      Home Page
-    </div>
-  );
-};
+    <div>home</div>
+  )
+}
 
-export default Home;
+export default home
