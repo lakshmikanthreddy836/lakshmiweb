@@ -24,7 +24,7 @@ const TimePicker = () => {
         </button>
       </div>
       {isOpen && (
-        <div className="h-[320px] w-[180px] addtrainboxshadow border-[1px] bg-white border-[#aaa] absolute p-1 overflow-hidden">
+        <div className="h-[320px] w-[180px] addtrainboxshadow border-[1px] bg-white border-[#aaa] absolute p-1 overflow-hidden z-50">
           <div className="flex overflow-hidden h-full">
             <div className="w-[33%] h-full  flex justify-center flex-col items-center cursor-pointer overflow-hidden">
               <div className="overflow-scroll h-fit w-full timepickeroverflow">
