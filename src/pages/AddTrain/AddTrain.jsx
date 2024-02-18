@@ -1,50 +1,103 @@
-import React from 'react';
-import Title from '../../common-components/Title';
-import GridTable from './components/GridTable';
-import Button from '../../common-components/Button';
-import { FaPlus } from 'react-icons/fa';
+import React, { useState } from "react";
+import Title from "../../common-components/Title";
+import GridTable from "./components/GridTable";
+import Button from "../../common-components/Button";
+import { FaPlus } from "react-icons/fa";
+import TrainList from "./components/TrainList";
+import AddTrainForm from "./components/AddTrainForm";
+import AddStation from "./components/AddStation";
+import AddTrainDetails from "./components/AddTrainDetails";
 
 const AddTrain = () => {
+  const [showAddTrainMenu, setShowAddTrainMenu] = useState("trainlist");
   return (
-      <div className='bg-white pl-4 h-full'>
-        <div className='p-2 items-center'>
-          <Title title={'Add Train'}></Title>
-        </div>
-
-        {/*  */}
-        <div className='px-5 grid items-center justify-center md:grid-cols-6 sm:grid-cols-12 sm  gap-3 py-3 shadow-lg'>
-          <Button className='text-white bg-red-500'>
-            <span>Train List</span>
-          </Button>
-          <Button className='text-black bg-gray-300'>
-            <span className='flex items-center justify-center text-xs'>
-              <FaPlus className='mx-1 text-xs' />
-              Add Train
-            </span>
-          </Button>
-          <Button className='text-black bg-gray-300'>
-            <span className='flex items-center justify-center text-xs'>
-              <FaPlus className='mx-1 text-xs' />
-              Import Train
-            </span>
-          </Button>
-          <div className='mx-6'></div>
-          <Button className='text-black bg-gray-300'>
-            <span className='flex items-center justify-center text-xs'>
-              Station list
-            </span>
-          </Button>
-          <Button className='text-black bg-gray-300'>
-            <span className='flex items-center justify-center text-xs'>
-              <FaPlus className='mx-1 text-xs' />
-              Add station
-            </span>
-          </Button>
-        </div>
-
-        {/* Table */}
-        <GridTable />
+    <div className="bg-white text-black px-4 h-full flex flex-col">
+      <div className="p-2 items-center h-fit">
+        <Title title={"Train"}></Title>
       </div>
+      <div className="bg-white h-14 addtrainboxshadow flex items-center justify-between px-5">
+        <div className="flex gap-8">
+          <div>
+            <Button
+              label={"Train List"}
+              style={
+                "bg-red-500 h-9 w-[180px] text-white text-[15px] rounded-[5px] font-medium"
+              }
+              handleClick={() => {
+                setShowAddTrainMenu("trainlist");
+              }}
+            />
+          </div>
+          <div>
+            <button
+              className="bg-gray-300 h-9 w-[170px] text-black text-[15px] rounded-[5px] font-medium flex items-center justify-center gap-1"
+              type="button"
+              onClick={() => {
+                setShowAddTrainMenu("addtrain");
+              }}
+            >
+              <FaPlus />
+              <p>Add Train</p>
+            </button>
+          </div>
+          <div>
+            <button
+              className="bg-gray-300 h-9 w-[170px] text-black text-[15px] rounded-[5px] font-medium flex items-center justify-center gap-1"
+              type="button"
+              onClick={() => {
+                setShowAddTrainMenu("addtraindetails");
+              }}
+            >
+              <FaPlus />
+              <p>Add Train Details</p>
+            </button>
+          </div>
+          <div>
+            <button className="bg-gray-300 h-9 w-[170px] text-black text-[15px] rounded-[5px] font-medium flex items-center justify-center gap-1">
+              <FaPlus />
+              <p>Import Train</p>
+            </button>
+          </div>
+        </div>
+        <div className="flex gap-8">
+          <div>
+            <Button
+              label={"Station List"}
+              style={
+                "bg-gray-300  h-9 w-[180px] text-black text-[15px] rounded-[5px] font-medium"
+              }
+            />
+          </div>
+          <div>
+            <button
+              className="bg-gray-300 h-9 w-[170px] text-black text-[15px] rounded-[5px] font-medium flex items-center justify-center gap-1"
+              type="button"
+              onClick={() => {
+                setShowAddTrainMenu("addstation");
+              }}
+            >
+              <FaPlus />
+              <p>Add Station</p>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div className="h-full flex justify-center">
+        {showAddTrainMenu == "trainlist" ? (
+          <TrainList />
+        ) : showAddTrainMenu == "addtrain" ? (
+          <AddTrainForm />
+        ) : showAddTrainMenu == "addstation" ? (
+          <AddStation />
+        ) : showAddTrainMenu == "addtraindetails" ? (
+          <AddTrainDetails />
+        ) : (
+          ""
+        )}
+      </div>
+      {/* Table */}
+      {/* <GridTable /> */}
+    </div>
   );
 };
 

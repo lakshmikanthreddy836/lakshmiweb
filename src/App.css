@@ -40,3 +40,18 @@
 .read-the-docs {
   color: #888;
 }
+.addtrainboxshadow{
+  box-shadow: 0 3px 14px 0px rgb(69 65 78 / 25%);
+}
+.timepickeroverflow::-webkit-scrollbar{
+  width: 0px;
+}
+.timepickeroverflow {
+  /* Other CSS properties */
+  scrollbar-width: none; /* For Firefox */
+}
+
+.timepickeroverflow::-webkit-scrollbar {
+  /* WebKit browsers */
+  display: none; /* Hide scroll bar */
+}

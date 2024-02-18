@@ -6,7 +6,7 @@ const Notes = () => {
       fill="none"
       viewBox="0 0 24 24"
       color="black"
-      className="w-[22px] h-[22px] text-black"
+      className="w-[17px] h-[17px] text-black"
     >
       <path
         fill="currentColor"

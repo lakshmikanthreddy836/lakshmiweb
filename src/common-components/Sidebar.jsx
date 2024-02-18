@@ -93,7 +93,7 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="w-72 h-full flex flex-col gap-0 justify-start bg-[#ffd4ce] duration-300 overflow-hidden ">
+    <div className="w-[320px] h-full flex flex-col gap-0 justify-start bg-[#ffd4ce] duration-300 overflow-hidden ">
       <div className="h-fit py-2 w-full flex justify-center items-center bg-[#ffb5ad]">
         <div className=" w-[60%] h-[30px] relative">
           <img
