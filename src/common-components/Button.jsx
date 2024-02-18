@@ -5,11 +5,14 @@ const Button = ({
   handleClick,
   // eslint-disable-next-line react/prop-types
   style,
+  
+  className,
+
 }) => {
   return (
     <button
       type="button"
-      className="button"
+      className={className}
       onClick={handleClick}
       style={style}
     >

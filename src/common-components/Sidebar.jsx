@@ -14,11 +14,16 @@ import People from "../assets/Icons/People";
 import Train from "../assets/Icons/Train";
 import Men from "../assets/Icons/Men";
 import Reporting from "../assets/Icons/Reporting";
+import { RiArrowDownSFill,RiArrowUpSFill  } from "react-icons/ri";
 const Sidebar = () => {
   const [open, setOpen] = useState(true);
   const location = useLocation();
   const navigate = useNavigate();
-  const { hash, pathname, search } = location;
+  const {
+    //  hash,
+     pathname, 
+    //  search
+     } = location;
   const pageName = pathname ? pathname.slice(1) : "";
   const Menus = [
     { title: "Home", src: "Chart_fill", path: "home", icon: <HomeIcon /> },
@@ -65,6 +70,20 @@ const Sidebar = () => {
       src: "Setting",
       path: "reporting",
       icon: <Reporting />,
+      iconClosed:<RiArrowDownSFill/>,
+      iconOpened:<RiArrowUpSFill/>,
+      subNav: [
+        {
+          title:'Employee',
+          path:'reporting/employee',
+          icon: <Reporting/>
+        },
+        {
+          title:'Expense',
+          path:'reporting/Expense',
+          icon: <Reporting/>
+        },
+      ]
     },
     {
       title: "Tour Operator",
@@ -129,6 +148,9 @@ const Sidebar = () => {
                 </div>
                 <div className="text-black h-fit duration-200 text-[15px] font-medium w-fit">
                   {items?.title}
+                </div>
+                <div>
+                  {items.subNav && items.subNav ? items.iconClosed : items.subNav ? items.iconOpened : null}
                 </div>
               </div>
             );
