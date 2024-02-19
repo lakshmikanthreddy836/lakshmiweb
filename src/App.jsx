@@ -9,6 +9,7 @@ import Restaurant from "./pages/Restaurant/Restaurant";
 import FoodMenu from "./pages/FoodMenu/FoodMenu";
 import AddTrain from "./pages/AddTrain/AddTrain";
 import TodayOrders from "./pages/TodayOrders/TodayOrders";
+import Grouporder from "./pages/GroupOrders/Grouporder";
 function App() {
   const location = useLocation();
   const { pathname } = location;
@@ -28,6 +29,7 @@ function App() {
             <Route path="/food-menu" element={<FoodMenu />} />
             <Route path="/add-train" element={<AddTrain />} />
             <Route path="/today-orders" element={<TodayOrders />} />
+            <Route path="group-orders" element={<Grouporder/>}/>
           </Routes>
         </Layout>
       )}
