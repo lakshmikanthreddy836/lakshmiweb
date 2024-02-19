@@ -14,7 +14,6 @@ const Button = ({
       type="button"
       className={className}
       onClick={handleClick}
-      style={style}
     >
       {label}
     </button>

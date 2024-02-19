@@ -1,8 +1,11 @@
-// import React from 'react';
+import * as React from 'react';
 // import { FaDownload, FaEye, FaInfo, FaPen, FaPenAlt } from 'react-icons/fa';
 // import { TbToolsKitchen3 } from 'react-icons/tb';
 import DataTable from '../../../common-components/DataTable';
-// import SelectOption from '../../../common-components/SelectOption';
+import SelectOption from '../../../common-components/SelectOption';
+const selectOption = [
+  { id: 0, label: "Select Type", value: "" }, { id: 1, label: "Income", value: "Income" }, { id: 2, label: "Expense", value: "Expense" }, { id: 3, label: "Investment", value: "Investment" },
+];
 
 const tableData = [
   {
@@ -10,8 +13,8 @@ const tableData = [
     'Images': 'Dabo Airport',
     'Food Name': '12/10/2023',
     'Food Description': '7/1/2023',
-    'Category': 'Orlando Executive Airport',
-    'Food Type': 98,
+    // 'Category': 'Orlando Executive Airport',
+    // 'Food Type': 98,
     'Update': '2270795180',
     'Time': true,
     'Status': '3/2/2023',
@@ -22,8 +25,8 @@ const tableData = [
     'Images': 'Dabo Airport',
     'Food Name': '12/10/2023',
     'Food Description': '7/1/2023',
-    'Category': 'Orlando Executive Airport',
-    'Food Type': 98,
+    // 'Category': 'Orlando Executive Airport',
+    // 'Food Type': 98,
     'Update': '2270795180',
     'Time': true,
     'Status': '3/2/2023',
@@ -34,8 +37,8 @@ const tableData = [
     'Images': 'Dabo Airport',
     'Food Name': '12/10/2023',
     'Food Description': '7/1/2023',
-    'Category': 'Orlando Executive Airport',
-    'Food Type': 98,
+    // 'Category': 'Orlando Executive Airport',
+    // 'Food Type': 98,
     'Update': '2270795180',
     'Time': true,
     'Status': '3/2/2023',
@@ -46,8 +49,8 @@ const tableData = [
     'Images': 'Dabo Airport',
     'Food Name': '12/10/2023',
     'Food Description': '7/1/2023',
-    'Category': 'Orlando Executive Airport',
-    'Food Type': 98,
+    // 'Category': 'Orlando Executive Airport',
+    // 'Food Type': 98,
     'Update': '2270795180',
     'Time': true,
     'Status': '3/2/2023',
@@ -58,8 +61,8 @@ const tableData = [
     'Images': 'Dabo Airport',
     'Food Name': '12/10/2023',
     'Food Description': '7/1/2023',
-    'Category': 'Orlando Executive Airport',
-    'Food Type': 98,
+    // 'Category': 'Orlando Executive Airport',
+    // 'Food Type': 98,
     'Update': '2270795180',
     'Time': true,
     'Status': '3/2/2023',
@@ -70,8 +73,8 @@ const tableData = [
     'Images': 'Dabo Airport',
     'Food Name': '12/10/2023',
     'Food Description': '7/1/2023',
-    'Category': 'Orlando Executive Airport',
-    'Food Type': 98,
+    // 'Category': 'Orlando Executive Airport',
+    // 'Food Type': 98,
     'Update': '2270795180',
     'Time': true,
     'Status': '3/2/2023',
@@ -82,8 +85,8 @@ const tableData = [
     'Images': 'Dabo Airport',
     'Food Name': '12/10/2023',
     'Food Description': '7/1/2023',
-    'Category': 'Orlando Executive Airport',
-    'Food Type': 98,
+    // 'Category': 'Orlando Executive Airport',
+    // 'Food Type': 98,
     'Update': '2270795180',
     'Time': true,
     'Status': '3/2/2023',
@@ -94,8 +97,8 @@ const tableData = [
     'Images': 'Dabo Airport',
     'Food Name': '12/10/2023',
     'Food Description': '7/1/2023',
-    'Category': 'Orlando Executive Airport',
-    'Food Type': 98,
+    // 'Category': 'Orlando Executive Airport',
+    // 'Food Type': 98,
     'Update': '2270795180',
     'Time': true,
     'Status': '3/2/2023',
@@ -106,8 +109,8 @@ const tableData = [
     'Images': 'Dabo Airport',
     'Food Name': '12/10/2023',
     'Food Description': '7/1/2023',
-    'Category': 'Orlando Executive Airport',
-    'Food Type': 98,
+    // 'Category': 'Orlando Executive Airport',
+    // 'Food Type': 98,
     'Update': '2270795180',
     'Time': true,
     'Status': '3/2/2023',
@@ -118,8 +121,8 @@ const tableData = [
     'Images': 'Dabo Airport',
     'Food Name': '12/10/2023',
     'Food Description': '7/1/2023',
-    'Category': 'Orlando Executive Airport',
-    'Food Type': 98,
+    // 'Category': 'Orlando Executive Airport',
+    // 'Food Type': 98,
     'Update': '2270795180',
     'Time': true,
     'Status': '3/2/2023',
@@ -130,8 +133,8 @@ const tableData = [
     'Images': 'Dabo Airport',
     'Food Name': '12/10/2023',
     'Food Description': '7/1/2023',
-    'Category': 'Orlando Executive Airport',
-    'Food Type': 98,
+    // 'Category': 'Orlando Executive Airport',
+    // 'Food Type': 98,
     'Update': '2270795180',
     'Time': true,
     'Status': '3/2/2023',
@@ -142,8 +145,8 @@ const tableData = [
     'Images': 'Dabo Airport',
     'Food Name': '12/10/2023',
     'Food Description': '7/1/2023',
-    'Category': 'Orlando Executive Airport',
-    'Food Type': 98,
+    // 'Category': 'Orlando Executive Airport',
+    // 'Food Type': 98,
     'Update': '2270795180',
     'Time': true,
     'Status': '3/2/2023',
@@ -154,8 +157,8 @@ const tableData = [
     'Images': 'Dabo Airport',
     'Food Name': '12/10/2023',
     'Food Description': '7/1/2023',
-    'Category': 'Orlando Executive Airport',
-    'Food Type': 98,
+    // 'Category': 'Orlando Executive Airport',
+    // 'Food Type': 98,
     'Update': '2270795180',
     'Time': true,
     'Status': '3/2/2023',
@@ -166,8 +169,8 @@ const tableData = [
     'Images': 'Dabo Airport',
     'Food Name': '12/10/2023',
     'Food Description': '7/1/2023',
-    'Category': 'Orlando Executive Airport',
-    'Food Type': 98,
+    // 'Category': 'Orlando Executive Airport',
+    // 'Food Type': 98,
     'Update': '2270795180',
     'Time': true,
     'Status': '3/2/2023',
@@ -178,8 +181,8 @@ const tableData = [
     'Images': 'Dabo Airport',
     'Food Name': '12/10/2023',
     'Food Description': '7/1/2023',
-    'Category': 'Orlando Executive Airport',
-    'Food Type': 98,
+    // 'Category': 'Orlando Executive Airport',
+    // 'Food Type': 98,
     'Update': '2270795180',
     'Time': true,
     'Status': '3/2/2023',
@@ -190,8 +193,8 @@ const tableData = [
     'Images': 'Dabo Airport',
     'Food Name': '12/10/2023',
     'Food Description': '7/1/2023',
-    'Category': 'Orlando Executive Airport',
-    'Food Type': 98,
+    // 'Category': 'Orlando Executive Airport',
+    // 'Food Type': 98,
     'Update': '2270795180',
     'Time': true,
     'Status': '3/2/2023',
@@ -202,8 +205,8 @@ const tableData = [
     'Images': 'Dabo Airport',
     'Food Name': '12/10/2023',
     'Food Description': '7/1/2023',
-    'Category': 'Orlando Executive Airport',
-    'Food Type': 98,
+    // 'Category': 'Orlando Executive Airport',
+    // 'Food Type': 98,
     'Update': '2270795180',
     'Time': true,
     'Status': '3/2/2023',
@@ -214,8 +217,8 @@ const tableData = [
     'Images': 'Dabo Airport',
     'Food Name': '12/10/2023',
     'Food Description': '7/1/2023',
-    'Category': 'Orlando Executive Airport',
-    'Food Type': 98,
+    // 'Category': 'Orlando Executive Airport',
+    // 'Food Type': 98,
     'Update': '2270795180',
     'Time': true,
     'Status': '3/2/2023',
@@ -226,8 +229,8 @@ const tableData = [
     'Images': 'Dabo Airport',
     'Food Name': '12/10/2023',
     'Food Description': '7/1/2023',
-    'Category': 'Orlando Executive Airport',
-    'Food Type': 98,
+    // 'Category': 'Orlando Executive Airport',
+    // 'Food Type': 98,
     'Update': '2270795180',
     'Time': true,
     'Status': '3/2/2023',
@@ -235,115 +238,109 @@ const tableData = [
   },
 ];
 
-const tableColumns = [
-  { field: '#', width: 50 },
-  { field: 'Images' },
-  { field: 'Food Name' },
-  { field: 'Food Description' },
-  { field: 'Category' },
-  { field: 'Food Type', width: 90 },
-  { field: 'Update' },
-  { field: 'Time', width: 80 },
-  { field: 'Status' },
-  { field: 'Action' },
-];
-
 function GridTable() {
+  const [value, setValue] = React.useState('');
+     const handleChange = (event) => {
+          setValue(event.target.value);
+     };
   return (
     <div className='relative overflow-x-auto w-90'>
-      {/* <table
-        id='example'
-        className='w-full text-sm text-left rtl:text-right text-gray-500 '>
-        <thead className='text-xs text-gray-700 uppercase bg-gray-50 '>
-          <tr>
-            <th scope='col' className='px-4 py-2'>
-              ID
-            </th>
-            <th scope='col' className='px-4 py-2'>
-              Name
-            </th>
-            <th scope='col' className='px-4 py-2'>
-              Opening Time
-            </th>
-            <th scope='col' className='px-4 py-2'>
-              Closing Time
-            </th>
-            <th scope='col' className='px-4 py-2'>
-              Station
-            </th>
-            <th scope='col' className='px-4 py-2'>
-              Min Order
-            </th>
-            <th scope='col' className='px-4 py-2'>
-              Item No
-            </th>
-            <th scope='col' className='px-4 py-2'>
-              Status
-            </th>
-            <th scope='col' className='px-4 py-2'>
-              Join Date
-            </th>
-            <th scope='col' className='px-4 py-2'>
-              Action
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {tableData.map((data) => {
+      {/* <DataTable colDefs={tableColumns} rowData={tableData} /> */}
+      <div className="example-header text-black flex justify-end items-center p-2">
+        <span>Search :</span>
+        <input
+          type="text"
+          id="filter-text-box"
+          placeholder="Filter..."
+          className="bg-white border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block p-1.5"
+          // onInput={onFilterTextBoxChanged}
+        />
+      </div>
+      <div className='table w-full border border-[#dee2e6] text-align-centre'>
+        <div className='table-header-group'>
+          <div className='table-row'>
+            <div className='table-cell border-2 border-[#dee2e6]'>
+              <p>#</p>
+            </div>
+            <div className='table-cell border-2 border-[#dee2e6]'>
+              <p>Images</p>
+            </div>
+            <div className='table-cell border-2 border-[#dee2e6]'>
+              <p>Food Name</p>
+            </div>
+            <div className='table-cell border-2 border-[#dee2e6]'>
+              <p>Food Description</p>
+            </div>
+            <div className='table-cell border-2 border-[#dee2e6]'>
+              <p>Category</p>
+            </div>
+            <div className='table-cell border-2 border-[#dee2e6]'>
+              <p>Food Type</p>
+            </div>
+            <div className='table-cell border-2 border-[#dee2e6]'>
+              <p>Update</p>
+            </div>
+            <div className='table-cell border-2 border-[#dee2e6]'>
+              <p>Time</p>
+            </div>
+            <div className='table-cell border-2 border-[#dee2e6]'>
+              <p>Status</p>
+            </div>
+            <div className='table-cell border-2 border-[#dee2e6]'>
+              <p>Action</p>
+            </div>
+          </div>
+        </div>
+          {tableData?.map((items, index) => {
+            console.log(items);
             return (
-              <tr key={data.id} className='bg-white border-b'>
-                <td scope='row' className='border px-4 py-2'>
-                  {data.id}
-                </td>
-                <td scope='row' className='border px-4 py-2'>
-                  {data.name}
-                </td>
-                <td scope='row' className='border px-4 py-2'>
-                  {data.opening_time}
-                </td>
-                <td scope='row' className='border px-4 py-2'>
-                  {data.closing_time}
-                </td>
-                <td scope='row' className='border px-4 py-2'>
-                  {data.station}
-                </td>
-                <td scope='row' className='border px-4 py-2'>
-                  {data.min_order}
-                </td>
-                <td scope='row' className='border px-4 py-2'>
-                  {data.item_no}
-                </td>
-                <td scope='row' className='border px-4 py-2'>
-                  {data.status}
-                </td>
-                <td scope='row' className='border px-4 py-2'>
-                  {data.join_date}
-                </td>
-                <td scope='row' className='border px-4 py-2'>
-                  <div className='flex flex-wrap'>
-                    <button type='button' className='p-0'>
-                      <FaEye className='text-blue-500 text-lg' />
-                    </button>
-                    <button type='button' className='p-0'>
-                      <FaPenAlt className='text-blue-500 text-lg' />
-                    </button>
-                    <button type='button' className='p-0'>
-                      <FaDownload className='text-blue-500 text-lg' />
-                    </button>
-                    <button type='button' className='p-0'>
-                      <FaInfo className='text-blue-500 text-lg' />
-                    </button>
-                    <button type='button' className='p-0'>
-                      <TbToolsKitchen3 className='text-blue-500 text-lg' />
-                    </button>
-                  </div>
-                </td>
-              </tr>
+              <div className='table-row' key={index}>
+                <div className='table-cell border-2 border-[#dee2e6] w-10 text-center h-3'>
+                  <p>{items['#']}</p>
+                </div>
+                <div className='table-cell border-2 border-[#dee2e6] w-10 text-center h-3'>
+                  <p>{items.Images}</p>
+                </div>
+                <div className='table-cell border-2 border-[#dee2e6] w-10 text-center h-3'>
+                  <p>{items['Food Name']}</p>
+                </div>
+                <div className='table-cell border-2 border-[#dee2e6] w-10 text-center h-3'>
+                  <p>{items['Food Description']}</p>
+                </div>
+                <div className='table-cell border-2 border-[#dee2e6] w-10 text-center h-3'>
+                  {/* <p>{items.Category}</p> */}
+                  <SelectOption
+                  label={'Select'}
+                  options={selectOption}
+                  value={value}
+                  onChange={handleChange}
+                  />
+                </div>
+                <div className='table-cell border-2 border-[#dee2e6] w-10 text-center h-3'>
+                  {/* <p>{items['Food Type']}</p> */}
+                  <SelectOption
+                  label={'Select'}
+                  options={selectOption}
+                  value={value}
+                  onChange={handleChange}
+                  />
+                </div>
+                <div className='table-cell border-2 border-[#dee2e6] w-10 text-center h-3'>
+                  <p>{items.Update}</p>
+                </div>
+                <div className='table-cell border-2 border-[#dee2e6] w-10 text-center h-3'>
+                  <p>{items.Time}</p>
+                </div>
+                <div className='table-cell border-2 border-[#dee2e6] w-10 text-center h-3'>
+                  <p>{items.Status}</p>
+                </div>
+                <div className='table-cell border-2 border-[#dee2e6] w-10 text-center h-3'>
+                  <p>{items.Action}</p>
+                </div>
+              </div>             
             );
           })}
-        </tbody>
-      </table> */}
-      <DataTable colDefs={tableColumns} rowData={tableData} />
+      </div>
     </div>
   );
 }
