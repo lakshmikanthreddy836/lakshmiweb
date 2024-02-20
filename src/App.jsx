@@ -11,6 +11,7 @@ import AddTrain from "./pages/AddTrain/AddTrain";
 import TodayOrders from "./pages/TodayOrders/TodayOrders";
 import Grouporder from "./pages/GroupOrders/Grouporder";
 import Review from "./pages/review/Review";
+import Setting from "./pages/setting/Setting";
 function App() {
   const location = useLocation();
   const { pathname } = location;
@@ -32,6 +33,7 @@ function App() {
             <Route path="/today-orders" element={<TodayOrders />} />
             <Route path="/group-orders" element={<Grouporder />} />
             <Route path="/reviews" element={<Review />} />
+            <Route path="/settings" element={<Setting />} />
           </Routes>
         </Layout>
       )}
