@@ -10,6 +10,7 @@ import FoodMenu from "./pages/FoodMenu/FoodMenu";
 import AddTrain from "./pages/AddTrain/AddTrain";
 import TodayOrders from "./pages/TodayOrders/TodayOrders";
 import Grouporder from "./pages/GroupOrders/Grouporder";
+import Review from "./pages/review/Review";
 function App() {
   const location = useLocation();
   const { pathname } = location;
@@ -29,7 +30,8 @@ function App() {
             <Route path="/food-menu" element={<FoodMenu />} />
             <Route path="/add-train" element={<AddTrain />} />
             <Route path="/today-orders" element={<TodayOrders />} />
-            <Route path="group-orders" element={<Grouporder/>}/>
+            <Route path="/group-orders" element={<Grouporder />} />
+            <Route path="/reviews" element={<Review />} />
           </Routes>
         </Layout>
       )}

@@ -6,6 +6,7 @@ import { useCallback, useRef } from "react";
 const DataTable = ({ colDefs, rowData }) => {
   const gridRef = useRef();
 
+
   const onFilterTextBoxChanged = useCallback(() => {
     gridRef.current.api.setGridOption(
       "quickFilterText",
