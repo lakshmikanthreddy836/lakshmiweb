@@ -5,9 +5,11 @@ import GridButtonsEmployee from './components/GridButtonsEmployee';
 
 const Employee = () => {
   return (
-    <div> 
-     <GridButtonsEmployee/>        
-     <GridTableEmployee/>
+    <div className="h-full w-full bg-white flex flex-col justify-start overflow-hidden">
+      <div className="overflow-y-auto p-3 overflow-visible h-fit">
+        <GridButtonsEmployee />
+        <GridTableEmployee />
+      </div>
     </div>
   )
 }

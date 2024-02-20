@@ -13,45 +13,55 @@ const AddExpense = () => {
           setValue(event.target.value);
      };
      return (
-          <div>
+          <div className='border px-3 py-3 rounded mt-4 mb-4 shadow-[1px_29px_26px_-11px_rgba(189,198,203,0.59)]'>
                <div>
-                    <label>Add Expense</label>
-                    <div className="border-t-1 border-b-2 h-2 border-[#0000ff] flex-grow"></div>
+                    <label className='font-semibold text-xl'>Add Expense</label>
+                    <div className="border border-[#4848485e] flex-grow"></div>
                </div>
-               <div className='w-90'>
+               <div className='w-full gap-2 columns-4 py-5'>
                     <SelectOption
                          label={'Select Type'}
                          options={selectOption}
                          value={value}
                          onChange={handleChange}
                     />
-                    <input
-                         type='text'
-                         className='border-2'
-                         placeholder='Type Subcategory'
-                    />
-                    <input
-                         type='datetime-local'
-                         className='border-2'
-                    />
-                    <input
-                         type='type'
-                         className='border-2'
-                         placeholder='Enter Amount'
-                    />
-                    <input
-                         type='type'
-                         className='border-2'
-                         placeholder='Remarks'
-                    />
-                    <input
-                         type='file'
-                         className='border-2'
-                    />
-                    <Button
-                         label={'Add'}
-                         className={"ml-3 text-sm rounded-none text-white px-2 py-1 bg-[#ff0018] hover:bg-[#ff0018]/100 focus:ring-2 focus:outline-none focus:ring-[#ff0018]/60 font-medium text-center inline-flex items-center dark:focus:ring-[#ff0018]/60"}
-                    />
+                    <div>
+                         <input
+                              type='text'
+                              className='px-2 py-2 my-1 rounded border shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2 max-w-[-webkit-fill-available]'
+                              placeholder='Type Subcategory'
+                         />
+                    </div>
+                    <div>
+                         <input
+                              type='datetime-local'
+                              className='px-2 py-2 rounded border shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2 max-w-[-webkit-fill-available]'
+                         />
+                    </div>
+                    <div>
+                         <input
+                              type='type'
+                              className='px-2 py-2 my-1 rounded border shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2 max-w-[-webkit-fill-available]'
+                              placeholder='Enter Amount'
+                         />
+                    </div>
+                    <div>
+                         <input
+                              type='type'
+                              className='px-2 py-2 rounded border shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2 max-w-[-webkit-fill-available]'
+                              placeholder='Remarks'
+                         />
+                    </div>
+                    <div>
+                         <input
+                              type='file'
+                              className='px-2 py-2 my-1 rounded border shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2 max-w-[-webkit-fill-available]'
+                         />
+                         <Button
+                              label={'Add'}
+                              className={"ml-3 text-sm rounded-none text-white px-2 py-1 w-20 justify-center bg-[#4f8dca] hover:bg-[#4f8dca]/100 focus:ring-2 focus:outline-none focus:ring-[#4f8dca]/60 font-medium text-center inline-flex items-center dark:focus:ring-[#4f8dca]/60"}
+                         />
+                    </div>
                </div>
           </div>
      )
