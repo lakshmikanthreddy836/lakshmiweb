@@ -13,6 +13,7 @@ import Grouporder from "./pages/GroupOrders/Grouporder";
 import Review from "./pages/review/Review";
 import Setting from "./pages/setting/Setting";
 import HomeContent from "./pages/setting/homecontent/HomeContent";
+import Category from "./pages/setting/category/Category";
 function App() {
   const location = useLocation();
   const { pathname } = location;
@@ -36,6 +37,7 @@ function App() {
             <Route path="/reviews" element={<Review />} />
             <Route path="/settings" element={<Setting />} />
             <Route path="/homecontent" element={<HomeContent />} />
+            <Route path="/category" element={<Category />} />
           </Routes>
         </Layout>
       )}

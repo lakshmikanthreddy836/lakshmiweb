@@ -1,5 +1,5 @@
 import { FaPlus } from "react-icons/fa6";
-import SettingTable from "./../setting/SettingTable"
+import SettingTable from "./../setting/SettingTable";
 const Setting = () => {
   return (
     <>
@@ -18,7 +18,12 @@ const Setting = () => {
           </button>
         </div>
       </section>
-      <SettingTable/>
+      <section
+        style={{ boxShadow: "0px 2px 8px 8px rgba(0,0,0,0.19)" }}
+        className="p-4 m-8 "
+      >
+        <SettingTable />
+      </section>
     </>
   );
 };

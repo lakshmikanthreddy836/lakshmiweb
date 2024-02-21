@@ -8,7 +8,7 @@ const HomeContent = () => {
         className="p-4 m-8 "
       >
         <div>
-          <h1 className="text-justify font-bold text-2xl mb-3">Testimonials</h1>
+          <h1 className="text-justify font-bold text-2xl mb-3">Home Content</h1>
           <hr className="mb-4" />
           <form
             action=""

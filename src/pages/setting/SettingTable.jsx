@@ -112,58 +112,83 @@ const MyComponent = () => {
   return (
     <div className="h-full w-full bg-white flex flex-col justify-start overflow-hidden">
       <div className="overflow-y-auto p-3 overflow-visible h-fit">
-        <div className="overflow-x-auto w-full h-fit mt-4 px-8">
-          <div className="flex flex-col w-full  h-fit">
-            <div className="flex w-full justify-between border-b-[1px] border-[#aaa] h-[40px]">
-              <div className="w-[130px] flex items-center h-9">
-                <p className="font-bold text-[15px] text-black">Name</p>
-              </div>
-              <div className="w-[220px] flex items-center h-9">
-                <p className="font-bold text-[15px] text-black">Email</p>
-              </div>
-              <div className="w-[160px] flex items-center h-9">
-                <p className="font-bold text-[15px] text-black">Phone</p>
-              </div>
-              <div className="w-[130px] flex items-center h-9">
-                <p className="font-bold text-[15px] text-black">Password</p>
-              </div>
-              <div className="w-[130px] flex items-center h-9">
-                <p className="font-bold text-[15px] text-black">Join Date</p>
-              </div>
-              <div className="w-[150px] flex items-center h-9">
-                <p className="font-bold text-[15px] text-black">Action</p>
-              </div>
+        <div className="flex flex-row justify-between items-center  px-8">
+          <div className="flex items-center gap-2 text-black">
+            <p>Show</p>
+            <div>
+              <select
+                id="entries"
+                name="entries"
+                className="mt-1 ml-2 px-1 h-8 bg-white border shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none rounded-md text-[15px]"
+              >
+                <option value="10">10</option>
+                <option value="25" selected>
+                  25
+                </option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+              </select>
             </div>
-            <div className="flex flex-col">
-              {userData.map((user, index) => (
-                <div
-                  className="flex w-full justify-between  h-[50px] items-center border-b-[1px] border-[#aaa]"
-                  key={index}
-                >
-                  <div className="w-[130px] flex items-center h-9">
-                    <p className="text-[15px] text-black">{user.name}</p>
-                  </div>
-                  <div className="w-[220px] flex items-center h-9">
-                    <p className="text-[15px] text-black">{user.email}</p>
-                  </div>
-                  <div className="w-[160px] flex items-center h-9">
-                    <p className="text-[15px] text-black">{user.phone}</p>
-                  </div>
-                  <div className="w-[130px] flex items-center h-9">
-                    <p className="text-[15px] text-black">{user.password}</p>
-                  </div>
-                  <div className="w-[130px] flex items-center h-9">
-                    <p className="text-[15px] text-black">{user.joinDate}</p>
-                  </div>
-                  <div className="w-[150px] flex items-center h-9">
-                    <p className="text-[15px] text-black flex gap-4">
-                      <Eye />
-                      <Delete />
-                    </p>
-                  </div>
+            <p>entries</p>
+          </div>
+          <div className="flex items-center">
+            <p className="text-[15px] text-black">Search: </p>
+            <input
+              type="text"
+              className="bg-white text-black pl-2 border-[1px] border-[#aaa] ml-1 h-8 focus:outline-none"
+            />
+          </div>
+        </div>
+        <div className="flex flex-col w-full  h-fit">
+          <div className="flex w-full justify-between border-b-[1px] border-[#aaa] h-[40px]">
+            <div className="w-[130px] flex items-center h-9">
+              <p className="font-bold text-[15px] text-black">Name</p>
+            </div>
+            <div className="w-[220px] flex items-center h-9">
+              <p className="font-bold text-[15px] text-black">Email</p>
+            </div>
+            <div className="w-[160px] flex items-center h-9">
+              <p className="font-bold text-[15px] text-black">Phone</p>
+            </div>
+            <div className="w-[130px] flex items-center h-9">
+              <p className="font-bold text-[15px] text-black">Password</p>
+            </div>
+            <div className="w-[130px] flex items-center h-9">
+              <p className="font-bold text-[15px] text-black">Join Date</p>
+            </div>
+            <div className="w-[150px] flex items-center h-9">
+              <p className="font-bold text-[15px] text-black">Action</p>
+            </div>
+          </div>
+          <div className="flex flex-col">
+            {userData.map((user, index) => (
+              <div
+                className="flex w-full justify-between  h-[50px] items-center border-b-[1px] border-[#aaa]"
+                key={index}
+              >
+                <div className="w-[130px] flex items-center h-9">
+                  <p className="text-[15px] text-black">{user.name}</p>
                 </div>
-              ))}
-            </div>
+                <div className="w-[220px] flex items-center h-9">
+                  <p className="text-[15px] text-black">{user.email}</p>
+                </div>
+                <div className="w-[160px] flex items-center h-9">
+                  <p className="text-[15px] text-black">{user.phone}</p>
+                </div>
+                <div className="w-[130px] flex items-center h-9">
+                  <p className="text-[15px] text-black">{user.password}</p>
+                </div>
+                <div className="w-[130px] flex items-center h-9">
+                  <p className="text-[15px] text-black">{user.joinDate}</p>
+                </div>
+                <div className="w-[150px] flex items-center h-9">
+                  <p className="text-[15px] text-black flex gap-4">
+                    <Eye />
+                    <Delete />
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
