@@ -10,6 +10,8 @@ import FoodMenu from "./pages/FoodMenu/FoodMenu";
 import AddTrain from "./pages/AddTrain/AddTrain";
 import TodayOrders from "./pages/TodayOrders/TodayOrders";
 import Grouporder from "./pages/GroupOrders/Grouporder";
+import TourOperator from "./pages/TourOperator/TourOperator";
+import Add_Tour_Operator_form from "./pages/TourOperator/Components/AddTourOperator";
 function App() {
   const location = useLocation();
   const { pathname } = location;
@@ -29,7 +31,12 @@ function App() {
             <Route path="/food-menu" element={<FoodMenu />} />
             <Route path="/add-train" element={<AddTrain />} />
             <Route path="/today-orders" element={<TodayOrders />} />
-            <Route path="group-orders" element={<Grouporder/>}/>
+            <Route path="group-orders" element={<Grouporder />} />
+            <Route path="/tour-operator" element={<TourOperator />} />
+            <Route
+              path="/add-tour-operator"
+              element={<Add_Tour_Operator_form />}
+            />
           </Routes>
         </Layout>
       )}
