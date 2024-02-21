@@ -12,6 +12,8 @@ import TodayOrders from "./pages/TodayOrders/TodayOrders";
 import Grouporder from "./pages/GroupOrders/Grouporder";
 import TourOperator from "./pages/TourOperator/TourOperator";
 import Add_Tour_Operator_form from "./pages/TourOperator/Components/AddTourOperator";
+import Ticket_Agent from "./pages/TicketingAgent/TicketingAgent";
+import Add_Ticket_Agent_form from "./pages/TicketingAgent/components/AddTicketAgentForm";
 function App() {
   const location = useLocation();
   const { pathname } = location;
@@ -33,6 +35,11 @@ function App() {
             <Route path="/today-orders" element={<TodayOrders />} />
             <Route path="group-orders" element={<Grouporder />} />
             <Route path="/tour-operator" element={<TourOperator />} />
+            <Route path="/ticketing-agent" element={<Ticket_Agent />} />
+            <Route
+              path="/Add_Ticket_Agent_form"
+              element={<Add_Ticket_Agent_form />}
+            />
             <Route
               path="/add-tour-operator"
               element={<Add_Tour_Operator_form />}

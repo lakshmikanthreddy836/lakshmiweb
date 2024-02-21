@@ -2,7 +2,7 @@ import { FaEdit } from "react-icons/fa";
 import Eye from "../../assets/Icons/Eye";
 import { Link } from "react-router-dom";
 
-const TourOperator = () => {
+const Ticket_Agent = () => {
   const dummyData = [
     {
       id: "RK1510",
@@ -64,10 +64,10 @@ const TourOperator = () => {
     <div className="h-full w-full bg-white flex flex-col justify-start overflow-hidden">
       <div className="overflow-y-auto p-3 overflow-visible h-fit">
         <div className="bg-white p-2 shadow-md flex justify-between">
-          <h2 className="text-xl font-bold  text-[#34334a]">Tour Operator</h2>
-          <Link to={"/add-tour-operator"}>
+          <h2 className="text-xl font-bold  text-[#34334a]">Ticketing Agent</h2>
+          <Link to={"/Add_Ticket_Agent_form"}>
             <div className="bg-[#34334a] p-2 text-sm text-white">
-              Add Tour Operator
+              Add Ticketing Agent
             </div>
           </Link>
         </div>
@@ -187,4 +187,4 @@ const TourOperator = () => {
   );
 };
 
-export default TourOperator;
+export default Ticket_Agent;

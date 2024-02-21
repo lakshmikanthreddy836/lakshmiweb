@@ -1,17 +1,21 @@
-const Add_Tour_Operator_form = () => {
+import { Link } from "react-router-dom";
+
+const Add_Ticket_Agent_form = () => {
   return (
     <div className="h-full w-full bg-white flex flex-col justify-start overflow-hidden">
       <div className="overflow-y-auto p-3 overflow-visible h-fit">
         <div className="bg-white p-2 shadow-md flex justify-between">
-          <div className="bg-[#ff0018] p-2 text-sm rounded text-white">
-            <p className="text-sm pl-5 pr-5 ">Tour Operator List</p>
-          </div>
+          <Link to={"/ticketing-agent"}>
+            <div className="bg-[#ff0018] p-2 text-sm rounded text-white">
+              <p className="text-sm pl-5 pr-5 ">Ticketing Agent List</p>
+            </div>
+          </Link>
         </div>
 
         <div className="bg-white p-2 mt-5 shadow-md">
           <div className=" grid gap-10 grid-flow-col justify-stretch">
             <div>
-              <p className="font-bold">Tour Operator Details</p>
+              <p className="font-bold">Ticketing Agent Details</p>
               <form className="mt-3">
                 <div>
                   <label className="text-gray-700 text-sm dark:text-gray-200">
@@ -222,4 +226,4 @@ const Add_Tour_Operator_form = () => {
   );
 };
 
-export default Add_Tour_Operator_form;
+export default Add_Ticket_Agent_form;
