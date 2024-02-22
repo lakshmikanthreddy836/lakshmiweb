@@ -40,9 +40,9 @@ const MyComponent = () => {
   ];
 
   return (
-    <div className="h-full w-full bg-white flex flex-col justify-start overflow-hidden">
+     <div className="h-full w-full bg-white flex flex-col justify-start overflow-hidden">
       <div className="overflow-y-auto p-3 overflow-visible h-fit">
-        <div className="flex flex-row justify-between items-center  px-8">
+        <div className="flex flex-row justify-between items-center px-8">
           <div className="flex items-center gap-2 text-black">
             <p>Show</p>
             <div>
@@ -94,7 +94,7 @@ const MyComponent = () => {
             <div className="flex flex-col">
               {myData?.map((data, index) => (
                 <div
-                  className="flex w-fit  h-[50px] items-center border-b-[1px] border-[#aaa]"
+                  className="flex w-fit h-[50px] items-center border-b-[1px] border-[#aaa]"
                   key={index}
                 >
                   <div className="w-[50px] flex items-center h-9">

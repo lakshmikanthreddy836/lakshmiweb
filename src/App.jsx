@@ -14,6 +14,8 @@ import Review from "./pages/review/Review";
 import Setting from "./pages/setting/Setting";
 import HomeContent from "./pages/setting/homecontent/HomeContent";
 import Category from "./pages/setting/category/Category";
+import Enquiry from "./pages/enquiry/Enquiry";
+import KeyWord from "./pages/enquiry/serachkeyword/KeyWord";
 function App() {
   const location = useLocation();
   const { pathname } = location;
@@ -38,6 +40,8 @@ function App() {
             <Route path="/settings" element={<Setting />} />
             <Route path="/homecontent" element={<HomeContent />} />
             <Route path="/category" element={<Category />} />
+            <Route path="/enquiry" element={<Enquiry />} />
+            <Route path="/searchkeyword" element={<KeyWord />} />
           </Routes>
         </Layout>
       )}
