@@ -16,6 +16,7 @@ import HomeContent from "./pages/setting/homecontent/HomeContent";
 import Category from "./pages/setting/category/Category";
 import Enquiry from "./pages/enquiry/Enquiry";
 import KeyWord from "./pages/enquiry/serachkeyword/KeyWord";
+import VendorList from "./pages/vendorlist/VendorList";
 function App() {
   const location = useLocation();
   const { pathname } = location;
@@ -42,6 +43,7 @@ function App() {
             <Route path="/category" element={<Category />} />
             <Route path="/enquiry" element={<Enquiry />} />
             <Route path="/searchkeyword" element={<KeyWord />} />
+            <Route path="/vendorlist" element={<VendorList />} />
           </Routes>
         </Layout>
       )}
