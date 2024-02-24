@@ -184,7 +184,7 @@ const Form_Add_Restaurant = () => {
               <input
                 id="username"
                 type="text"
-                className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+                className="block w-full px-4 py-1   text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
               />
             </div>
 
