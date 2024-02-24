@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Title from "../../common-components/Title";
-import GridTable from "./components/GridTable";
 import Button from "../../common-components/Button";
 import { FaPlus } from "react-icons/fa";
 import TrainList from "./components/TrainList";
