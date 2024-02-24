@@ -28,7 +28,7 @@ const AddFood = () => {
                                    <div>
                                         <label>Food Name</label>
                                         <div>
-                                             <input type='text' className='border rounded p-1 w-[100%]' />
+                                             <input type='text' className='border rounded p-1 w-[100%] shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2' />
                                         </div>
                                    </div>
                                    <div>
@@ -37,6 +37,7 @@ const AddFood = () => {
                                              <SelectOption
                                                   label={'select'}
                                                   options={FoodType}
+                                                  style="w-[100%] mt-1 px-3 py-2 bg-white border shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2 max-w-[-webkit-fill-available]"
                                              />
                                         </div>
                                    </div>
@@ -45,7 +46,7 @@ const AddFood = () => {
                                    <div>
                                         <label>Food Description</label>
                                         <div>
-                                             <input type='textarea' className='border rounded p-1 w-[100%]' />
+                                             <textarea  className='border rounded p-1 w-[100%] shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2' />
                                         </div>
                                    </div>
                               </div>
@@ -53,13 +54,13 @@ const AddFood = () => {
                                    <div>
                                         <label>Available From Time</label>
                                         <div>
-                                             <input type='time' className='border rounded p-1 w-[100%]' />
+                                             <input type='time' className='border rounded p-1 w-[100%] shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2' />
                                         </div>
                                    </div>
                                    <div>
                                         <label>To Time</label>
                                         <div>
-                                             <input type='time' className='border rounded p-1 w-[100%]' />
+                                             <input type='time' className='border rounded p-1 w-[100%] shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2' />
                                         </div>
                                    </div>
 
@@ -71,13 +72,14 @@ const AddFood = () => {
                                              <SelectOption
                                                   label={'select'}
                                                   options={PaymentMode}
+                                                  style="w-[70%] mt-1 px-3 py-2 bg-white border shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2 max-w-[-webkit-fill-available]"
                                              />
                                         </div>
                                    </div>
                                    <div>
                                         <label>Product Image</label>
                                         <div>
-                                             <input type='file' className='border rounded p-1' />
+                                             <input type='file' className='border rounded p-1 shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2' />
                                         </div>
                                    </div>
                               </div>

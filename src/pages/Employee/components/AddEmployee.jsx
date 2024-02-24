@@ -45,19 +45,19 @@ const AddEmployee = () => {
                                    <div>
                                         <label>Joining Date *</label>
                                         <div className="p-1">
-                                             <input type="date" required className="border rounded p-1"/>
+                                             <input type="date" required className="border rounded p-1 shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2"/>
                                         </div>
                                    </div>
                                    <div>
                                         <label>Name *</label>
                                         <div className="p-1">
-                                             <input type="text" required  className="border rounded p-1"/>
+                                             <input type="text" required  className="border rounded p-1 shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2"/>
                                         </div>
                                    </div>
                                    <div>
                                         <label>Date Of Birth *</label>
                                         <div className="p-1">
-                                             <input type="date" required  className="border rounded p-1"/>
+                                             <input type="date" required  className="border rounded p-1 shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2"/>
                                         </div>
                                    </div>
                               </div>
@@ -65,13 +65,13 @@ const AddEmployee = () => {
                                    <div>
                                         <label>Designation *</label>
                                         <div className="p-1">
-                                             <input type="text" required  className="border rounded p-1"/>
+                                             <input type="text" required  className="border rounded p-1 shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2"/>
                                         </div>
                                    </div>
                                    <div>
                                         <label>Role</label>
                                         <div className="p-1">
-                                             <input type="text"  className="border rounded p-1"/>
+                                             <input type="text"  className="border rounded p-1 shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2"/>
                                         </div>
                                    </div>
                                    <div>
@@ -88,19 +88,19 @@ const AddEmployee = () => {
                                    <div>
                                         <label>Phone *</label>
                                         <div className="p-1">
-                                             <input type="number" required  className="border rounded p-1"/>
+                                             <input type="number" required  className="border rounded p-1 shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2"/>
                                         </div>
                                    </div>
                                    <div>
                                         <label>Username(E-mail) *</label>
                                         <div className="p-1">
-                                             <input type="email" required  className="border rounded p-1"/>
+                                             <input type="email" required  className="border rounded p-1 shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2"/>
                                         </div>
                                    </div>
                                    <div>
                                         <label>Password *</label>
                                         <div className="p-1">
-                                             <input type="password" required  className="border rounded p-1"/>
+                                             <input type="password" required  className="border rounded p-1 shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2"/>
                                         </div>
                                    </div>
                               </div>
@@ -108,19 +108,19 @@ const AddEmployee = () => {
                                    <div>
                                         <label>Emergency Contact</label>
                                         <div className="p-1">
-                                             <input type="number"  className="border rounded p-1"/>
+                                             <input type="number"  className="border rounded p-1 shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2"/>
                                         </div>
                                    </div>
                                    <div>
                                         <label>Person Name</label>
                                         <div className="p-1">
-                                             <input type="text"  className="border rounded p-1"/>
+                                             <input type="text"  className="border rounded p-1 shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2"/>
                                         </div>
                                    </div>
                                    <div>
                                         <label>Relation</label>
                                         <div className="p-1">
-                                             <input type="text"  className="border rounded p-1"/>
+                                             <input type="text"  className="border rounded p-1 shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2"/>
                                         </div>
                                    </div>
                               </div>
@@ -128,19 +128,19 @@ const AddEmployee = () => {
                                    <div>
                                         <label>Marital Status</label>
                                         <div className="p-1">
-                                             <input type="text"  className="border rounded p-1"/>
+                                             <input type="text"  className="border rounded p-1 shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2"/>
                                         </div>
                                    </div>
                                    <div>
                                         <label>Qualification</label>
                                         <div className="p-1">
-                                             <input type="text"  className="border rounded p-1"/>
+                                             <input type="text"  className="border rounded p-1 shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2"/>
                                         </div>
                                    </div>
                                    <div>
                                         <label>Short Intro</label>
                                         <div className="p-1">
-                                             <input type="text"  className="border rounded p-1"/>
+                                             <input type="text"  className="border rounded p-1 shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2"/>
                                         </div>
                                    </div>
                               </div>
@@ -148,13 +148,13 @@ const AddEmployee = () => {
                                    <div>
                                         <label>Address *</label>
                                         <div className="p-1">
-                                             <input type="text" required  className="border rounded p-1"/>
+                                             <input type="text" required  className="border rounded p-1 shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2"/>
                                         </div>
                                    </div>
                                    <div>
                                         <label>Profile Image</label>
                                         <div className="p-1">
-                                             <input type="file"  className="border rounded p-1"/>
+                                             <input type="file"  className="border rounded p-1 shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2"/>
                                         </div>
                                    </div>
                                    <div>

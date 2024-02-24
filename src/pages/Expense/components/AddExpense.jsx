@@ -24,6 +24,7 @@ const AddExpense = () => {
                          options={selectOption}
                          value={value}
                          onChange={handleChange}
+                         style="w-60 mt-1 px-3 py-2 bg-white border shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2 max-w-[-webkit-fill-available]"
                     />
                     <div>
                          <input

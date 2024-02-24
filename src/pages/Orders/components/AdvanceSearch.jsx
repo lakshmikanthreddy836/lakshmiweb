@@ -64,21 +64,21 @@ const AdvanceSearch = () => {
                          <div className='px-28 py-[4rem]'>
                               <div>
                                    <label>Order Date</label>
-                                   <input type='datetime-local' className='border px-1 py-1 m-[1rem] rounded' />
-                                   <input type='datetime-local' className='border px-1 py-1 rounded' />
+                                   <input type='datetime-local' className='border px-1 py-1 m-[1rem] rounded shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2' />
+                                   <input type='datetime-local' className='border px-1 py-1 rounded shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2' />
                               </div>
                               <div>
                                    <label>Delivery Date</label>
-                                   <input type='datetime-local' className='border px-1 py-1 m-[1rem] rounded' />
-                                   <input type='datetime-local' className='border px-1 py-1' />
+                                   <input type='datetime-local' className='border px-1 py-1 m-[1rem] rounded shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2' />
+                                   <input type='datetime-local' className='border px-1 py-1 shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2' />
                               </div>
                               <div>
                                    <label>Customer Name</label>
-                                   <input type='text' className='border px-1 py-1 m-[1rem] rounded w-[74%]' />
+                                   <input type='text' className='border px-1 py-1 m-[1rem] rounded w-[74%] shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2' />
                               </div>
                               <div>
                                    <label>Boarding Station</label>
-                                   <input type='text' className='border px-1 py-1 m-[1rem] rounded w-[74%]' />
+                                   <input type='text' className='border px-1 py-1 m-[1rem] rounded w-[74%] shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2' />
                               </div>
                               <div className='columns-2'>
                                    <label>Payment Mode</label>
@@ -87,6 +87,7 @@ const AdvanceSearch = () => {
                                         options={PaymentMode}
                                         value={valuePayment}
                                         onChange={handlePaymentMode}
+                                        style="w-60 mt-1 px-3 py-2 bg-white border shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2 max-w-[-webkit-fill-available]"
                                    />
                               </div>
                               <div className='columns-2'>
@@ -96,6 +97,7 @@ const AdvanceSearch = () => {
                                         options={OrderByAgent}
                                         value={valueAgent}
                                         onChange={handleAgentName}
+                                        style="w-60 mt-1 px-3 py-2 bg-white border shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2 max-w-[-webkit-fill-available]"
                                    />
                               </div>
                          </div>

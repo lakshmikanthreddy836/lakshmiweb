@@ -325,6 +325,7 @@ function GridTable() {
                   options={selectOption}
                   value={value}
                   onChange={handleChange}
+                  style="w-60 mt-1 px-3 py-2 bg-white border shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2 max-w-[-webkit-fill-available]"
                 />
               </div>
               <div className='table-cell border border-[#dee2e6] w-10 text-center h-3'>

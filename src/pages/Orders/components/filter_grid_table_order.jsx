@@ -91,18 +91,21 @@ const Filter_Grid_Table_Order = () => {
           options={SelectStation}
           value={valueStation}
           onChange={handleChangeStation}
+          style="w-60 mt-1 px-3 py-2 bg-white border shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2 max-w-[-webkit-fill-available]"
         />
         <SelectOption
           label={"Select Order Status"}
           options={SelectOrder}
           value={valueOrder}
           onChange={handleChangeOrder}
+          style="w-60 mt-1 px-3 py-2 bg-white border shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2 max-w-[-webkit-fill-available]"
         />
         <SelectOption
           label={"Time Within"}
           options={SelectTime}
           value={valueTime}
           onChange={handleChangeTime}
+          style="w-60 mt-1 px-3 py-2 bg-white border shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2 max-w-[-webkit-fill-available]"
         >
         </SelectOption>
         {/* <Button><FaSearch className="text-green"/></Button> */}

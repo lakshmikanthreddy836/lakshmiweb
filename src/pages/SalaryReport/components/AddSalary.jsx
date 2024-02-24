@@ -60,24 +60,28 @@ const AddSalary = () => {
                 <SelectOption
                   label={'Select Type'}
                   options={SelectType}
+                  style="w-60 mt-1 px-3 py-2 bg-white border shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2 max-w-[-webkit-fill-available]"
                 />
               </div>
               <div>
                 <SelectOption
                   label={'Select Category'}
                   options={SelectCategory}
+                  style="w-60 mt-1 px-3 py-2 bg-white border shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2 max-w-[-webkit-fill-available]"
                 />
               </div>
               <div>
                 <SelectOption
                   label={'Select Employee'}
                   options={SelectEmployee}
+                  style="w-60 mt-1 px-3 py-2 bg-white border shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2 max-w-[-webkit-fill-available]"
                 />
               </div>
               <div>
                 <SelectOption
                   label={'Select Month'}
                   options={SelectMonth}
+                  style="w-60 mt-1 px-3 py-2 bg-white border shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2 max-w-[-webkit-fill-available]"
                 />
               </div>
             </div>
@@ -85,25 +89,25 @@ const AddSalary = () => {
               <div>
                 <label>Date *</label>
                 <div>
-                  <input type="date" required className="border rounded p-1" />
+                  <input type="date" required className="border rounded p-1 shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2" />
                 </div>
               </div>
               <div>
                 <label>Amount *</label>
                 <div>
-                  <input type="text" required className="border rounded p-1" placeholder="Enter Amount"/>
+                  <input type="text" required className="border rounded p-1 shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2" placeholder="Enter Amount"/>
                 </div>
               </div>
               <div>
                 <label>Paid</label>
                 <div>
-                  <input type="text" className="border rounded p-1" />
+                  <input type="text" className="border rounded p-1 shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2" />
                 </div>
               </div>
               <div>
                 <label>Repaid</label>
                 <div>
-                  <input type="text" className="border rounded p-1" />
+                  <input type="text" className="border rounded p-1 shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2" />
                 </div>
               </div>
             </div>
@@ -111,19 +115,19 @@ const AddSalary = () => {
               <div>
                 <label>Dues</label>
                 <div>
-                  <input type="float" className="border rounded p-1" />
+                  <input type="float" className="border rounded p-1 shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2" />
                 </div>
               </div>
               <div>
                 <label>Remark</label>
                 <div>
-                  <input type="text" className="border rounded p-1 w-full" placeholder="Remarks"/>
+                  <input type="text" className="border rounded p-1 w-full" placeholder="Remarks shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2"/>
                 </div>
               </div>
               <div>
                 <label>Upload File<span className="text-xs">(if any)</span></label>
                 <div>
-                  <input type="file" className="border rounded p-1" />
+                  <input type="file" className="border rounded p-1 shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2" />
                 </div>
               </div>
             </div>
