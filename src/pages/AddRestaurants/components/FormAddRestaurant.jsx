@@ -178,7 +178,7 @@ const Form_Add_Restaurant = () => {
           </div>
           <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-3">
             <div>
-              <label className="text-gray-700 dark:text-gray-200">
+              <label className="text-gray-700  dark:text-gray-200">
                 Station Distance
               </label>
               <input
