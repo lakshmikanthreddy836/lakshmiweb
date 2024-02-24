@@ -1,29 +1,20 @@
 const Today_Order_filter = () => {
   return (
-    <div className="my-10 sm:mx-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-6 bg-white shadow-md p-5">
-      <button className="shrink-0 rounded bg-[#e4e3e8] p-[10px] font-medium text-[#000000] focus:bg-[#ff0018] hover:text-white focus:outline-none hover:bg-[#ff0018]">
+    <div className="flex flex-row justify-between">
+      <button className="shrink-0 rounded bg-[#e4e3e8] w-[350px] h-9 font-medium text-[#000000] focus:bg-[#ff0018] hover:text-white focus:outline-none hover:bg-[#ff0018]">
         Today
       </button>
 
-      <button className="shrink-0 rounded bg-[#e4e3e8] p-[10px] font-medium text-[#000000] focus:bg-[#ff0018] hover:text-white focus:outline-none hover:bg-[#ff0018]">
+      <button className="shrink-0 rounded bg-[#e4e3e8] w-[350px] h-9 font-medium text-[#000000] focus:bg-[#ff0018] hover:text-white focus:outline-none hover:bg-[#ff0018]">
         Yesterday
       </button>
-
-      <button className="shrink-0 rounded bg-[#e4e3e8] p-[10px] font-medium text-[#000000] focus:bg-[#ff0018] hover:text-white focus:outline-none hover:bg-[#ff0018]">
-        Last 7 Days
-      </button>
-
-      <button className="shrink-0 rounded bg-[#e4e3e8] p-[10px] font-medium text-[#000000] focus:bg-[#ff0018] hover:text-white focus:outline-none hover:bg-[#ff0018]">
-        This Month
-      </button>
-
-      <button className="shrink-0 rounded bg-[#e4e3e8] p-[10px] font-medium text-[#000000] focus:bg-[#ff0018] hover:text-white focus:outline-none hover:bg-[#ff0018]">
-        Last Month
-      </button>
-
-      <button className="shrink-0 rounded bg-[#e4e3e8] p-[10px] font-medium text-[#000000] hover:text-white focus:bg-[#ff0018] focus:outline-none hover:bg-[#ff0018]">
-        Till Now
-      </button>
+      <div className="w-[350px] bg-white">
+        <input
+          type="date"
+          className="border-[1px] h-9 w-full bg-gray-300 border-[#aaa] rounded-[4px] text-black"
+        />
+      </div>
+      <button className="bg-red-500 shadow-lg rounded-[5px] px-3 h-12">Date Filter</button>
     </div>
   );
 };

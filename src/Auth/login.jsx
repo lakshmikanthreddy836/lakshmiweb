@@ -2,12 +2,42 @@ import { useNavigate } from "react-router-dom";
 import bg from "../assets/bg.jpg";
 import logo from "../assets/logo.png";
 import "./login.css";
+import { loginAdmin } from "../Services/User";
+import { useState } from "react";
+import ShowErrorMessages from "../alert-messages/ShowErrorMessages";
+import ShowSucessmessages from "../alert-messages/ShowSucessmessages";
 const Login = () => {
   const navigate = useNavigate();
-  const handleLogin = () => {
-    navigate("/home");
+  const [credentials, setCredentials] = useState({
+    username: "",
+    password: "",
+  });
+  const handleLogin = async () => {
+    // navigate("/home");x
+
     // window.history.pushState(null, '', '/home');
+    if (credentials.username == "") {
+      ShowErrorMessages("Please enter the username", "Error");
+    } else if (credentials.password == "") {
+      ShowErrorMessages("Please enter the password", "Error");
+    } else {
+      let response = await loginAdmin(
+        credentials.username,
+        credentials.password
+      );
+      console.log("response is", response);
+      if (response?.success) {
+        const result = response.data;
+        console.log("result is", result);
+        localStorage.setItem("token",result.token)
+        ShowSucessmessages("Successfully logged in");
+      }
+      navigate("/home");
+    }
+    console.log("credentials inside function", credentials);
   };
+  console.log("credentials", credentials);
+
   return (
     <div className="bg-gray-100 flex items-center justify-center h-screen w-screen">
       <div className="absolute inset-0 z-0">
@@ -35,8 +65,14 @@ const Login = () => {
               </label>
               <input
                 className=" w-full text-base px-4 py-2 border  border-gray-300 rounded focus:outline-none focus:border-[#ff0018]"
-                type=""
+                type="text"
                 placeholder="mail@gmail.com"
+                onChange={(e) => {
+                  setCredentials({
+                    ...credentials,
+                    username: e.target.value,
+                  });
+                }}
               />
             </div>
             <div className="space-y-2">
@@ -45,8 +81,14 @@ const Login = () => {
               </label>
               <input
                 className="w-full content-center text-base px-4 py-2 border  border-gray-300 rounded focus:outline-none focus:border-[#ff0018]"
-                type=""
+                type="password"
                 placeholder="Enter your password"
+                onChange={(e) => {
+                  setCredentials({
+                    ...credentials,
+                    password: e.target.value,
+                  });
+                }}
               />
             </div>
             <div className="flex items-center justify-between">
