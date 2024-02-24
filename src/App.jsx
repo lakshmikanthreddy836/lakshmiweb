@@ -13,6 +13,7 @@ import Employee from "./pages/Employee/Employee";
 import SalaryReport from "./pages/SalaryReport/SalaryReport";
 import Expense from "./pages/Expense/Expense";
 import Grouporder from "./pages/GroupOrders/Grouporder";
+import AddFood from "./pages/FoodMenu/components/AddFood";
 function App() {
   const location = useLocation();
   const { pathname } = location;
@@ -34,6 +35,7 @@ function App() {
             <Route path="/reporting/salary" element={<SalaryReport />} />
             <Route path="/food-menu" element={<FoodMenu />} />
             <Route path="/add-train" element={<AddTrain />} />
+            <Route path="/add-food" element={<AddFood/>}/>
             <Route path="/today-orders" element={<TodayOrders />} />
             <Route path="group-orders" element={<Grouporder/>}/>
           </Routes>

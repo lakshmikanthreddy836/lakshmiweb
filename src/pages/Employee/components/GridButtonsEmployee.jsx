@@ -1,15 +1,13 @@
 // import React from 'react'
-import Button from '../../../common-components/Button'
+// import Button from '../../../common-components/Button'
+import AddEmployee from './AddEmployee'
 
 const GridButtonsEmployee = () => {
   return (
     <div>
       <div className="mt-2 px-2 py-2">
         <h5 className="text-2xl mb-4 font-medium float-left">Employee</h5>
-        <Button
-          label='+ Add Employee'
-          className="float-right text-sm rounded-none text-white px-2 py-1 bg-[#ff0018] hover:bg-[#ff0018]/100 focus:ring-2 focus:outline-none focus:ring-[#ff0018]/60 font-medium text-center inline-flex items-center dark:focus:ring-[#ff0018]/60"
-        />
+       <AddEmployee/>
       </div>
       <div className="flex items-center gap-2 text-black">
         <p>Show</p>

@@ -122,11 +122,11 @@ function GridTableEmployee() {
                                    <div className='table-cell border border-[#dee2e6] w-10 text-center h-3'>
                                         <Button
                                              label={<FaEdit />}
-                                             className='bg-[#083650] px-3 py-3 text-white text-xl mx-1'
+                                             style='bg-[#083650] px-3 py-3 text-white text-xl mx-1'
                                         />
                                         <Button
                                              label={<FaTrash />}
-                                             className='bg-[#ff0018] px-3 py-3 text-white text-xl'
+                                             style='bg-[#ff0018] px-3 py-3 text-white text-xl'
                                         />
                                    </div>
                               </div>

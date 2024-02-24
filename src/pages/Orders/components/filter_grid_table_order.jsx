@@ -3,6 +3,7 @@ import Datatable_Order from "./datatable_order";
 import Button from "../../../common-components/Button";
 import SelectOption from "../../../common-components/SelectOption";
 import { FaSearch, FaTimes } from "react-icons/fa";
+import AdvanceSearch from './AdvanceSearch';
 
 const Filter_Grid_Table_Order = () => {
 
@@ -43,7 +44,7 @@ const Filter_Grid_Table_Order = () => {
 
   const handleChangeTime = (event) => {
     setValueTime(event.target.value);
-  };
+  }; 
 
   return (
     <div>
@@ -52,9 +53,9 @@ const Filter_Grid_Table_Order = () => {
       </div>
       <div className="mt-2 ml-10">
         <h2 className="text-2xl font-bold mb-4 float-left">ORDER LIST</h2>
-        <Button label={'Export Total Report'} className="bg-gradient-to-r from-[#926afe] from-10% to-[#bd9aff] to-90% text-white px-1 py-1 ml-20 mr-20"/>
-        <Button label={'Export Report'} className="bg-gradient-to-r from-[#ff0018] from-10% to-[#bc2634] to-90% text-white px-1 py-1"/>
-        <button type="button" className="float-right px-3 py-3 h-5 rounded-none text-white bg-[#4f8dca] hover:bg-[#4f8dca]/100 focus:ring-2 focus:outline-none focus:ring-[#4f8dca]/60 font-medium text-center inline-flex items-center dark:focus:ring-[#4f8dca]/60"><FaSearch size='1rem' /> Adv. Search</button>
+        <Button label={'Export Total Report'} style="bg-gradient-to-r from-[#926afe] from-10% to-[#bd9aff] to-90% text-white px-1 py-1 ml-20 mr-20"/>
+        <Button label={'Export Report'} style="bg-gradient-to-r from-[#ff0018] from-10% to-[#bc2634] to-90% text-white px-1 py-1"/>
+        <AdvanceSearch/>
       </div>
       <form className="flex flex-col md:flex-row gap-4 px-4 mt-8 sm:grid-cols-4 sm:px-8">
         <div className="">
@@ -113,7 +114,7 @@ const Filter_Grid_Table_Order = () => {
 
       <div className="">
         <Datatable_Order />
-      </div>
+      </div>     
     </div>
   );
 };

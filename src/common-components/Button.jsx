@@ -6,14 +6,17 @@ const Button = ({
   // eslint-disable-next-line react/prop-types
   style,
   
-  className,
+  // className,
+
+  // buttonId,
 
 }) => {
   return (
     <button
       type="button"
-      className={className}
+      className={style}
       onClick={handleClick}
+      // id={buttonId}
     >
       {label}
     </button>

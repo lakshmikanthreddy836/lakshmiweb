@@ -1,8 +1,10 @@
 import * as React from 'react';
 // import { FaDownload, FaEye, FaInfo, FaPen, FaPenAlt } from 'react-icons/fa';
 // import { TbToolsKitchen3 } from 'react-icons/tb';
-import DataTable from '../../../common-components/DataTable';
+// import DataTable from '../../../common-components/DataTable';
+import { FaEdit, FaTrash } from "react-icons/fa";
 import SelectOption from '../../../common-components/SelectOption';
+import Button from '../../../common-components/Button';
 const selectOption = [
   { id: 0, label: "Select Type", value: "" }, { id: 1, label: "Income", value: "Income" }, { id: 2, label: "Expense", value: "Expense" }, { id: 3, label: "Investment", value: "Investment" },
 ];
@@ -240,9 +242,9 @@ const tableData = [
 
 function GridTable() {
   const [value, setValue] = React.useState('');
-     const handleChange = (event) => {
-          setValue(event.target.value);
-     };
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  };
   return (
     <div className='relative overflow-x-auto w-90'>
       {/* <DataTable colDefs={tableColumns} rowData={tableData} /> */}
@@ -253,93 +255,100 @@ function GridTable() {
           id="filter-text-box"
           placeholder="Filter..."
           className="bg-white border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block p-1.5"
-          // onInput={onFilterTextBoxChanged}
+        // onInput={onFilterTextBoxChanged}
         />
       </div>
-      <div className='table w-full border border-[#dee2e6] text-align-centre'>
+      <div className='table w-full border-[#dee2e6] text-align-centre'>
         <div className='table-header-group'>
-          <div className='table-row'>
-            <div className='table-cell border-2 border-[#dee2e6]'>
+          <div className='table-row font-semibold text-sm text-[#060912] shadow-[3px_3px_3px_3px_rgba(93,109,118,0.24)]'>
+            <div className='table-cell border border-[#dee2e6]'>
               <p>#</p>
             </div>
-            <div className='table-cell border-2 border-[#dee2e6]'>
+            <div className='table-cell border border-[#dee2e6]'>
               <p>Images</p>
             </div>
-            <div className='table-cell border-2 border-[#dee2e6]'>
+            <div className='table-cell border border-[#dee2e6]'>
               <p>Food Name</p>
             </div>
-            <div className='table-cell border-2 border-[#dee2e6]'>
+            <div className='table-cell border border-[#dee2e6]'>
               <p>Food Description</p>
             </div>
-            <div className='table-cell border-2 border-[#dee2e6]'>
+            <div className='table-cell border border-[#dee2e6]'>
               <p>Category</p>
             </div>
-            <div className='table-cell border-2 border-[#dee2e6]'>
+            <div className='table-cell border border-[#dee2e6]'>
               <p>Food Type</p>
             </div>
-            <div className='table-cell border-2 border-[#dee2e6]'>
+            <div className='table-cell border border-[#dee2e6]'>
               <p>Update</p>
             </div>
-            <div className='table-cell border-2 border-[#dee2e6]'>
+            <div className='table-cell border border-[#dee2e6]'>
               <p>Time</p>
             </div>
-            <div className='table-cell border-2 border-[#dee2e6]'>
+            <div className='table-cell border border-[#dee2e6]'>
               <p>Status</p>
             </div>
-            <div className='table-cell border-2 border-[#dee2e6]'>
+            <div className='table-cell border border-[#dee2e6]'>
               <p>Action</p>
             </div>
           </div>
         </div>
-          {tableData?.map((items, index) => {
-            console.log(items);
-            return (
-              <div className='table-row' key={index}>
-                <div className='table-cell border-2 border-[#dee2e6] w-10 text-center h-3'>
-                  <p>{items['#']}</p>
-                </div>
-                <div className='table-cell border-2 border-[#dee2e6] w-10 text-center h-3'>
-                  <p>{items.Images}</p>
-                </div>
-                <div className='table-cell border-2 border-[#dee2e6] w-10 text-center h-3'>
-                  <p>{items['Food Name']}</p>
-                </div>
-                <div className='table-cell border-2 border-[#dee2e6] w-10 text-center h-3'>
-                  <p>{items['Food Description']}</p>
-                </div>
-                <div className='table-cell border-2 border-[#dee2e6] w-10 text-center h-3'>
-                  {/* <p>{items.Category}</p> */}
-                  <SelectOption
+        {tableData?.map((items, index) => {
+          console.log(items);
+          return (
+            <div className='table-row' key={index}>
+              <div className='table-cell border border-[#dee2e6] w-10 text-center h-3'>
+                <p>{items['#']}</p>
+              </div>
+              <div className='table-cell border border-[#dee2e6] w-10 text-center h-3'>
+                <p>{items.Images}</p>
+              </div>
+              <div className='table-cell border border-[#dee2e6] w-10 text-center h-3'>
+                <p>{items['Food Name']}</p>
+              </div>
+              <div className='table-cell border border-[#dee2e6] w-10 text-center h-3'>
+                <p>{items['Food Description']}</p>
+              </div>
+              <div className='table-cell border border-[#dee2e6] w-10 text-center h-3'>
+                {/* <p>{items.Category}</p> */}
+                <SelectOption
                   label={'Select'}
                   options={selectOption}
                   value={value}
                   onChange={handleChange}
-                  />
-                </div>
-                <div className='table-cell border-2 border-[#dee2e6] w-10 text-center h-3'>
-                  {/* <p>{items['Food Type']}</p> */}
-                  <SelectOption
+                />
+              </div>
+              <div className='table-cell border border-[#dee2e6] w-10 text-center h-3'>
+                {/* <p>{items['Food Type']}</p> */}
+                <SelectOption
                   label={'Select'}
                   options={selectOption}
                   value={value}
                   onChange={handleChange}
-                  />
-                </div>
-                <div className='table-cell border-2 border-[#dee2e6] w-10 text-center h-3'>
-                  <p>{items.Update}</p>
-                </div>
-                <div className='table-cell border-2 border-[#dee2e6] w-10 text-center h-3'>
-                  <p>{items.Time}</p>
-                </div>
-                <div className='table-cell border-2 border-[#dee2e6] w-10 text-center h-3'>
-                  <p>{items.Status}</p>
-                </div>
-                <div className='table-cell border-2 border-[#dee2e6] w-10 text-center h-3'>
-                  <p>{items.Action}</p>
-                </div>
-              </div>             
-            );
-          })}
+                />
+              </div>
+              <div className='table-cell border border-[#dee2e6] w-10 text-center h-3'>
+                <p>{items.Update}</p>
+              </div>
+              <div className='table-cell border border-[#dee2e6] w-10 text-center h-3'>
+                <p>{items.Time}</p>
+              </div>
+              <div className='table-cell border border-[#dee2e6] w-10 text-center h-3'>
+                <p>{items.Status}</p>
+              </div>
+              <div className='table-cell border border-[#dee2e6] w-10 text-center h-3'>
+                <Button
+                  label={<FaEdit />}
+                  style='px-3 py-3 text-[#083650] text-xl mx-1'
+                />
+                <Button
+                  label={<FaTrash />}
+                  style='px-3 py-3 text-[#ff0018] text-xl'
+                />
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
