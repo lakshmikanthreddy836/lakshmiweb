@@ -24,7 +24,7 @@ const Add_Ticket_Agent_form = () => {
                   <input
                     id="username"
                     type="text"
-                    className="block w-full -mt-0.5 px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+                    className="block w-full -mt-0.5 px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
                   />
                 </div>
                 <div>
@@ -34,7 +34,7 @@ const Add_Ticket_Agent_form = () => {
                   <input
                     id="username"
                     type="text"
-                    className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+                    className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
                   />
                 </div>
                 <div>
@@ -44,7 +44,7 @@ const Add_Ticket_Agent_form = () => {
                   <input
                     id="username"
                     type="text"
-                    className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+                    className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
                   />
                 </div>
                 <div>
@@ -54,7 +54,7 @@ const Add_Ticket_Agent_form = () => {
                   <input
                     id="username"
                     type="text"
-                    className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+                    className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
                   />
                 </div>
                 <div>
@@ -84,7 +84,7 @@ const Add_Ticket_Agent_form = () => {
                   <input
                     id="username"
                     type="text"
-                    className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+                    className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
                   />
                 </div>
                 <div>
@@ -94,7 +94,7 @@ const Add_Ticket_Agent_form = () => {
                   <input
                     id="username"
                     type="text"
-                    className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+                    className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
                   />
                 </div>
                 <div>
@@ -104,7 +104,7 @@ const Add_Ticket_Agent_form = () => {
                   <input
                     id="username"
                     type="text"
-                    className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+                    className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
                   />
                 </div>
                 <div>
@@ -129,7 +129,7 @@ const Add_Ticket_Agent_form = () => {
                   <input
                     id="username"
                     type="text"
-                    className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+                    className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
                   />
                 </div>
               </form>
@@ -161,7 +161,7 @@ const Add_Ticket_Agent_form = () => {
                   <input
                     id="username"
                     type="text"
-                    className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+                    className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
                   />
                 </div>
                 <div>
@@ -171,7 +171,7 @@ const Add_Ticket_Agent_form = () => {
                   <input
                     id="username"
                     type="text"
-                    className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+                    className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
                   />
                 </div>
                 <div>
@@ -181,7 +181,7 @@ const Add_Ticket_Agent_form = () => {
                   <input
                     id="username"
                     type="text"
-                    className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+                    className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
                   />
                 </div>
               </form>
@@ -196,7 +196,7 @@ const Add_Ticket_Agent_form = () => {
               <input
                 id="username"
                 type="text"
-                className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+                className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
               />
             </div>
             <div>
@@ -206,7 +206,7 @@ const Add_Ticket_Agent_form = () => {
               <input
                 id="username"
                 type="text"
-                className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+                className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
               />
             </div>
             <div>
@@ -216,7 +216,7 @@ const Add_Ticket_Agent_form = () => {
               <input
                 id="username"
                 type="text"
-                className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+                className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
               />
             </div>
           </div>
