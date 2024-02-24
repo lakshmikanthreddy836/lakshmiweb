@@ -1,5 +1,5 @@
-import { FaEdit } from "react-icons/fa";
 import Eye from "../../assets/Icons/Eye";
+import Edit from "../../assets/Icons/Edit";
 import { Link } from "react-router-dom";
 
 const Ticket_Agent = () => {
@@ -99,10 +99,10 @@ const Ticket_Agent = () => {
         <div className="overflow-x-auto  w-full h-fit mt-4 px-8">
           <div className="flex flex-col w-fit h-fit ">
             <div className="flex w-fit border-b-[1px] border-[#aaa] h-[40px]">
-              <div className="w-[50px] flex items-center h-9">
+              <div className="w-[70px] flex items-center h-9">
                 <p className="font-bold text-[12px] text-black">ID</p>
               </div>
-              <div className="w-[170px] flex items-center h-9">
+              <div className="w-[120px] flex items-center h-9">
                 <p className="font-bold text-[12px] text-black">Company Name</p>
               </div>
               <div className="w-[130px] flex items-center h-9">
@@ -120,12 +120,12 @@ const Ticket_Agent = () => {
               <div className="w-[100px] flex items-center h-9">
                 <p className="font-bold text-[12px] text-black">Status</p>
               </div>
-              <div className="w-[150px] flex items-center h-9">
+              <div className="w-[100px] flex items-center h-9">
                 <p className="font-bold text-[12px] text-black">Coupon Code</p>
               </div>
-              <div className="w-[150px] flex items-center h-9">
+              <div className="w-[100px] flex items-center h-9">
                 <p className="font-bold text-[12px] text-black">
-                  O.V.D This Month
+                  O.V.D <br /> This Month
                 </p>
               </div>
               <div className="w-[150px] flex items-center h-9">
@@ -138,10 +138,10 @@ const Ticket_Agent = () => {
                   key={index}
                   className="flex w-fit  h-[50px] items-center border-b-[1px] border-[#aaa]"
                 >
-                  <div className="w-[50px] flex items-center h-9">
+                  <div className="w-[70px] flex items-center h-9">
                     <p className="text-[12px] text-black">{data?.id}</p>
                   </div>
-                  <div className="w-[170px] flex items-center h-9">
+                  <div className="w-[120px] flex items-center h-9">
                     <p className="text-[12px] text-black">
                       {data?.company_name}
                     </p>
@@ -163,18 +163,22 @@ const Ticket_Agent = () => {
                   <div className="w-[100px] flex items-center h-9">
                     <p className="text-[12px] text-black">{data?.status}</p>
                   </div>
-                  <div className="w-[150px] flex items-center h-9">
+                  <div className="w-[100px] flex items-center h-9">
                     <p className="text-[12px] text-black">
                       {data?.coupon_code}
                     </p>
                   </div>
-                  <div className="w-[150px] flex items-center h-9">
-                    <p className="text-[12px] text-black">{data?.ovd}</p>
+                  <div className="w-[100px] flex items-center h-9">
+                    <p className="text-[12px] text-center text-black">
+                      {data?.ovd}
+                    </p>
                   </div>
                   <div className="w-[150px] flex items-center h-fit">
                     <p className="text-[12px] text-black flex gap-4">
-                      <Eye />
-                      <FaEdit />
+                      <Link to={"/view_ticket_agent"}>
+                        <Eye />
+                      </Link>
+                      <Edit />
                     </p>
                   </div>
                 </div>

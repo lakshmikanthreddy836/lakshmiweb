@@ -1,11 +1,15 @@
+import { Link } from "react-router-dom";
+
 const Add_Tour_Operator_form = () => {
   return (
     <div className="h-full w-full bg-white flex flex-col justify-start overflow-hidden">
       <div className="overflow-y-auto p-3 overflow-visible h-fit">
         <div className="bg-white p-2 shadow-md flex justify-between">
-          <div className="bg-[#ff0018] p-2 text-sm rounded text-white">
-            <p className="text-sm pl-5 pr-5 ">Tour Operator List</p>
-          </div>
+          <Link to={"/tour-operator"}>
+            <div className="bg-[#ff0018] p-2 text-sm rounded text-white">
+              <p className="text-sm pl-8 pr-8 ">Tour Operator List</p>
+            </div>
+          </Link>
         </div>
 
         <div className="bg-white p-2 mt-5 shadow-md">
