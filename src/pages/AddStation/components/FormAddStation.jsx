@@ -2,7 +2,7 @@ const Form_Add_Station = () => {
   return (
     <div className="bg-white w-full shadow-lg p-1 mb-20">
       <div className=" p-6 mx-auto bg-white rounded-md shadow-2xl  ">
-        <h2 className="text-lg text-center font-semibold text-gray-700 capitalize dark:text-white">
+        <h2 className="text-lg text-center font-semibold text-gray-700 capitalize ">
           Add Station
         </h2>
 
@@ -37,7 +37,7 @@ const Form_Add_Station = () => {
               </label>
               <select
                 id="countries"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
               >
                 <option selected>Choose a country</option>
                 <option value="US">United States</option>

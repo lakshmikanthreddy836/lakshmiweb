@@ -18,9 +18,7 @@ const Add_Tour_Operator_form = () => {
               <p className="font-bold">Tour Operator Details</p>
               <form className="mt-3">
                 <div>
-                  <label className="text-gray-700 text-sm dark:text-gray-200">
-                    Company Name
-                  </label>
+                  <label className="text-gray-700 text-sm ">Company Name</label>
                   <input
                     id="username"
                     type="text"
@@ -28,9 +26,7 @@ const Add_Tour_Operator_form = () => {
                   />
                 </div>
                 <div>
-                  <label className="text-gray-700 text-sm dark:text-gray-200">
-                    Name
-                  </label>
+                  <label className="text-gray-700 text-sm ">Name</label>
                   <input
                     id="username"
                     type="text"
@@ -38,9 +34,7 @@ const Add_Tour_Operator_form = () => {
                   />
                 </div>
                 <div>
-                  <label className="text-gray-700 text-sm dark:text-gray-200">
-                    Mobile
-                  </label>
+                  <label className="text-gray-700 text-sm ">Mobile</label>
                   <input
                     id="username"
                     type="text"
@@ -48,9 +42,7 @@ const Add_Tour_Operator_form = () => {
                   />
                 </div>
                 <div>
-                  <label className="text-gray-700 text-sm dark:text-gray-200">
-                    City
-                  </label>
+                  <label className="text-gray-700 text-sm ">City</label>
                   <input
                     id="username"
                     type="text"
@@ -78,9 +70,7 @@ const Add_Tour_Operator_form = () => {
               <p className="font-bold">Address Details</p>
               <form className="mt-3">
                 <div>
-                  <label className="text-gray-700 text-sm dark:text-gray-200">
-                    Vill & Post
-                  </label>
+                  <label className="text-gray-700 text-sm ">Vill & Post</label>
                   <input
                     id="username"
                     type="text"
@@ -88,9 +78,7 @@ const Add_Tour_Operator_form = () => {
                   />
                 </div>
                 <div>
-                  <label className="text-gray-700 text-sm dark:text-gray-200">
-                    Landmark
-                  </label>
+                  <label className="text-gray-700 text-sm ">Landmark</label>
                   <input
                     id="username"
                     type="text"
@@ -98,9 +86,7 @@ const Add_Tour_Operator_form = () => {
                   />
                 </div>
                 <div>
-                  <label className="text-gray-700 text-sm dark:text-gray-200">
-                    City
-                  </label>
+                  <label className="text-gray-700 text-sm ">City</label>
                   <input
                     id="username"
                     type="text"
@@ -123,9 +109,7 @@ const Add_Tour_Operator_form = () => {
                   </select>
                 </div>
                 <div>
-                  <label className="text-gray-700 text-sm dark:text-gray-200">
-                    Pincode
-                  </label>
+                  <label className="text-gray-700 text-sm ">Pincode</label>
                   <input
                     id="username"
                     type="text"
@@ -140,7 +124,7 @@ const Add_Tour_Operator_form = () => {
               <p className="font-bold">Payment Transfer Details</p>
               <form className="mt-3">
                 <div>
-                  <label className="text-gray-700 text-sm dark:text-gray-200">
+                  <label className="text-gray-700 text-sm ">
                     Transfer Mode*
                   </label>
                   <select
@@ -155,9 +139,7 @@ const Add_Tour_Operator_form = () => {
                   </select>
                 </div>
                 <div>
-                  <label className="text-gray-700 text-sm dark:text-gray-200">
-                    Bank Name*
-                  </label>
+                  <label className="text-gray-700 text-sm ">Bank Name*</label>
                   <input
                     id="username"
                     type="text"
@@ -165,9 +147,7 @@ const Add_Tour_Operator_form = () => {
                   />
                 </div>
                 <div>
-                  <label className="text-gray-700 text-sm dark:text-gray-200">
-                    Branch Name*
-                  </label>
+                  <label className="text-gray-700 text-sm ">Branch Name*</label>
                   <input
                     id="username"
                     type="text"
@@ -175,7 +155,7 @@ const Add_Tour_Operator_form = () => {
                   />
                 </div>
                 <div>
-                  <label className="text-gray-700 text-sm dark:text-gray-200">
+                  <label className="text-gray-700 text-sm ">
                     Account No / UPI ID*
                   </label>
                   <input
@@ -190,9 +170,7 @@ const Add_Tour_Operator_form = () => {
           </div>
           <div className="grid grid-flow-col justify-stretch gap-4">
             <div>
-              <label className="text-gray-700 text-sm dark:text-gray-200">
-                Coupon Code
-              </label>
+              <label className="text-gray-700 text-sm ">Coupon Code</label>
               <input
                 id="username"
                 type="text"
@@ -200,9 +178,7 @@ const Add_Tour_Operator_form = () => {
               />
             </div>
             <div>
-              <label className="text-gray-700 text-sm dark:text-gray-200">
-                Max Discount
-              </label>
+              <label className="text-gray-700 text-sm ">Max Discount</label>
               <input
                 id="username"
                 type="text"
@@ -210,9 +186,7 @@ const Add_Tour_Operator_form = () => {
               />
             </div>
             <div>
-              <label className="text-gray-700 text-sm dark:text-gray-200">
-                Min Order Value
-              </label>
+              <label className="text-gray-700 text-sm ">Min Order Value</label>
               <input
                 id="username"
                 type="text"
