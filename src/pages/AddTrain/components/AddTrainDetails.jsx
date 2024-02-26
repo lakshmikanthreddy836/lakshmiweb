@@ -59,8 +59,6 @@ const AddTrainDetails = () => {
                                   : "bg-white"
                               } items-center hover:bg-blue-600 text-black font-bold`}
                               onClick={() => {
-                                // getTime("hr", index + 1, index);
-                                setHrTime(index + 1);
                                 handleChange(i, index + 1, "hr");
                               }}
                             >
@@ -80,7 +78,6 @@ const AddTrainDetails = () => {
                                   : "bg-white"
                               } hover:bg-blue-600 text-black font-bold`}
                               onClick={() => {
-                                setMinuteTime(index);
                                 handleChange(i, index, "minute");
                               }}
                             >
@@ -96,7 +93,6 @@ const AddTrainDetails = () => {
                             data.shipt == "AM" ? "bg-blue-500" : "bg-white"
                           }`}
                           onClick={() => {
-                            setDayTime("AM");
                             handleChange(i, "AM", "shipt");
                           }}
                         >
@@ -107,7 +103,6 @@ const AddTrainDetails = () => {
                             data.shipt == "PM" ? "bg-blue-500" : "bg-white"
                           }`}
                           onClick={() => {
-                            setDayTime("PM");
                             handleChange(i, "PM", "shipt");
                           }}
                         >

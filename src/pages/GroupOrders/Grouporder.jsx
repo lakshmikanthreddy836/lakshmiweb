@@ -142,7 +142,7 @@ const Grouporder = () => {
                     </p>
                   </div>
                   <div className="w-[280px] flex items-center h-9">
-                    <p className="text-[15px] px-[6px] py-[3px] rounded-[5px] text-white">
+                    <p className="text-[15px] px-[6px] py-[3px] rounded-[5px] text-black">
                       {data?.email}
                     </p>
                   </div>
