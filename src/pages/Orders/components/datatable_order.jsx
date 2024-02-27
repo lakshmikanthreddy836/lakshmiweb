@@ -2,20 +2,6 @@
 // import SelectOption from '../../../common-components/SelectOption';
 
 const Datatable_Order = () => {
-
-     // const StationOptions = [
-     //      { id: 1, label: 'Freemium', value: 'Freemium' },
-
-     //      { id: 2, label: 'Free', value: 'Free' },
-
-     //      { id: 3, label: 'Paid', value: 'Paid' },
-     // ];
-
-     // const [value, setValue] = React.useState('');
-
-     // const handleChange = (event) => {
-     //      setValue(event.target.value);
-     // };
      return (
           <div className="overflow-x-auto  h-fit mx-auto px-4 sm:px-6 lg:px-8 py-0">
                <div className="flex flex-1  px-4 py-3 bg-white">
@@ -24,24 +10,6 @@ const Datatable_Order = () => {
                               className="relative z-0 flex justify-between w-80 -space-x-px rounded-md"
                               aria-label="Pagination"
                          >
-                              {/* <select
-                                   id="pricingType"
-                                   name="pricingType"
-                                   placeholder="Time Within"
-                                   value={value}
-                                   onChange={handleChange}
-                                   className=" border-2 border-sky-500 focus:outline-none focus:border-sky-500 text-sky-500 rounded px-2 md:px-3 py-0 md:py-1 tracking-wider"
-                              >
-                                   {StationOptions.map((option) => (
-                                        <option value={option.value} key={option.id}>{option.label}</option>
-                                   ))}
-                              </select> */}
-                              {/* <SelectOption
-                              label={label}
-                              options={options}
-                              value={value}
-                              onChange={handleChange}
-                              /> */}
                               <label className="mt-2 ml-20">Search</label>
                               <input
                                    type="text"

@@ -16,6 +16,7 @@ const DataTable = ({ colDefs, rowData }) => {
   return (
     <div>
       <div className="example-header text-black flex justify-end items-center p-2">
+        <span>Search :</span>
         <input
           type="text"
           id="filter-text-box"
@@ -25,8 +26,8 @@ const DataTable = ({ colDefs, rowData }) => {
         />
       </div>
       <div
-        className="ag-theme-quartz overflow-y-hidden"
-        style={{ height: 500 }}
+        className="ag-theme-quartz overflow-y-hidden overflow-x-scroll"
+        style={{ height: 440 }}
       >
         <AgGridReact
           ref={gridRef}

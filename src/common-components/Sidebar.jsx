@@ -14,12 +14,17 @@ import People from "../assets/Icons/People";
 import Train from "../assets/Icons/Train";
 import Men from "../assets/Icons/Men";
 import Reporting from "../assets/Icons/Reporting";
+import { RiArrowDownSFill,RiArrowUpSFill  } from "react-icons/ri";
 const Sidebar = () => {
   const [open, setOpen] = useState(false);
   const [openInnerMenu, setOpenInnerMenu] = useState(0);
   const location = useLocation();
   const navigate = useNavigate();
-  const { hash, pathname, search } = location;
+  const {
+    //  hash,
+     pathname, 
+    //  search
+     } = location;
   const pageName = pathname ? pathname.slice(1) : "";
   const Menus = [
     {

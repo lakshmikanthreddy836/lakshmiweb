@@ -1,4 +1,5 @@
 import { FaBars,FaCheck,FaRegCircleXmark} from "react-icons/fa6";
+import { PiCurrencyInrBold } from "react-icons/pi";
 import { CiWarning } from "react-icons/ci";
 const Grid_Status_Order = () => {
      return (
@@ -36,6 +37,24 @@ const Grid_Status_Order = () => {
            </div>
            <div className="px-4 text-gray-700">
              <h3 className="text-sm tracking-wider">Cancelled</h3>
+             <p className="text-3xl">0</p>
+           </div>
+         </div>
+         <div className="flex items-center bg-white border rounded-sm overflow-hidden shadow">
+           <div className="p-4 bg-gradient-to-r from-sky-500 via-30% to-[#23e7a8] to-70%">
+             <PiCurrencyInrBold  size='2.0rem'className="text-white"/>
+           </div>
+           <div className="px-4 text-gray-700">
+             <h3 className="text-sm tracking-wider">Total Sale</h3>
+             <p className="text-3xl">0</p>
+           </div>
+         </div>
+         <div className="flex items-center bg-white border rounded-sm overflow-hidden shadow">
+           <div className="p-4 bg-gradient-to-r from-sky-500 via-30% to-[#23e7a8] to-70%">
+             <PiCurrencyInrBold  size='2.0rem'className="text-white"/>
+           </div>
+           <div className="px-4 text-gray-700">
+             <h3 className="text-sm tracking-wider">Total Commision</h3>
              <p className="text-3xl">0</p>
            </div>
          </div>

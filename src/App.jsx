@@ -9,6 +9,9 @@ import Restaurant from "./pages/Restaurant/Restaurant";
 import FoodMenu from "./pages/FoodMenu/FoodMenu";
 import AddTrain from "./pages/AddTrain/AddTrain";
 import TodayOrders from "./pages/TodayOrders/TodayOrders";
+import Employee from "./pages/Employee/Employee";
+import SalaryReport from "./pages/SalaryReport/SalaryReport";
+import Expense from "./pages/Expense/Expense";
 import Grouporder from "./pages/GroupOrders/Grouporder";
 import TourOperator from "./pages/TourOperator/TourOperator";
 import Add_Tour_Operator_form from "./pages/TourOperator/Components/AddTourOperator";
@@ -42,6 +45,9 @@ function App() {
             <Route path="/orders" element={<Orders />} />
             <Route path="/complaints" element={<Complaints />} />
             <Route path="/restaurant" element={<Restaurant />} />
+            <Route path="employee" element={<Employee />} />
+            <Route path="expenses" element={<Expense/>}/>
+            <Route path="salary-report" element={<SalaryReport />} />
             <Route path="/food-menu" element={<FoodMenu />} />
             <Route path="/add-train" element={<AddTrain />} />
             <Route path="/today-orders" element={<TodayOrders />} />
@@ -69,10 +75,10 @@ function App() {
             />
             <Route path="/reviews" element={<Review />} />
             <Route path="/settings" element={<Setting />} />
-            <Route path="/homecontent" element={<HomeContent />} />
+            <Route path="/home-content" element={<HomeContent />} />
             <Route path="/category" element={<Category />} />
             <Route path="/enquiry" element={<Enquiry />} />
-            <Route path="/searchkeyword" element={<KeyWord />} />
+            <Route path="/search-keyword" element={<KeyWord />} />
             <Route path="/vendorlist" element={<VendorList />} />
           </Routes>
         </Layout>
