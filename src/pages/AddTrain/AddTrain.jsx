@@ -18,15 +18,14 @@ const AddTrain = () => {
         <div className="bg-white h-14 addtrainboxshadow flex items-center justify-between px-5">
           <div className="flex gap-8">
             <div>
-              <Button
-                label={"Train List"}
-                style={
-                  "bg-red-500 h-9 w-[180px] text-white text-[15px] rounded-[5px] font-medium"
-                }
-                handleClick={() => {
+              <button
+                className="bg-red-500 h-9 w-[180px] text-white text-[15px] rounded-[5px] font-medium"
+                onClick={() => {
                   setShowAddTrainMenu("trainlist");
                 }}
-              />
+              >
+                Train List
+              </button>
             </div>
             <div>
               <button
@@ -61,12 +60,14 @@ const AddTrain = () => {
           </div>
           <div className="flex gap-8">
             <div>
-              <Button
-                label={"Station List"}
-                style={
-                  "bg-gray-300  h-9 w-[180px] text-black text-[15px] rounded-[5px] font-medium"
-                }
-              />
+               <button
+                className=" bg-gray-300 h-9 w-[180px] text-black text-[15px] rounded-[5px] font-medium"
+                onClick={() => {
+                  setShowAddTrainMenu("Station List");
+                }}
+              >
+                Station List
+              </button>
             </div>
             <div>
               <button
@@ -96,7 +97,6 @@ const AddTrain = () => {
           )}
         </div>
         {/* Table */}
-      
 
         {/* <GridTable /> */}
       </div>

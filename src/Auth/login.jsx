@@ -3,15 +3,24 @@ import bg from "../assets/bg.jpg";
 import logo from "../assets/logo.png";
 import "./login.css";
 import { loginAdmin } from "../Services/User";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ShowErrorMessages from "../alert-messages/ShowErrorMessages";
 import ShowSucessmessages from "../alert-messages/ShowSucessmessages";
+import Loader from "../Loader/Loader";
 const Login = () => {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState();
   const [credentials, setCredentials] = useState({
     username: "",
     password: "",
   });
+  const [showPassword, setShowPassword] = useState(false);
+  useEffect(() => {
+    let loginToken = localStorage.getItem("token");
+    if (loginToken) {
+      navigate("/home");
+    }
+  }, []);
   const handleLogin = async () => {
     // navigate("/home");x
 
@@ -21,25 +30,27 @@ const Login = () => {
     } else if (credentials.password == "") {
       ShowErrorMessages("Please enter the password", "Error");
     } else {
+      setLoading(true);
       let response = await loginAdmin(
         credentials.username,
         credentials.password
       );
       console.log("response is", response);
       if (response?.success) {
+        setLoading(false);
         const result = response.data;
         console.log("result is", result);
-        localStorage.setItem("token",result.token)
+        localStorage.setItem("token", result.token);
+        navigate("/home");
         ShowSucessmessages("Successfully logged in");
       }
-      navigate("/home");
     }
-    console.log("credentials inside function", credentials);
   };
   console.log("credentials", credentials);
 
   return (
     <div className="bg-gray-100 flex items-center justify-center h-screen w-screen">
+      {loading && Loader(loading)}
       <div className="absolute inset-0 z-0">
         <img
           src={bg}
@@ -81,7 +92,7 @@ const Login = () => {
               </label>
               <input
                 className="w-full content-center text-base px-4 py-2 border  border-gray-300 rounded focus:outline-none focus:border-[#ff0018]"
-                type="password"
+                type={`${showPassword ? "text" : "password"}`}
                 placeholder="Enter your password"
                 onChange={(e) => {
                   setCredentials({
@@ -97,13 +108,17 @@ const Login = () => {
                   id="remember_me"
                   name="remember_me"
                   type="checkbox"
-                  className="h-4 w-4 bg-[#ff0018] focus:ring-[#ff0018] border-gray-300 rounded"
+                  className="h-4 w-4 bg-[#ff0018] focus:ring-[#ff0018] border-gray-300 rounded cursor-pointer"
+                  checked={showPassword ? true : false}
+                  onChange={() => {
+                    setShowPassword(!showPassword);
+                  }}
                 />
                 <label
                   htmlFor="remember_me"
                   className="ml-2 block text-sm text-gray-800"
                 >
-                  Remember me
+                  Show Password
                 </label>
               </div>
             </div>
