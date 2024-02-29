@@ -121,7 +121,7 @@ const AddSalary = () => {
               <div>
                 <label>Remark</label>
                 <div>
-                  <input type="text" className="border rounded p-1 w-full" placeholder="Remarks shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2"/>
+                  <input type="text" className="border rounded p-1 w-full shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2" placeholder="Remarks"/>
                 </div>
               </div>
               <div>

@@ -53,11 +53,10 @@ const AddTrainDetails = () => {
                         <div className="overflow-scroll h-fit w-full timepickeroverflow">
                           {new Array(12)?.fill(null).map((items, index) => (
                             <div
-                              className={`flex text-[15px] gap-[1px] h-10 w-full justify-center ${
-                                index + 1 == data.hr
+                              className={`flex text-[15px] gap-[1px] h-10 w-full justify-center ${index + 1 == data.hr
                                   ? "bg-blue-500"
                                   : "bg-white"
-                              } items-center hover:bg-blue-600 text-black font-bold`}
+                                } items-center hover:bg-blue-600 text-black font-bold`}
                               onClick={() => {
                                 handleChange(i, index + 1, "hr");
                               }}
@@ -72,11 +71,10 @@ const AddTrainDetails = () => {
                         <div className="overflow-scroll h-fit w-full timepickeroverflow">
                           {new Array(60)?.fill(null).map((items, index) => (
                             <div
-                              className={`flex text-[15px] gap-[1px] h-10 w-full justify-center items-center ${
-                                index == data.minute
+                              className={`flex text-[15px] gap-[1px] h-10 w-full justify-center items-center ${index == data.minute
                                   ? "bg-blue-500"
                                   : "bg-white"
-                              } hover:bg-blue-600 text-black font-bold`}
+                                } hover:bg-blue-600 text-black font-bold`}
                               onClick={() => {
                                 handleChange(i, index, "minute");
                               }}
@@ -89,9 +87,8 @@ const AddTrainDetails = () => {
                       </div>
                       <div className="w-[33%] h-fit  flex justify-center flex-col items-center cursor-pointer">
                         <p
-                          className={`h-10 w-full flex justify-center items-center hover:bg-blue-600 text-black font-bold ${
-                            data.shipt == "AM" ? "bg-blue-500" : "bg-white"
-                          }`}
+                          className={`h-10 w-full flex justify-center items-center hover:bg-blue-600 text-black font-bold ${data.shipt == "AM" ? "bg-blue-500" : "bg-white"
+                            }`}
                           onClick={() => {
                             handleChange(i, "AM", "shipt");
                           }}
@@ -99,9 +96,8 @@ const AddTrainDetails = () => {
                           AM
                         </p>
                         <p
-                          className={`h-10 w-full flex justify-center items-center hover:bg-blue-600  text-black font-bold ${
-                            data.shipt == "PM" ? "bg-blue-500" : "bg-white"
-                          }`}
+                          className={`h-10 w-full flex justify-center items-center hover:bg-blue-600  text-black font-bold ${data.shipt == "PM" ? "bg-blue-500" : "bg-white"
+                            }`}
                           onClick={() => {
                             handleChange(i, "PM", "shipt");
                           }}

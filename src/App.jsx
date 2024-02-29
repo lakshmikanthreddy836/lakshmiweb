@@ -46,9 +46,9 @@ function App() {
             <Route path="/orders" element={<Orders />} />
             <Route path="/complaints" element={<Complaints />} />
             <Route path="/restaurant" element={<Restaurant />} />
-            <Route path="/reporting/employee" element={<Employee />} />
-            <Route path="/reporting/expense" element={<Expense/>}/>
-            <Route path="/reporting/salary" element={<SalaryReport />} />
+            <Route path="/employee" element={<Employee />} />
+            <Route path="/expenses" element={<Expense/>}/>
+            <Route path="/salary-report" element={<SalaryReport />} />
             <Route path="/food-menu" element={<FoodMenu />} />
             <Route path="/add-train" element={<AddTrain />} />
             <Route path="/add-food" element={<AddFood/>}/>
