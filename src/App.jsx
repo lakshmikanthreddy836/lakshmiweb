@@ -30,6 +30,7 @@ import Category from "./pages/setting/category/Category";
 import Enquiry from "./pages/enquiry/Enquiry";
 import KeyWord from "./pages/enquiry/serachkeyword/KeyWord";
 import VendorList from "./pages/vendorlist/VendorList";
+import ProtectedComponent from "./protected/protectedComponent";
 function App() {
   const location = useLocation();
   const { pathname } = location;
@@ -42,46 +43,116 @@ function App() {
       ) : (
         <Layout>
           <Routes>
-            <Route path="/home" element={<Home />} />
-            <Route path="/orders" element={<Orders />} />
-            <Route path="/complaints" element={<Complaints />} />
-            <Route path="/restaurant" element={<Restaurant />} />
-            <Route path="/employee" element={<Employee />} />
-            <Route path="/expenses" element={<Expense/>}/>
-            <Route path="/salary-report" element={<SalaryReport />} />
-            <Route path="/food-menu" element={<FoodMenu />} />
-            <Route path="/add-train" element={<AddTrain />} />
-            <Route path="/add-food" element={<AddFood/>}/>
-            <Route path="/today-orders" element={<TodayOrders />} />
-            <Route path="group-orders" element={<Grouporder />} />
-            <Route path="/tour-operator" element={<TourOperator />} />
-            <Route path="/add-station" element={<Add_Station />} />
-            <Route path="/ticketing-agent" element={<Ticket_Agent />} />
-            <Route path="/view_ticket_agent" element={<View_ticket_agent />} />
-            <Route path="/add-restaurant" element={<Add_Restaurant />} />
+            <Route
+              path="/home"
+              element={<ProtectedComponent Component={Home} />}
+            />
+            <Route
+              path="/orders"
+              element={<ProtectedComponent Component={Orders} />}
+            />
+            <Route
+              path="/complaints"
+              element={<ProtectedComponent Component={Complaints} />}
+            />
+            <Route
+              path="/restaurant"
+              element={<ProtectedComponent Component={Restaurant} />}
+            />
+            <Route
+              path="/employee"
+              element={<ProtectedComponent Component={Employee} />}
+            />
+            <Route
+              path="/expenses"
+              element={<ProtectedComponent Component={Expense} />}
+            />
+            <Route
+              path="/salary-report"
+              element={<ProtectedComponent Component={SalaryReport} />}
+            />
+            <Route
+              path="/food-menu"
+              element={<ProtectedComponent Component={FoodMenu} />}
+            />
+            <Route
+              path="/add-train"
+              element={<ProtectedComponent Component={AddTrain} />}
+            />
+            <Route
+              path="/today-orders"
+              element={<ProtectedComponent Component={TodayOrders} />}
+            />
+            <Route
+              path="group-orders"
+              element={<ProtectedComponent Component={Grouporder} />}
+            />
+            <Route
+              path="/tour-operator"
+              element={<ProtectedComponent Component={TourOperator} />}
+            />
+            <Route
+              path="/add-station"
+              element={<ProtectedComponent Component={Add_Station} />}
+            />
+            <Route
+              path="/ticketing-agent"
+              element={<ProtectedComponent Component={Ticket_Agent} />}
+            />
+            <Route
+              path="/view_ticket_agent"
+              element={<ProtectedComponent Component={View_ticket_agent} />}
+            />
+            <Route
+              path="/add-restaurant"
+              element={<ProtectedComponent Component={Add_Restaurant} />}
+            />
             <Route
               path="/Add_Ticket_Agent_form"
-              element={<Add_Ticket_Agent_form />}
+              element={<ProtectedComponent Component={Add_Ticket_Agent_form} />}
             />
             <Route
               path="/view_Tour_Operator"
-              element={<View_Tour_Operator />}
+              element={<ProtectedComponent Component={View_Tour_Operator} />}
             />
             <Route
               path="/Add_Ticket_Agent_form"
-              element={<Add_Ticket_Agent_form />}
+              element={<ProtectedComponent Component={Add_Ticket_Agent_form} />}
             />
             <Route
               path="/add-tour-operator"
-              element={<Add_Tour_Operator_form />}
+              element={
+                <ProtectedComponent Component={Add_Tour_Operator_form} />
+              }
             />
-            <Route path="/reviews" element={<Review />} />
-            <Route path="/settings" element={<Setting />} />
-            <Route path="/homecontent" element={<HomeContent />} />
-            <Route path="/category" element={<Category />} />
-            <Route path="/enquiry" element={<Enquiry />} />
-            <Route path="/searchkeyword" element={<KeyWord />} />
-            <Route path="/vendorlist" element={<VendorList />} />
+            <Route
+              path="/reviews"
+              element={<ProtectedComponent Component={Review} />}
+            />
+            <Route
+              path="/settings"
+              element={<ProtectedComponent Component={Setting} />}
+            />
+            <Route
+              path="/home-content"
+              element={<ProtectedComponent Component={HomeContent} />}
+            />
+            <Route
+              path="/category"
+              element={<ProtectedComponent Component={Category} />}
+            />
+            <Route
+              path="/enquiry"
+              element={<ProtectedComponent Component={Enquiry} />}
+            />
+            <Route
+              path="/search-keyword"
+              element={<ProtectedComponent Component={KeyWord} />}
+            />
+            <Route
+              path="/vendor-app"
+              element={<ProtectedComponent Component={VendorList} />}
+            />
           </Routes>
         </Layout>
       )}

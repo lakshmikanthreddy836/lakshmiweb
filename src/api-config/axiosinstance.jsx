@@ -29,6 +29,7 @@ axiosInstance.interceptors.response.use(
     if (error.response && error.response.status === 401) {
       // Handle unauthorized access, e.g., redirect to sign-in page
       window.location.href = "/";
+      localStorage.removeItem("token");
     }
     return Promise.reject(error);
   }

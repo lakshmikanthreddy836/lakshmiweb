@@ -183,7 +183,7 @@ const TodayOrders = () => {
             </div>
             <div className="flex flex-col">
               {dummyData?.map((data, index) => (
-                <div className="flex w-fit  h-[60px] items-center border-b-[1px] border-[#aaa]">
+                <div className="flex w-full  h-[60px] items-center border-b-[1px] border-[#aaa]">
                   <div className="w-[120px] flex items-center h-9">
                     <p className="text-[15px] text-black">{data?.orderId}</p>
                   </div>
