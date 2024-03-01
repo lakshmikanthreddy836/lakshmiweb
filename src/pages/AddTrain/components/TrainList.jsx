@@ -7,13 +7,19 @@ import Delete from "../../../assets/Icons/Delete";
 import Button from "../../../common-components/Button";
 import { FaEdit } from "react-icons/fa";
 import SelectOption from "../../../common-components/SelectOption";
+import { Train, DeleteTrain, TrainInfoUpdate } from "../../../Services/Train";
 
 const TrainList = () => {
-  const [trainList, setTrainList] = useState();
+
   const [totalTrainListCount, setTotalTrainListCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 100;
   const [loading, setLoading] = useState(true);
+  const [trainList, setTrainList] = useState();
+  const [trainId, setTrainId] = useState();
+  const [trainInfo, setTrainInfo] = useState([]);
+
+  const itemsPerPage = 100;
+
   const fetchTrainList = async (pageNumber, name) => {
     const response = await axiosInstance.get(`/getTrain`, {
       params: {
@@ -22,7 +28,6 @@ const TrainList = () => {
         scrapName: name,
       },
     });
-    console.log('response',response)
 
     if (response?.data?.success) {
       setLoading(false);
@@ -48,7 +53,8 @@ const TrainList = () => {
   const totalPages = Math.ceil(totalTrainListCount / 100);
 
   //Delete train Functionality
-  const handleDeleteTrain = () => {
+  const handleDeleteTrain = (id) => {
+    setTrainId(id);
     const ShowPopup = document.getElementById('DeleteTrainModle');
     ShowPopup.style.display = 'block';
   }
@@ -58,22 +64,44 @@ const TrainList = () => {
     HidePopup.style.display = 'none';
   }
 
-  const handleClickConfirmDeleteModule = () => {
-    const HidePopup = document.getElementById('DeleteTrainModle');
-    HidePopup.style.display = 'none';
+  const handleClickConfirmDeleteModule = async (id) => {
+    const trainID = {
+      "id": id
+    }
+    const response = await DeleteTrain(trainID);
+    if (response) {
+      const HidePopup = document.getElementById('DeleteTrainModle');
+      HidePopup.style.display = 'none';
+    } else {
+      console.log('error')
+    }
   }
   // Train Edit Functionality
-  const handleEditTrain = () => {
+
+  const handleEditTrain = async (trainNumber) => {
+    let response = await Train(
+      trainNumber
+    );
+    console.log('response', response.data.data.train)
+    setTrainInfo(response.data.data.train);
     const ShowEditModle = document.getElementById('UpdateTrainModle')
-    ShowEditModle.style.display = 'display';
+    ShowEditModle.style.display = 'block';
   }
 
-  const handleClickUpdateTrainModule = () => {
-    console.log('check');
+  const handleClickUpdateTrainModule = async () => {    
+    let updatedValue = await TrainInfoUpdate(trainInfo);
+    if (updatedValue) {
+      const ShowEditModle = document.getElementById('UpdateTrainModle')
+      ShowEditModle.style.display = 'none';
+    } else {
+      const ShowEditModle = document.getElementById('UpdateTrainModle')
+      ShowEditModle.style.display = 'block';
+    }
   }
 
   const handleClickCloseUpdateModule = () => {
-    console.log('checking')
+    const ShowEditModle = document.getElementById('UpdateTrainModle')
+    ShowEditModle.style.display = 'none';
   }
 
   //Train Status Dropdown
@@ -141,17 +169,17 @@ const TrainList = () => {
                   <div className="w-[10%] flex justify-center">
                     <p className="font-medium text-[15px]">
                       <Button
-                      label={<FaEdit/>}
-                      handleClick={handleEditTrain}
-                      />                      
+                        label={<FaEdit />}
+                        handleClick={() => handleEditTrain(data?.train_number)}
+                      />
                     </p>
                   </div>
                   <div className="w-[10%] flex justify-center">
                     <p className="font-medium text-[15px]">
                       <Button
-                      label={<Delete/>}
-                      handleClick={handleDeleteTrain}
-                      />                      
+                        label={<Delete />}
+                        handleClick={() => handleDeleteTrain(data?.id)}
+                      />
                     </p>
                   </div>
                 </div>
@@ -181,15 +209,15 @@ const TrainList = () => {
             <p> You want to delete the train?</p>
           </div>
           <div>
-            <Button 
-            label={'Confirm'}
-            style='bg-[#4fca76] mr-1 py-1 px-4 text-white'
-            handleClick={handleClickConfirmDeleteModule}
+            <Button
+              label={'Confirm'}
+              style='bg-[#4fca76] mr-1 py-1 px-4 text-white'
+              handleClick={() => handleClickConfirmDeleteModule(trainId)}
             />
             <Button
-            label={'Cancel'}
-            style='bg-[#e52222] py-1 px-4 text-white'
-            handleClick={handleClickCloseDeleteModule}
+              label={'Cancel'}
+              style='bg-[#e52222] py-1 px-4 text-white'
+              handleClick={handleClickCloseDeleteModule}
             />
           </div>
         </div>
@@ -197,37 +225,40 @@ const TrainList = () => {
       {/* End Delete Modle */}
 
       {/* Start Edit Modle */}
-      <div id="UpdateTrainModle" className='hidden fixed overflow-auto w-full h-full top-0 left-0'>
-        <div id="UpdateTrainContent" className="bg-[#fefefe] w-[40%] h-[40%] border-2 rounded p-8 m-auto mt-9 text-center">
+      <div id="UpdateTrainModle" className='hidden fixed z-[1] overflow-auto w-full h-full top-0 left-0'>
+        <div id="UpdateTrainContent" className="bg-[#fefefe] w-[68%] p-0 m-auto mt-9">
+          <div>
+            <h5 className="text-2xl font-semibold float-left pb-2">Update Train</h5>
+          </div>
           <div className="columns-2">
             <div>
-              <input type="text" name="train_name" value={'train name'}/>
+              <input type="text" name="train_name" value={trainInfo?.train_name} onChange={e => setTrainInfo({...trainInfo, train_name:e.target.value})} className="w-[68%] border rounded p-1 shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2" />
             </div>
             <div>
-              <input type="text" name="train_number" value={'train number'}/>
-            </div>            
+              <input type="text" name="train_number" value={trainInfo?.train_number} onChange={e => setTrainInfo({...trainInfo, train_number:e.target.value})} className="w-[68%] border rounded p-1 shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2" />
+            </div>
           </div>
           <div className="columns-1">
-            <div>
+            <div className="py-2">
               <SelectOption
-              label={'Train Status'}
-              options={SelectTrainStatus}
-              // value={}
-              // onChange={}
-              style="w-60 mt-1 px-3 py-2 bg-white border shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2 max-w-[-webkit-fill-available]"
+                label={'Train Status'}
+                options={SelectTrainStatus}
+                value={trainInfo.status}
+                onChange={e => setTrainInfo({...trainInfo, status:e.target.value})}
+                style="w-[33%] mt-1 px-3 py-2 bg-white border shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-200 focus:ring-sky-400 rounded-md sm:text-sm focus:ring-2 max-w-[-webkit-fill-available]"
               />
             </div>
           </div>
           <div>
-            <Button 
-            label={'Update'}
-            style='bg-[#4fca76] mr-1 py-1 px-4 text-white'
-            handleClick={handleClickUpdateTrainModule}
+            <Button
+              label={'Update'}
+              style='bg-[#4fca76] mr-1 py-1 px-4 text-white'
+              handleClick={handleClickUpdateTrainModule}
             />
             <Button
-            label={'Cancel'}
-            style='bg-[#e52222] py-1 px-4 text-white'
-            handleClick={handleClickCloseUpdateModule}
+              label={'Cancel'}
+              style='bg-[#e52222] py-1 px-4 text-white'
+              handleClick={handleClickCloseUpdateModule}
             />
           </div>
         </div>

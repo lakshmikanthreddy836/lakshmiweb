@@ -26,7 +26,7 @@ const AddTrainDetails = () => {
       </div>
       <div className="flex flex-col">
         {fields?.map((data, i) => (
-          <div>
+          <div key={i}>
             <div className="w-[280px]">
               <div className="w-full bg-transparent">
                 <div className="w-full h-9 border-[1px] bg-white border-[#aaa] rounded-[4px] flex relative">
