@@ -45,7 +45,7 @@ const TrainList = () => {
     // console.log("Page changed to:", pageNumber);
   };
   useEffect(() => {
-    fetchTrainList(currentPage, "POORVA");
+    fetchTrainList(currentPage);
   }, []);
 
   const startIndex = (currentPage - 1) * 100;
