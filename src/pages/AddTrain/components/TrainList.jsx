@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axiosInstance from "../../../api-config/axiosinstance";
 import Paginate from "../../../common-components/Paginate";
 import AnimateLoader from "../../../common-components/AnimateLoader";
@@ -18,9 +18,6 @@ const TrainList = () => {
   const [trainList, setTrainList] = useState();
   const [trainId, setTrainId] = useState();
   const [trainInfo, setTrainInfo] = useState([]);
-  const [search, setSearch] = useState('');
-
-  console.log(search);
 
   const itemsPerPage = 100;
 
@@ -29,7 +26,7 @@ const TrainList = () => {
       params: {
         page: pageNumber - 1,
         limit: itemsPerPage,
-        scrapName: name,
+        filter: name,
       },
     });
 
@@ -108,6 +105,15 @@ const TrainList = () => {
     ShowEditModle.style.display = 'none';
   }
 
+// Search Filter
+const setSearchEvent  = async (e)=>{
+  try {
+    fetchTrainList(1,e.target.value);
+  } catch (error) {
+    console.error("Error While Geetting Train search", error);
+  }
+}
+
   //Train Status Dropdown
   const SelectTrainStatus = [
     { id: 1, label: 'Active', value: 'Active' },
@@ -122,7 +128,7 @@ const TrainList = () => {
         <input
           type="text"
           className="border-[1px] bg-white border-[#aaa] ml-2 h-7"
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={(e) => setSearchEvent(e)}
         />
       </div>
       <div className="mt-5 flex flex-col">
@@ -151,9 +157,7 @@ const TrainList = () => {
             <AnimateLoader count={3} />
           ) : (
             <div>
-              {trainList?.filter((data) => {
-                return search.toLowerCase() === '' ?(search.toLowerCase() === '' ? data:data?.train_name.toLowerCase().includes(search)) : data?.train_number.toLowerCase().includes(search) 
-              }).map((data, index) => (
+              {trainList?.map((data, index) => (
                 <div key={index} className="flex items-center w-full border-b-[1.5px] border-gray-300 h-12">
                   <div className="w-[10%]">
                     <p className="font-medium text-[15px]">{data?.id}</p>
