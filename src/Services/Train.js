@@ -35,5 +35,15 @@ async function DownloadTrainCsv (){
           console.log(error);
      }
 }
+async function csvUploadservice(formData){
+     try {
+    
+          const response = await axiosInstance.post(`/importTrain`,formData);
+        
+          return response
+        } catch (error) {
+          console.error("Error fetching data:", error);
+        }
+}
 
-export {Train,DeleteTrain,TrainInfoUpdate,DownloadTrainCsv};
+export {Train,DeleteTrain,TrainInfoUpdate,DownloadTrainCsv,csvUploadservice};
