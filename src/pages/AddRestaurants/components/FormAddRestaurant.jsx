@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AddRestaurant } from "../../../Services/AddResturant";
 import ShowSucessmessages from "../../../alert-messages/ShowSucessmessages";
 import { AddRestaurantDetails } from "../../../Services/AddRestrunatDetails";
-
+import axiosInstance from "../../../api-config/axiosinstance";
+import CustomSelect from "../../../common-components/select/CustomSelect";
+import { getStationDetails } from "../../../Services/getStationList";
+import { getStateDetails } from "../../../Services/getStateList";
 const Form_Add_Restaurant = () => {
-  const [secondStep, setSecondStep] = useState("secondstep");
+  const [secondStep, setSecondStep] = useState("");
   const [addRestaurantData, setAddRestaurantData] = useState({
     owner_first_name: "",
     owner_middle_name: "",
@@ -51,6 +54,9 @@ const Form_Add_Restaurant = () => {
     contact_person_phone_number: "",
     fssai_number: "",
     gst_number: "",
+    open_time: "",
+    close_time: "",
+    activeStatus: "",
   });
 
   const [useId, setUserId] = useState("");
@@ -75,12 +81,23 @@ const Form_Add_Restaurant = () => {
     }
     // setAddRestaurantData({});
   };
+  console.log("useId", useId);
   const [gstphoto, setGstPhoto] = useState(null);
   const [kitechenphoto, setKItchenPhoto] = useState(null);
   const [counterphoto, setCounterPhoto] = useState(null);
   const [fassaiphoto, setFassaiPhoto] = useState(null);
   const [hoadingBoard, sehoadingBoardPhoto] = useState(null);
   const [foodMenuPhoto, setFoodMenuPhoto] = useState(null);
+  const [stations, setStations] = useState([]);
+  const [state, setState] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [formData, setFormData] = useState({
+    StationOne: {
+      value: "",
+      error: "",
+    },
+  });
+  const [stationCode, setStationCode] = useState("");
 
   const handleImageChange = async (e, handleImageChange) => {
     if (handleImageChange == "gstphoto") {
@@ -111,10 +128,32 @@ const Form_Add_Restaurant = () => {
 
     // setImage(file);
   };
-  console.log("gstphoto", gstphoto);
-  console.log("kitechenphoto", kitechenphoto);
-  console.log("counterphoto", counterphoto);
-
+  useEffect(() => {
+    fetchData();
+    fetchDataForState();
+  }, []);
+  const fetchData = async () => {
+    try {
+      const response = await getStationDetails();
+      if (response?.data?.success) {
+        const station_details = response?.data?.data;
+        setStations(station_details?.stations);
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+  const fetchDataForState = async () => {
+    try {
+      const response = await getStateDetails();
+      if (response?.data?.success) {
+        const state_details = response?.data?.data;
+        setState(state_details?.states);
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
   const submitSecondForm = async () => {
     const payloadData = {
       gst_pic: gstphoto,
@@ -123,13 +162,13 @@ const Form_Add_Restaurant = () => {
       board_pic: hoadingBoard,
       fssai_image: fassaiphoto,
       menu_pdf: foodMenuPhoto,
-      user_id: "3oP1L3",
+      user_id: useId,
       account_number: baneDetailsData?.account_number,
       api_access: restaurantDetailsData?.api_access,
       bank_name: baneDetailsData?.bank_name,
       branch_name: baneDetailsData?.branch_name,
       city: restaurantDetailsData?.city,
-      close_time: "11:00pm",
+      close_time: restaurantDetailsData?.close_time,
       cod_payment: restaurantDetailsData?.cod_payment,
       commission: restaurantDetailsData?.commission,
       contact_person_dialCode: "+91",
@@ -146,13 +185,13 @@ const Form_Add_Restaurant = () => {
       account_holder_name: baneDetailsData?.account_holder_name,
       ifsc_code: baneDetailsData?.ifsc_code,
       min_order_value: restaurantDetailsData?.min_order_value,
-      open_before_time: "5:00",
-      open_time: "8:00am",
+      open_before_time: restaurantDetailsData?.open_before_time,
+      open_time: restaurantDetailsData?.open_time,
       rating: restaurantDetailsData?.rating,
       rating_count: restaurantDetailsData?.rating_count,
       resturant_email: restaurantDetailsData?.resturant_email,
       resturant_name: restaurantDetailsData?.restaurant_name,
-      resturant_status: "Active",
+      resturant_status: restaurantDetailsData?.activeStatus,
       sale_price_capping: restaurantDetailsData?.sale_price_capping,
       security_deposit: 5000,
       state_code: restaurantDetailsData?.state_code,
@@ -395,6 +434,7 @@ const Form_Add_Restaurant = () => {
                 <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-3">
                   <div>
                     <label className="text-gray-700 ">Station*</label>
+
                     <select
                       id="station"
                       className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5  dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -406,10 +446,11 @@ const Form_Add_Restaurant = () => {
                       }}
                     >
                       <option selected>- -Select- -</option>
-                      <option value="BBS">Bhubaneswar</option>
-                      <option value="CTC">Cuttack</option>
-                      <option value="BGS">Bangelore</option>
-                      <option value="PATNA">Patna</option>
+                      {stations?.map((data, index) => (
+                        <option value={data?.station_code}>
+                          {data?.station_name} - {data?.station_code}
+                        </option>
+                      ))}
                     </select>
                   </div>
 
@@ -440,9 +481,11 @@ const Form_Add_Restaurant = () => {
                       }}
                     >
                       <option selected>- -Select- -</option>
-                      <option value="21">Odisha</option>
-                      <option value="34">Bihar</option>
-                      <option value="51">Jamsedpur</option>
+                      {state?.map((data, index) => (
+                        <option value={data?.state_code}>
+                          {data?.state_name}
+                        </option>
+                      ))}
                     </select>
                   </div>
                 </div>
@@ -670,6 +713,69 @@ const Form_Add_Restaurant = () => {
                         });
                       }}
                     />
+                  </div>
+                  <div>
+                    <label className="text-gray-700 ">Open Time</label>
+                    <input
+                      id="order_before_time"
+                      type="text"
+                      className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+                      onChange={(e) => {
+                        setRestaurantDetailsData({
+                          ...restaurantDetailsData,
+                          open_time: e.target.value,
+                        });
+                      }}
+                    />
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-3">
+                  <div>
+                    <label className="text-gray-700 ">Close Time</label>
+                    <input
+                      id="order_before_time"
+                      type="text"
+                      className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+                      onChange={(e) => {
+                        setRestaurantDetailsData({
+                          ...restaurantDetailsData,
+                          close_time: e.target.value,
+                        });
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <label className="text-gray-700 ">Restaurant Status</label>
+                    <div className="flex ">
+                      <label className="flex radio p-2 cursor-pointer">
+                        <input
+                          className="my-auto transform scale-125"
+                          type="radio"
+                          name="active"
+                          onChange={() => {
+                            setRestaurantDetailsData({
+                              ...restaurantDetailsData,
+                              activeStatus: "Active",
+                            });
+                          }}
+                        />
+                        <div className="title px-2">Active</div>
+                      </label>
+                      <label className="flex radio p-2 cursor-pointer">
+                        <input
+                          className="my-auto transform scale-125"
+                          type="radio"
+                          name="active"
+                          onChange={() => {
+                            setRestaurantDetailsData({
+                              ...restaurantDetailsData,
+                              activeStatus: "InActive",
+                            });
+                          }}
+                        />
+                        <div className="title px-2">In Active</div>
+                      </label>
+                    </div>
                   </div>
                 </div>
               </div>

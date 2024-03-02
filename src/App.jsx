@@ -30,6 +30,7 @@ import Enquiry from "./pages/enquiry/Enquiry";
 import KeyWord from "./pages/enquiry/serachkeyword/KeyWord";
 import VendorList from "./pages/vendorlist/VendorList";
 import ProtectedComponent from "./protected/protectedComponent";
+import Dashboard from "./pages/Dashboard/Dashboard";
 function App() {
   const location = useLocation();
   const { pathname } = location;
@@ -51,6 +52,10 @@ function App() {
               element={<ProtectedComponent Component={Orders} />}
             />
             <Route
+              path="/dashboard"
+              element={<ProtectedComponent Component={Dashboard} />}
+            />
+            <Route
               path="/complaints"
               element={<ProtectedComponent Component={Complaints} />}
             />
@@ -63,7 +68,7 @@ function App() {
               element={<ProtectedComponent Component={Employee} />}
             />
             <Route
-              path="/expenses"
+              path="/expense"
               element={<ProtectedComponent Component={Expense} />}
             />
             <Route
