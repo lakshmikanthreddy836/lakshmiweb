@@ -6,6 +6,7 @@ import Eye from "../../../assets/Icons/Eye";
 import Delete from "../../../assets/Icons/Delete";
 import Button from "../../../common-components/Button";
 import { FaEdit } from "react-icons/fa";
+import { FaXmark } from "react-icons/fa6";
 import SelectOption from "../../../common-components/SelectOption";
 import { Train, DeleteTrain, TrainInfoUpdate } from "../../../Services/Train";
 
@@ -17,6 +18,9 @@ const TrainList = () => {
   const [trainList, setTrainList] = useState();
   const [trainId, setTrainId] = useState();
   const [trainInfo, setTrainInfo] = useState([]);
+  const [search, setSearch] = useState('');
+
+  console.log(search);
 
   const itemsPerPage = 100;
 
@@ -118,6 +122,7 @@ const TrainList = () => {
         <input
           type="text"
           className="border-[1px] bg-white border-[#aaa] ml-2 h-7"
+          onChange={(e) => setSearch(e.target.value)}
         />
       </div>
       <div className="mt-5 flex flex-col">
@@ -146,7 +151,9 @@ const TrainList = () => {
             <AnimateLoader count={3} />
           ) : (
             <div>
-              {trainList?.map((data, index) => (
+              {trainList?.filter((data) => {
+                return search.toLowerCase() === '' ?(search.toLowerCase() === '' ? data:data?.train_name.toLowerCase().includes(search)) : data?.train_number.toLowerCase().includes(search) 
+              }).map((data, index) => (
                 <div key={index} className="flex items-center w-full border-b-[1.5px] border-gray-300 h-12">
                   <div className="w-[10%]">
                     <p className="font-medium text-[15px]">{data?.id}</p>
@@ -202,9 +209,9 @@ const TrainList = () => {
         </div>
       </div>
       {/* Start Delete Modle */}
-      <div id="DeleteTrainModle" className='hidden fixed overflow-auto w-full h-full top-0 left-0'>
-        <div id="DeleteTrainContent" className="bg-[#fefefe] w-[40%] h-[40%] border-2 rounded p-8 m-auto mt-9 text-center">
-          <div>
+      <div id="DeleteTrainModle" className='hidden fixed z-[1] overflow-auto w-full h-full top-0 left-0'>
+        <div id="DeleteTrainContent" className="bg-[#fefefe] w-[30%] p-4 m-auto mt-12 text-center shadow-[0_8px_26px_6px_rgba(128,128,128,1)]">
+          <div className="pb-2">
             <p>Are You Sure?</p>
             <p> You want to delete the train?</p>
           </div>
@@ -226,9 +233,14 @@ const TrainList = () => {
 
       {/* Start Edit Modle */}
       <div id="UpdateTrainModle" className='hidden fixed z-[1] overflow-auto w-full h-full top-0 left-0'>
-        <div id="UpdateTrainContent" className="bg-[#fefefe] w-[68%] p-0 m-auto mt-9">
+        <div id="UpdateTrainContent" className="bg-[#fefefe] w-[68%] p-4 m-auto mt-9 shadow-[0_8px_26px_6px_rgba(128,128,128,1)]">
           <div>
             <h5 className="text-2xl font-semibold float-left pb-2">Update Train</h5>
+            <Button
+              label={<FaXmark/>}
+              style='float-right py-1 px-4'
+              handleClick={handleClickCloseUpdateModule}
+            />
           </div>
           <div className="columns-2">
             <div>
@@ -249,17 +261,12 @@ const TrainList = () => {
               />
             </div>
           </div>
-          <div>
+          <div className="columns-3">
             <Button
               label={'Update'}
-              style='bg-[#4fca76] mr-1 py-1 px-4 text-white'
+              style='bg-[#dc2626] mr-1 py-1 px-4 text-white'
               handleClick={handleClickUpdateTrainModule}
-            />
-            <Button
-              label={'Cancel'}
-              style='bg-[#e52222] py-1 px-4 text-white'
-              handleClick={handleClickCloseUpdateModule}
-            />
+            />            
           </div>
         </div>
       </div>

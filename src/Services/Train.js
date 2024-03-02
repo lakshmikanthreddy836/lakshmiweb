@@ -27,4 +27,13 @@ async function TrainInfoUpdate (trainDetails){
      }
 }
 
-export {Train,DeleteTrain,TrainInfoUpdate};
+async function DownloadTrainCsv (){
+     try {
+          const respons = await axiosInstance.get(`/downloadTrainCsv`);
+          return respons; 
+     } catch (error) {
+          console.log(error);
+     }
+}
+
+export {Train,DeleteTrain,TrainInfoUpdate,DownloadTrainCsv};
