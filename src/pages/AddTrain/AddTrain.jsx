@@ -9,6 +9,7 @@ import AddTrainDetails from "./components/AddTrainDetails";
 import { DownloadTrainCsv } from "../../Services/Train";
 import { csvDownload } from "../../utils/csv_downloader";
 import { useNavigate } from "react-router-dom";
+import StationList from "../AddStation/components/StationList";
 const AddTrain = () => {
   const [showAddTrainMenu, setShowAddTrainMenu] = useState("trainlist");
 
@@ -121,7 +122,9 @@ const AddTrain = () => {
             <AddStation />
           ) : showAddTrainMenu == "addtraindetails" ? (
             <AddTrainDetails />
-          ) : (
+          ) : showAddTrainMenu == "Station List" ? (
+            <StationList/>
+          ):(
             ""
           )}
         </div>
