@@ -152,7 +152,7 @@ const TrainList = () => {
           ) : (
             <div>
               {trainList?.filter((data) => {
-                return search.toLowerCase() === '' ?(search.toLowerCase() === '' ? data:data?.train_name.toLowerCase().includes(search)) : data?.train_number.toLowerCase().includes(search) 
+                return search.toLowerCase() === '' ?(search.toLowerCase() === '' ? data:data?.train_name.toLowerCase().includes(search)) : (data?.train_number.toLowerCase().includes(search) )
               }).map((data, index) => (
                 <div key={index} className="flex items-center w-full border-b-[1.5px] border-gray-300 h-12">
                   <div className="w-[10%]">

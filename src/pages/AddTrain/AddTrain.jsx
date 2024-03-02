@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Title from "../../common-components/Title";
-import Button from "../../common-components/Button";
+// import Button from "../../common-components/Button";
 import { FaPlus } from "react-icons/fa";
 import TrainList from "./components/TrainList";
 import AddTrainForm from "./components/AddTrainForm";
@@ -37,16 +37,10 @@ const AddTrain = () => {
         <div className="p-2 items-center h-auto">
           <Title title={"Train"}></Title>
           <div>
-          {/* <Button
-            label={'Download Csv'}
-            style="bg-[#84dd84] float-right h-9 w-[170px] text-black text-[15px] rounded-[5px] font-medium flex items-center justify-center gap-1"
-            handleClick={handleDownloadCsv}
-          >    */}
           <CSVLink {...csvLink} 
           className="bg-[#84dd84] float-right h-9 w-[170px] text-black text-[15px] rounded-[5px] font-medium flex items-center justify-center gap-1"
           onClick={handleDownloadCsv}
-          >Download Csv</CSVLink>        
-          {/* </Button>           */}
+          >Download Csv</CSVLink>
         </div>
         </div>        
         <div className="bg-white h-14 addtrainboxshadow flex items-center justify-between px-5">
