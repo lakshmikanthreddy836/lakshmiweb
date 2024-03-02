@@ -31,6 +31,7 @@ import Enquiry from "./pages/enquiry/Enquiry";
 import KeyWord from "./pages/enquiry/serachkeyword/KeyWord";
 import VendorList from "./pages/vendorlist/VendorList";
 import ProtectedComponent from "./protected/protectedComponent";
+import ImportTrain from "./pages/AddTrain/components/ImportTrain";
 function App() {
   const location = useLocation();
   const { pathname } = location;
@@ -152,6 +153,10 @@ function App() {
             <Route
               path="/vendor-app"
               element={<ProtectedComponent Component={VendorList} />}
+            />
+            <Route
+              path="import-train"
+              element={<ProtectedComponent Component={ImportTrain} />}
             />
           </Routes>
         </Layout>

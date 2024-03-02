@@ -8,8 +8,11 @@ import AddStation from "./components/AddStation";
 import AddTrainDetails from "./components/AddTrainDetails";
 import { DownloadTrainCsv } from "../../Services/Train";
 import { csvDownload } from "../../utils/csv_downloader";
+import { useNavigate } from "react-router-dom";
 const AddTrain = () => {
   const [showAddTrainMenu, setShowAddTrainMenu] = useState("trainlist");
+
+  let navigate = useNavigate();
 
   //CSV DOWNLOAD FUNCTIONALITY
   const handleDownloadCsv = async () => {
@@ -22,6 +25,11 @@ const AddTrain = () => {
       console.error("Error While downloading Train Csv", error);
     }
   };
+  //IMPORT TRAIN FUNCTIONALITY
+  const RedirectImportTrain = () => {
+    let path = '/import-train';
+    navigate(path);
+  }
   return (
     <div className="h-full w-full bg-white overflow-hidden flex flex-col text-black">
       <div className="overflow-y-auto px-3 overflow-visible h-fit">
@@ -72,10 +80,11 @@ const AddTrain = () => {
               </button>
             </div>
             <div>
-              <button className="bg-gray-300 h-9 w-[170px] text-black text-[15px] rounded-[5px] font-medium flex items-center justify-center gap-1">
-                <FaPlus />
-                <p>Import Train</p>
-              </button>
+              <Button
+                label={'Import Train'}
+                style="bg-gray-300 h-9 w-[170px] text-black text-[15px] rounded-[5px] font-medium flex items-center justify-center gap-1"
+                handleClick={RedirectImportTrain}
+              />
             </div>
           </div>
           <div className="flex gap-8">
