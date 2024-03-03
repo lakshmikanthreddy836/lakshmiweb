@@ -243,7 +243,7 @@ const Form_Add_Restaurant = () => {
                   <label className="text-gray-700 ">Owner Middle Name</label>
                   <input
                     id="emailAddress"
-                    type="email"
+                    type="text"
                     className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
                     onChange={(e) => {
                       setAddRestaurantData({
@@ -257,7 +257,7 @@ const Form_Add_Restaurant = () => {
                   <label className="text-gray-700 ">Owner Last Name</label>
                   <input
                     id="emailAddress"
-                    type="email"
+                    type="text"
                     className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
                     onChange={(e) => {
                       setAddRestaurantData({
@@ -287,7 +287,7 @@ const Form_Add_Restaurant = () => {
                   <label className="text-gray-700 ">Owner Password</label>
                   <input
                     id="emailAddress"
-                    type="email"
+                    type="password"
                     className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
                     onChange={(e) => {
                       setAddRestaurantData({
@@ -301,7 +301,7 @@ const Form_Add_Restaurant = () => {
                   <label className="text-gray-700 ">Owner Number</label>
                   <input
                     id="emailAddress"
-                    type="email"
+                    type="tel"
                     className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
                     onChange={(e) => {
                       setAddRestaurantData({
@@ -392,7 +392,7 @@ const Form_Add_Restaurant = () => {
                     <label className="text-gray-700 ">Min Order Value</label>
                     <input
                       id="min_order_value"
-                      type="number"
+                      type="text"
                       className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
                       onChange={(e) => {
                         setRestaurantDetailsData({
@@ -448,7 +448,7 @@ const Form_Add_Restaurant = () => {
                     >
                       <option selected>- -Select- -</option>
                       {stations?.map((data, index) => (
-                        <option value={data?.station_code}>
+                        <option key = {index} value={data?.station_code}>
                           {data?.station_name} - {data?.station_code}
                         </option>
                       ))}
@@ -459,7 +459,7 @@ const Form_Add_Restaurant = () => {
                     <label className="text-gray-700 ">City</label>
                     <input
                       id="city"
-                      type="email"
+                      type="text"
                       className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
                       onChange={(e) => {
                         setRestaurantDetailsData({
@@ -483,7 +483,7 @@ const Form_Add_Restaurant = () => {
                     >
                       <option selected>- -Select- -</option>
                       {state?.map((data, index) => (
-                        <option value={data?.state_code}>
+                        <option key = {index} value={data?.state_code}>
                           {data?.state_name}
                         </option>
                       ))}
@@ -582,7 +582,7 @@ const Form_Add_Restaurant = () => {
                     <label className="text-gray-700  ">Station Distance</label>
                     <input
                       id="station_distance"
-                      type="number"
+                      type="text"
                       className="block w-full px-4 py-1   text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
                       onChange={(e) => {
                         setRestaurantDetailsData({
@@ -597,7 +597,7 @@ const Form_Add_Restaurant = () => {
                     <label className="text-gray-700 ">Sell Price Capping</label>
                     <input
                       id="sell_price_capping"
-                      type="number"
+                      type="text"
                       className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
                       onChange={(e) => {
                         setRestaurantDetailsData({
@@ -613,7 +613,7 @@ const Form_Add_Restaurant = () => {
                     </label>
                     <input
                       id="group_order_discount"
-                      type="number"
+                      type="text"
                       className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
                       onChange={(e) => {
                         setRestaurantDetailsData({
@@ -629,7 +629,7 @@ const Form_Add_Restaurant = () => {
                     <label className="text-gray-700 ">Restaurant Email</label>
                     <input
                       id="resturant_email"
-                      type="text"
+                      type="email"
                       className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
                       onChange={(e) => {
                         setRestaurantDetailsData({
@@ -644,7 +644,7 @@ const Form_Add_Restaurant = () => {
                     <label className="text-gray-700 ">Rating</label>
                     <input
                       id="rating"
-                      type="number"
+                      type="text"
                       className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
                       onChange={(e) => {
                         setRestaurantDetailsData({
@@ -705,7 +705,7 @@ const Form_Add_Restaurant = () => {
                     <label className="text-gray-700 ">Contact Person No</label>
                     <input
                       id="contact_person_number"
-                      type="number"
+                      type="text"
                       className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
                       onChange={(e) => {
                         setRestaurantDetailsData({
@@ -823,7 +823,7 @@ const Form_Add_Restaurant = () => {
                     </label>
                     <input
                       id="customer_delivery_charges"
-                      type="number"
+                      type="text"
                       className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
                       onChange={(e) => {
                         setDeliveryChargesData({
@@ -839,7 +839,7 @@ const Form_Add_Restaurant = () => {
                     </label>
                     <input
                       id="vendor_delivery_charges"
-                      type="number"
+                      type="text"
                       className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
                       onChange={(e) => {
                         setDeliveryChargesData({
@@ -875,7 +875,7 @@ const Form_Add_Restaurant = () => {
                     <label className="text-gray-700 ">Account No</label>
                     <input
                       id="accountnumber"
-                      type="number"
+                      type="text"
                       className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
                       onChange={(e) => {
                         setBankDetailsData({

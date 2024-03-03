@@ -24,7 +24,7 @@ const loginAdmin = async (email, password) => {
       return error.response.data;
     } else {
       // Handle other types of errors
-      showSuccessMessage("Something went wrong", "Error");
+      ShowErrorMessages("Something went wrong", "Error");
     }
     throw error; // Rethrow the error to propagate it to the calling code
   }

@@ -166,7 +166,7 @@ function Restaurant() {
     if (response?.data?.success) {
       setLoading(false);
       const restaurant_details = response?.data?.data;
-      setRestaurantDetails(restaurant_details?.stations);
+      setRestaurantDetails(restaurant_details?.resturants);
       // setTotalTrainListCount(trainListArray?.totalCount);
     }
     // console.log("result is", result);
@@ -263,7 +263,7 @@ function Restaurant() {
                 <AnimateLoader count={3} />
               ) : (
                 restaurantDetails?.map((data, index) => (
-                  <div className="flex w-fit  h-[50px] items-center border-b-[1px] border-[#aaa]">
+                  <div key = {data.resturant_id} className="flex w-fit  h-[50px] items-center border-b-[1px] border-[#aaa]">
                     <div className="w-[50px] flex items-center h-9">
                       <p className="text-[15px] text-black">{index + 1}</p>
                     </div>
