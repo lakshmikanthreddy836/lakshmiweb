@@ -57,6 +57,7 @@ const Form_Add_Restaurant = () => {
     open_time: "",
     close_time: "",
     activeStatus: "",
+    security_deposit:""
   });
 
   const [useId, setUserId] = useState("");
@@ -193,7 +194,7 @@ const Form_Add_Restaurant = () => {
       resturant_name: restaurantDetailsData?.restaurant_name,
       resturant_status: restaurantDetailsData?.activeStatus,
       sale_price_capping: restaurantDetailsData?.sale_price_capping,
-      security_deposit: 5000,
+      security_deposit: restaurantDetailsData?.security_deposit,
       state_code: restaurantDetailsData?.state_code,
       station_code: restaurantDetailsData?.station_code,
       station_distance: restaurantDetailsData?.station_distance,
@@ -776,6 +777,20 @@ const Form_Add_Restaurant = () => {
                         <div className="title px-2">In Active</div>
                       </label>
                     </div>
+                  </div>
+                  <div>
+                    <label className="text-gray-700 ">Security Deposit</label>
+                    <input
+                      id="order_before_time"
+                      type="text"
+                      className="block w-full px-4 py-1  text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+                      onChange={(e) => {
+                        setRestaurantDetailsData({
+                          ...restaurantDetailsData,
+                          security_deposit: e.target.value,
+                        });
+                      }}
+                    />
                   </div>
                 </div>
               </div>
