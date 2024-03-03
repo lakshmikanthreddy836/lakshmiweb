@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Title from "../../common-components/Title";
 import GridTable from "./components/GridTable";
 import Button from "../../common-components/Button";
 import { FaDownload, FaEye, FaInfo, FaPen, FaPenAlt } from "react-icons/fa";
 import { TbToolsKitchen3 } from "react-icons/tb";
+import { RestaurantDetails } from "../../Services/RestaurantDetails";
+import AnimateLoader from "../../common-components/AnimateLoader";
 function Restaurant() {
   const [activeState, setActiveState] = useState("15");
   const tableData = [
@@ -152,16 +154,39 @@ function Restaurant() {
       action: false,
     },
   ];
+  const [restaurantDetails, setRestaurantDetails] = useState();
+  const [loading, setLoading] = useState(true);
+  const fetchRestaurantDetails = async () => {
+    const payload = {
+      page: 0,
+      limit: "",
+      filter: "",
+    };
+    const response = await RestaurantDetails(payload);
+    if (response?.data?.success) {
+      setLoading(false);
+      const restaurant_details = response?.data?.data;
+      setRestaurantDetails(restaurant_details?.stations);
+      // setTotalTrainListCount(trainListArray?.totalCount);
+    }
+    // console.log("result is", result);
+  };
+  useEffect(() => {
+    fetchRestaurantDetails();
+  }, []);
+  const dateTimeFormat = (dateTime) => {
+    const dateString = dateTime;
+    const date = new Date(dateString);
+    // Get day, month, and year components
+    const day = date.getDate().toString().padStart(2, "0");
+    const month = (date.getMonth() + 1).toString().padStart(2, "0"); // Months are zero-based
+    const year = date.getFullYear().toString();
+    // Format the date as DD/MM/YYYY
+    const formattedDate = `${day}/${month}/${year}`;
+    return formattedDate;
+  };
+  console.log("restaurantDetails", restaurantDetails);
   return (
-    // <div className="bg-white pl-4">
-    //   {/* <Title title={"Restaurant List"}>
-    //     <Button className="bg-red-600 text-white px-2 py-1.5 rounded-md">
-    //       Active Station 115
-    //     </Button>
-    //   </Title> */}
-    //   <
-    //   <GridTable />
-    // </div>
     <div className="h-full w-full bg-white flex flex-col justify-start overflow-hidden">
       <div className="overflow-y-auto p-3 overflow-visible h-fit">
         <div className="flex justify-between">
@@ -234,62 +259,76 @@ function Restaurant() {
               </div>
             </div>
             <div className="flex flex-col">
-              {tableData?.map((data, index) => (
-                <div className="flex w-fit  h-[50px] items-center border-b-[1px] border-[#aaa]">
-                  <div className="w-[50px] flex items-center h-9">
-                    <p className="text-[15px] text-black">{index + 1}</p>
-                  </div>
-                  <div className="w-[250px] flex items-center h-9">
-                    <p className="text-[15px] text-black">{data?.name}</p>
-                  </div>
-                  <div className="w-[130px] flex items-center h-9">
-                    <p className="text-[15px] text-black">
-                      {data?.opening_time}
-                    </p>
-                  </div>
-                  <div className="w-[130px] flex items-center h-9 ">
-                    <p className="text-[15px] text-black">
-                      {data?.closing_time}
-                    </p>
-                  </div>
-                  <div className="w-[250px] flex items-center h-9">
-                    <p className="text-[15px] text-black">{data?.station}</p>
-                  </div>
-                  <div className="w-[140px]  flex items-center h-9">
-                    <p className="text-[15px] text-black">{data?.min_order}</p>
-                  </div>
-                  <div className="w-[100px] flex items-center h-9">
-                    <p className="text-[15px] text-black">{data?.item_no}</p>
-                  </div>
-                  <div className="w-[130px] flex items-center h-9">
-                    <p className="text-[15px] text-black">
-                      {data?.status ? "Active" : "In Active"}
-                    </p>
-                  </div>
-                  <div className="w-[150px] flex items-center h-9">
-                    <p className="text-[15px] text-black">{data?.join_date}</p>
-                  </div>
-                  <div className="w-[150px] flex items-center h-9">
-                    <div className="flex gap-2 flex-wrap text-black">
-                      <button type="button" className="p-0">
-                        <FaEye className="text-blue-500 text-lg" />
-                      </button>
-                      <button type="button" className="p-0">
-                        <FaPenAlt className="text-blue-500 text-lg" />
-                      </button>
-                      <button type="button" className="p-0">
-                        <FaDownload className="text-blue-500 text-lg" />
-                      </button>
-                      <button type="button" className="p-0">
-                        <FaInfo className="text-blue-500 text-lg" />
-                      </button>
-                      <button type="button" className="p-0">
-                        <TbToolsKitchen3 className="text-blue-500 text-lg" />
-                      </button>
+              {loading ? (
+                <AnimateLoader count={3} />
+              ) : (
+                restaurantDetails?.map((data, index) => (
+                  <div className="flex w-fit  h-[50px] items-center border-b-[1px] border-[#aaa]">
+                    <div className="w-[50px] flex items-center h-9">
+                      <p className="text-[15px] text-black">{index + 1}</p>
+                    </div>
+                    <div className="w-[250px] flex items-center h-9">
+                      <p className="text-[15px] text-black">
+                        {data?.resturant_name}
+                      </p>
+                    </div>
+                    <div className="w-[130px] flex items-center h-9">
+                      <p className="text-[15px] text-black">
+                        {data?.open_time}
+                      </p>
+                    </div>
+                    <div className="w-[130px] flex items-center h-9 ">
+                      <p className="text-[15px] text-black">
+                        {data?.close_time}
+                      </p>
+                    </div>
+                    <div className="w-[250px] flex items-center h-9">
+                      <p className="text-[15px] text-black">
+                        {data?.stationInfo?.station_name}
+                      </p>
+                    </div>
+                    <div className="w-[140px]  flex items-center h-9">
+                      <p className="text-[15px] text-black">
+                        {data?.min_order_value}
+                      </p>
+                    </div>
+                    <div className="w-[100px] flex items-center h-9">
+                      <p className="text-[15px] text-black">
+                        {data?.item_no ? data?.item_no : 20}
+                      </p>
+                    </div>
+                    <div className="w-[130px] flex items-center h-9">
+                      <p className="text-[15px] text-black">
+                        {data?.status ? "Active" : "In Active"}
+                      </p>
+                    </div>
+                    <div className="w-[150px] flex items-center h-9">
+                      <p className="text-[15px] text-black">
+                        {dateTimeFormat(data?.join_date)}
+                      </p>
+                    </div>
+                    <div className="w-[150px] flex items-center h-9">
+                      <div className="flex gap-2 flex-wrap text-black">
+                        <button type="button" className="p-0">
+                          <FaEye className="text-blue-500 text-lg" />
+                        </button>
+                        <button type="button" className="p-0">
+                          <FaPenAlt className="text-blue-500 text-lg" />
+                        </button>
+                        <button type="button" className="p-0">
+                          <FaDownload className="text-blue-500 text-lg" />
+                        </button>
+                        <button type="button" className="p-0">
+                          <FaInfo className="text-blue-500 text-lg" />
+                        </button>
+                        <button type="button" className="p-0">
+                          <TbToolsKitchen3 className="text-blue-500 text-lg" />
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))
+              )}
             </div>
           </div>
         </div>

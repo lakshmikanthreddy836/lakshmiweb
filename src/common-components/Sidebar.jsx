@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import dashbordlogo from "../assets/Dasboardlogo.png";
 import { useLocation, useNavigate } from "react-router-dom";
 import HomeIcon from "../assets/Icons/Home";
@@ -14,7 +14,9 @@ import People from "../assets/Icons/People";
 import Train from "../assets/Icons/Train";
 import Men from "../assets/Icons/Men";
 import Reporting from "../assets/Icons/Reporting";
-import { RiArrowDownSFill,RiArrowUpSFill  } from "react-icons/ri";
+import { RiArrowDownSFill, RiArrowUpSFill } from "react-icons/ri";
+import { getMenuDetails } from "../Services/getMenu";
+import AnimateLoader from "./AnimateLoader";
 const Sidebar = () => {
   const [open, setOpen] = useState(false);
   const [openInnerMenu, setOpenInnerMenu] = useState(0);
@@ -22,10 +24,11 @@ const Sidebar = () => {
   const navigate = useNavigate();
   const {
     //  hash,
-     pathname, 
+    pathname,
     //  search
-     } = location;
+  } = location;
   const pageName = pathname ? pathname.slice(1) : "";
+  const [loading, setLoading] = useState(true);
   const Menus = [
     {
       title: "Home",
@@ -116,7 +119,6 @@ const Sidebar = () => {
       path: "ticketing-agent",
       icon: <People />,
       isInnerMenu: false,
-      
     },
     {
       title: "Food Menu",
@@ -197,6 +199,45 @@ const Sidebar = () => {
       isInnerMenu: false,
     },
   ];
+  const iconList = {
+    1: <HomeIcon />,
+    2: <DashboardIcon />,
+    3: <Order />,
+    4: <Order />,
+    5: <Order />,
+    6: <Complaints />,
+    7: <Resturants />,
+    8: <Reporting />,
+    12: <Men />,
+    13: <People />,
+    14: <Notes />,
+    15: <Train />,
+    16: <People />,
+    17: <Search />,
+    19: <Notes />,
+    20: <Settings />,
+    23: <Logout />,
+  };
+  const [menuDetails, setMenuDetails] = useState();
+  const fetchMenuDetails = async () => {
+    const payload = {
+      page: 0,
+      limit: "",
+      filter: "",
+    };
+    const response = await getMenuDetails(payload);
+    if (response?.data?.success) {
+      setLoading(false);
+      // setLoading(false);
+      const menu_details = response?.data?.data;
+      setMenuDetails(menu_details?.menuList);
+      // setTotalTrainListCount(trainListArray?.totalCount);
+    }
+  };
+  useEffect(() => {
+    fetchMenuDetails();
+  }, []);
+  console.log("menuDetails", menuDetails);
 
   return (
     <div className="w-[320px] h-full flex flex-col gap-0 justify-start bg-[#ffd4ce] duration-300 overflow-hidden ">
@@ -217,87 +258,92 @@ const Sidebar = () => {
       </div>
       <div className="h-full w-full flex flex-col">
         <div className="overflow-y-auto h-full w-full">
-          {Menus?.map((items, index) => {
-            return (
-              <div
-                className={`w-full flex  cursor-pointer   text-[#000000] text-sm `}
-                key={index}
-              >
-                {/* {!items?.isInnerMenu && (
-                  <div className="h-fit w-[30px] flex items-center ml-5 justify-center">
-                    {items?.icon}
-                  </div>
-                )} */}
-                {items?.isInnerMenu == false && (
-                  <div
-                    className={`w-full h-fit flex flex-row py-[14px] hover:bg-[#ff6859] ${
-                      pageName == items?.path ? "bg-[#ff6859]" : ""
-                    }`}
-                    onClick={() => {
-                      navigate(`${items?.path}`);
-                      if (items?.title == "Logout") {
-                        localStorage.clear();
-                      }
-                    }}
-                  >
-                    <div className="h-fit w-[30px] flex items-center ml-5 justify-center">
-                      {/* <img src={`./src/assets/${items?.src}.png`}  className="h-full bg-black w-[350px]"/> */}
-                      {items?.icon}
-                    </div>
-                    <div className="text-black h-fit duration-200 ml-5 text-[14.5px] font-medium w-fit">
-                      {items?.title}
-                    </div>
-                  </div>
-                )}
-                {items?.isInnerMenu && (
-                  <div className="text-black h-fit  w-full duration-200 text-[14.5px] font-medium flex flex-col ">
-                    <div
-                      className="flex py-[14px] gap-6 hover:bg-[#ff6859]"
-                      onClick={() => {
-                        setOpenInnerMenu(index + 1);
-                        setOpen(!open);
-                      }}
-                    >
-                      <div className="h-fit w-[30px] flex items-center ml-6 justify-center">
-                        {/* <img src={`./src/assets/${items?.src}.png`}  className="h-full bg-black w-[350px]"/> */}
+          {loading ? (
+            <AnimateLoader count={6} />
+          ) : (
+            menuDetails?.map((items, index) => {
+              return (
+                <div
+                  className={`w-full flex  cursor-pointer   text-[#000000] text-sm `}
+                  key={index}
+                >
+                  {/* {!items?.isInnerMenu && (
+                      <div className="h-fit w-[30px] flex items-center ml-5 justify-center">
                         {items?.icon}
                       </div>
-                      <div className="flex justify-between  w-full relative mr-6">
-                        {items?.title}
-                        {
-                          <button
-                            className={` font-bold text-[12px] w-[20px] flex justify-center items-center ${
-                              openInnerMenu == index + 1 && open
-                                ? "rotate-90"
-                                : "-rotate-90"
-                            }`}
-                          >
-                            {">"}
-                          </button>
+                    )} */}
+                  {items?.children?.length == 0 && (
+                    <div
+                      className={`w-full h-fit flex flex-row py-[14px] hover:bg-[#ff6859] ${
+                        pageName == items?.menu_url ? "bg-[#ff6859]" : ""
+                      }`}
+                      onClick={() => {
+                        navigate(`${items?.menu_url}`);
+                        if (items?.menu_name == "Logout") {
+                          localStorage.clear();
+                          navigate("/");
                         }
+                      }}
+                    >
+                      <div className="h-fit w-[30px] mt-[1px] flex items-center ml-5 justify-center">
+                        {/* <img src={`./src/assets/${items?.src}.png`}  className="h-full bg-black w-[350px]"/> */}
+                        {iconList[items?.id]}
+                      </div>
+                      <div className="text-black h-fit duration-200 ml-5 text-[14.5px] font-medium w-fit">
+                        {items?.menu_name}
                       </div>
                     </div>
-                    {openInnerMenu == index + 1 && open && (
-                      <span className="bg-[#ffb5ad] ml-10 w-full open-animation">
-                        {items?.innerMenus?.map((data, i) => (
-                          <div
-                            className="text-black py-[14px] pl-8 hover:bg-[#ff6859]  h-fit w-full"
-                            key={i}
-                            onClick={()=>{
-                              navigate(`${data?.path}`);
-                            }}
-                          >
-                            {" "}
-                            {data?.title}
-                          </div>
-                        ))}
-                      </span>
-                    )}
-                  </div>
-                )}
-              </div>
-            );
-          })}
+                  )}
+                  {items?.children?.length > 0 && (
+                    <div className="text-black h-fit  w-full duration-200 text-[14.5px] font-medium flex flex-col ">
+                      <div
+                        className="flex py-[14px] gap-6 hover:bg-[#ff6859]"
+                        onClick={() => {
+                          setOpenInnerMenu(index + 1);
+                          setOpen(!open);
+                        }}
+                      >
+                        <div className="h-fit w-[30px] mt-[1px] flex items-center ml-6 justify-center">
+                          {/* <img src={`./src/assets/${items?.src}.png`}  className="h-full bg-black w-[350px]"/> */}
+                          {iconList[items?.id]}
+                        </div>
+                        <div className="flex justify-between  w-full relative mr-6">
+                          {items?.menu_name}
+                          {
+                            <button
+                              className={` font-bold text-[12px] w-[20px] flex justify-center items-center ${
+                                openInnerMenu == index + 1 && open
+                                  ? "rotate-90"
+                                  : "-rotate-90"
+                              }`}
+                            >
+                              {">"}
+                            </button>
+                          }
+                        </div>
+                      </div>
+                      {openInnerMenu == index + 1 && open && (
+                        <span className="bg-[#ffb5ad] ml-10 w-full open-animation">
+                          {items?.children?.map((data, i) => (
+                            <div
+                              className="text-black py-[14px] pl-8 hover:bg-[#ff6859]  h-fit w-full"
+                              key={i}
+                              onClick={() => {
+                                navigate(`${data?.menu_url}`);
+                              }}
+                            >
+                              {" "}
+                              {data?.menu_name}
+                            </div>
+                          ))}
+                        </span>
+                      )}
+                    </div>
+                  )}
+                </div>
+              );
+            })
+          )}
         </div>
       </div>
     </div>
