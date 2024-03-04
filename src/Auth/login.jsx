@@ -25,25 +25,28 @@ const Login = () => {
     // navigate("/home");x
 
     // window.history.pushState(null, '', '/home');
-    if (credentials.username == "") {
+    if (credentials.username == "")
       ShowErrorMessages("Please enter the username", "Error");
-    } else if (credentials.password == "") {
+    if (credentials.password == "")
       ShowErrorMessages("Please enter the password", "Error");
-    } else {
+    try {
       setLoading(true);
       let response = await loginAdmin(
         credentials.username,
         credentials.password
       );
       console.log("response is", response);
-      if (response?.success) {
-        setLoading(false);
-        const result = response.data;
-        console.log("result is", result);
-        localStorage.setItem("token", result.token);
-        navigate("/home");
-        ShowSucessmessages("Successfully logged in");
-      }
+      const result = response.data;
+      console.log("result is", result);
+      localStorage.setItem("token", result.token);
+      navigate("/home");
+      ShowSucessmessages("Successfully logged in");
+    } catch (error) {
+      console.error("Error Handling", error);
+    }
+    finally{
+      setLoading(false);
+
     }
   };
   console.log("credentials", credentials);
