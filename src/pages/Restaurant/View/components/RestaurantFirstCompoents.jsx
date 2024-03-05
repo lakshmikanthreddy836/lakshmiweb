@@ -1,9 +1,19 @@
+import { TabPanel, useTabs } from "react-headless-tabs";
+import { TabSelect } from "./TabSelect";
+import ContactInfo from "./ContactInfo";
+
 const RestaurantFirstCompoents = () => {
+  const [selectedTab, setSelectedTab] = useTabs([
+    "contactInfo",
+    "irctData",
+    "ratings",
+    "notification",
+  ]);
   return (
     <div>
       <div className="mx-auto flex flex-row ">
         <div className="w-4/12 flex flex-col ">
-          <div className=" mt-5 border h-36 mx-4 flex flex-row border rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500">
+          <div className=" mt-5 border h-36 mx-4 flex flex-row  rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500">
             <div className="w-4/12 mt-5 ml-4">
               <img
                 src="https://png.pngtree.com/png-vector/20220706/ourmid/pngtree-food-logo-png-image_5687717.png"
@@ -16,171 +26,171 @@ const RestaurantFirstCompoents = () => {
               <h4 className="text-sm ml-4 ">(XYZ RESTAURANT)</h4>
             </div>
           </div>
-          <div className="mt-2 border mx-4 flex flex-col border rounded-lg pl-4 pr-4">
+          <div className="mt-2 border mx-4 flex flex-col  rounded-lg pl-4 pr-4">
             <div className=" border-b pt-4 pb-4">
-              <div className="flex items-center space-x-4">
+              <div className="flex items-start space-x-4">
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
+                  <p className="text-sm font-medium text-gray-900 truncate ">
                     Net Wallet Balance (Ending Mar 2024)
                   </p>
                 </div>
-                <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                  $320
+                <div className="inline-flex bg-red-500 rounded-xl  pl-2 pr-2 items-start text-base font-semibold text-gray-900 ">
+                  ₹ 0
                 </div>
               </div>
             </div>
             <div className=" border-b pt-4 pb-4">
-              <div className="flex items-center space-x-4">
+              <div className="flex items-start space-x-4">
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
+                  <p className="text-sm font-medium text-gray-900 truncate ">
                     Security Deposite
                   </p>
                 </div>
-                <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                  $320
+                <div className="inline-flex bg-green-500 rounded-xl  pl-2 pr-2 items-start text-base font-semibold text-gray-900 ">
+                  ₹ 0
                 </div>
               </div>
             </div>
             <div className=" border-b pt-4 pb-4">
-              <div className="flex items-center space-x-4">
+              <div className="flex items-start space-x-4">
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
+                  <p className="text-sm font-medium text-gray-900 truncate ">
                     Commission
                   </p>
                 </div>
-                <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                  $320
+                <div className="inline-flex bg-yellow-500 rounded-xl  pl-2 pr-2 items-start text-base font-semibold text-gray-900 ">
+                  ₹ 0
                 </div>
               </div>
             </div>
             <div className=" border-b pt-4 pb-4">
-              <div className="flex items-center space-x-4">
+              <div className="flex items-start space-x-4">
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
+                  <p className="text-sm font-medium text-gray-900 truncate ">
                     Status
                   </p>
                 </div>
-                <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                  $320
+                <div className="inline-flex bg-gray-900 rounded-xl  pl-2 pr-2 items-start text-base font-semibold text-white ">
+                  Active
                 </div>
               </div>
             </div>
             <div className=" border-b pt-4 pb-4">
-              <div className="flex items-center space-x-4">
+              <div className="flex items-start space-x-4">
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
+                  <p className="text-sm font-medium text-gray-900 truncate ">
                     Store Type
                   </p>
                 </div>
-                <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                  $320
+                <div className="inline-flex bg-green-400 rounded-xl  pl-2 pr-2 items-start text-base font-semibold text-gray-900 ">
+                  Vegetarian
                 </div>
               </div>
             </div>
             <div className=" border-b pt-4 pb-4">
-              <div className="flex items-center space-x-4">
+              <div className="flex items-start space-x-4">
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
+                  <p className="text-sm font-medium text-gray-900 truncate ">
                     IRCTC Status
                   </p>
                 </div>
-                <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                  $320
+                <div className="inline-flex bg-green-400 rounded-xl  pl-2 pr-2 items-start text-base font-semibold text-gray-900 ">
+                  Approved
                 </div>
               </div>
             </div>
             <div className=" border-b pt-4 pb-4">
-              <div className="flex items-center space-x-4">
+              <div className="flex items-start space-x-4">
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
+                  <p className="text-sm font-medium text-gray-900 truncate ">
                     Menu Type
                   </p>
                 </div>
-                <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                  $320
+                <div className="inline-flex items-start text-base font-semibold text-gray-900 ">
+                  OWN Menu
                 </div>
               </div>
             </div>
             <div className=" border-b pt-4 pb-4">
-              <div className="flex items-center space-x-4">
+              <div className="flex items-start space-x-4">
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
+                  <p className="text-sm font-medium text-gray-900 truncate ">
                     Delivery Type
                   </p>
                 </div>
-                <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                  $320
+                <div className="inline-flex items-start text-base font-semibold text-gray-900 ">
+                  Vendor
                 </div>
               </div>
             </div>
             <div className=" border-b pt-4 pb-4">
-              <div className="flex items-center space-x-4">
+              <div className="flex items-start space-x-4">
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
+                  <p className="text-sm font-medium text-gray-900 truncate ">
                     Cus. Delivery Charge
                   </p>
                 </div>
-                <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                  $320
+                <div className="inline-flex items-start text-base font-semibold text-gray-900 ">
+                  ₹ 0
                 </div>
               </div>
             </div>
             <div className=" border-b pt-4 pb-4">
-              <div className="flex items-center space-x-4">
+              <div className="flex items-start space-x-4">
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
+                  <p className="text-sm font-medium text-gray-900 truncate ">
                     Ven. Delivery Charge
                   </p>
                 </div>
-                <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                  $320
+                <div className="inline-flex items-start text-base font-semibold text-gray-900 ">
+                  ₹ 0
                 </div>
               </div>
             </div>
             <div className=" border-b pt-4 pb-4">
-              <div className="flex items-center space-x-4">
+              <div className="flex items-start space-x-4">
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
+                  <p className="text-sm font-medium text-gray-900 truncate ">
                     Created
                   </p>
                 </div>
-                <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                  $320
+                <div className="inline-flex  bg-blue-500 rounded-xl  pl-2 pr-2 items-start text-base font-semibold text-gray-900 ">
+                  02:03:2024 00:00
                 </div>
               </div>
             </div>
             <div className=" border-b pt-4 pb-4">
-              <div className="flex items-center space-x-4">
+              <div className="flex items-start space-x-4">
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
+                  <p className="text-sm font-medium text-gray-900 truncate ">
                     Last Updated
                   </p>
                 </div>
-                <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                  $320
+                <div className="inline-flex bg-blue-500 rounded-xl  pl-2 pr-2 items-start text-base font-semibold text-gray-900 ">
+                  02-03-2024 00:00
                 </div>
               </div>
             </div>
             <div className=" border-b pt-4 pb-4">
-              <div className="flex items-center space-x-2">
+              <div className="flex items-start space-x-2">
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
+                  <p className="text-sm font-medium text-gray-900 truncate ">
                     Price Capping
                   </p>
                 </div>
-                <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                  $320
+                <div className="inline-flex items-start text-base font-semibold text-gray-900 ">
+                  0
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div
-          className="col-md-8"
+          className="col-md-8 w-full"
           style={{
             boxSizing: "border-box",
             position: "relative",
-            width: "729.328px",
+
             paddingRight: 15,
             paddingLeft: 15,
             flex: "0 0 66.6667%",
@@ -188,11 +198,11 @@ const RestaurantFirstCompoents = () => {
           }}
         >
           <table
-            className="table table-bordered"
+            className="table table-bordered w-full"
             style={{
               boxSizing: "border-box",
               borderCollapse: "collapse",
-              width: "699.328px",
+
               marginBottom: "1rem",
               color: "rgb(33, 37, 41)",
               border: "1px solid rgb(222, 226, 230)",
@@ -255,7 +265,10 @@ const RestaurantFirstCompoents = () => {
                   </div>
                 </td>
               </tr>
-              <tr style={{ boxSizing: "border-box" }}>
+              <tr
+                className="border-b w-full"
+                style={{ boxSizing: "border-box" }}
+              >
                 <td
                   style={{
                     boxSizing: "border-box",
@@ -715,7 +728,7 @@ const RestaurantFirstCompoents = () => {
                 padding: "0.5rem",
               }}
             >
-              <ul
+              {/* <ul
                 className="nav nav-tabs tabs-bordered d-flex nav-justified mb-4"
                 role="tablist"
                 style={{
@@ -837,182 +850,46 @@ const RestaurantFirstCompoents = () => {
                     Notifications Preference
                   </a>
                 </li>
-              </ul>
-              <div className="tab-content" style={{ boxSizing: "border-box" }}>
-                <div
-                  role="tabpanel"
-                  className="tab-pane fade in active show"
-                  id="tab1"
-                  style={{
-                    boxSizing: "border-box",
-                    transition: "opacity 0.15s linear 0s",
-                    display: "block",
-                  }}
+              </ul> */}
+              <nav className="flex border-b border-gray-300 w-full">
+                <TabSelect
+                  isActive={selectedTab === "contactInfo"}
+                  onClick={() => setSelectedTab("contactInfo")}
                 >
-                  <table
-                    className="table"
-                    style={{
-                      boxSizing: "border-box",
-                      borderCollapse: "collapse",
-                      width: "667.328px",
-                      marginBottom: "1rem",
-                      color: "rgb(33, 37, 41)",
-                    }}
-                  >
-                    <tbody style={{ boxSizing: "border-box" }}>
-                      <tr style={{ boxSizing: "border-box" }}>
-                        <td
-                          style={{
-                            boxSizing: "border-box",
-                            padding: "0.75rem",
-                            borderTop: "1px solid rgb(222, 226, 230)",
-                          }}
-                        >
-                          Contact No
-                        </td>
-                        <td
-                          style={{
-                            boxSizing: "border-box",
-                            padding: "0.75rem",
-                            borderTop: "1px solid rgb(222, 226, 230)",
-                          }}
-                        >
-                          9390219693 / 8985689693
-                        </td>
-                      </tr>
-                      <tr style={{ boxSizing: "border-box" }}>
-                        <td
-                          style={{
-                            boxSizing: "border-box",
-                            padding: "0.75rem",
-                            borderTop: "1px solid rgb(222, 226, 230)",
-                          }}
-                        >
-                          Contact Person
-                        </td>
-                        <td
-                          style={{
-                            boxSizing: "border-box",
-                            padding: "0.75rem",
-                            borderTop: "1px solid rgb(222, 226, 230)",
-                          }}
-                        >
-                          Sunil Sharma
-                        </td>
-                      </tr>
-                      <tr style={{ boxSizing: "border-box" }}>
-                        <td
-                          style={{
-                            boxSizing: "border-box",
-                            padding: "0.75rem",
-                            borderTop: "1px solid rgb(222, 226, 230)",
-                          }}
-                        >
-                          Owner KYC
-                        </td>
-                        <td
-                          style={{
-                            boxSizing: "border-box",
-                            padding: "0.75rem",
-                            borderTop: "1px solid rgb(222, 226, 230)",
-                          }}
-                        >
-                          N/A
-                        </td>
-                      </tr>
-                      <tr style={{ boxSizing: "border-box" }}>
-                        <td
-                          style={{
-                            boxSizing: "border-box",
-                            padding: "0.75rem",
-                            borderTop: "1px solid rgb(222, 226, 230)",
-                          }}
-                        >
-                          Store Email
-                        </td>
-                        <td
-                          style={{
-                            boxSizing: "border-box",
-                            padding: "0.75rem",
-                            borderTop: "1px solid rgb(222, 226, 230)",
-                          }}
-                        >
-                          kanhajirestaurant1@gmail.com
-                        </td>
-                      </tr>
-                      <tr style={{ boxSizing: "border-box" }}>
-                        <td
-                          style={{
-                            boxSizing: "border-box",
-                            padding: "0.75rem",
-                            borderTop: "1px solid rgb(222, 226, 230)",
-                          }}
-                        >
-                          Address
-                        </td>
-                        <td
-                          style={{
-                            boxSizing: "border-box",
-                            padding: "0.75rem",
-                            borderTop: "1px solid rgb(222, 226, 230)",
-                          }}
-                        >
-                          Visakhapatnam
-                        </td>
-                      </tr>
-                      <tr style={{ boxSizing: "border-box" }}>
-                        <td
-                          style={{
-                            boxSizing: "border-box",
-                            padding: "0.75rem",
-                            borderTop: "1px solid rgb(222, 226, 230)",
-                          }}
-                        >
-                          Owner Details
-                        </td>
-                        <td
-                          style={{
-                            boxSizing: "border-box",
-                            padding: "0.75rem",
-                            borderTop: "1px solid rgb(222, 226, 230)",
-                          }}
-                        >
-                          <strong
-                            style={{
-                              boxSizing: "border-box",
-                              fontWeight: "bolder",
-                            }}
-                          >
-                            Manju Sharma
-                          </strong>
-                          <span>&nbsp;</span>/ kanhajirestaurant1@gmail.com /
-                          9390219693
-                        </td>
-                      </tr>
-                      <tr style={{ boxSizing: "border-box" }}>
-                        <td
-                          style={{
-                            boxSizing: "border-box",
-                            padding: "0.75rem",
-                            borderTop: "1px solid rgb(222, 226, 230)",
-                          }}
-                        >
-                          Bank Details
-                        </td>
-                        <td
-                          style={{
-                            boxSizing: "border-box",
-                            padding: "0.75rem",
-                            borderTop: "1px solid rgb(222, 226, 230)",
-                          }}
-                        >
-                          A/C Name: ; A/C No. ; IFSC Code: ; Bank Name &amp;
-                          Branch -
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
+                  Contact Info.
+                </TabSelect>
+                <TabSelect
+                  isActive={selectedTab === "irctData"}
+                  onClick={() => setSelectedTab("irctData")}
+                >
+                  IRCTC Data
+                </TabSelect>
+                <TabSelect
+                  isActive={selectedTab === "ratings"}
+                  onClick={() => setSelectedTab("ratings")}
+                >
+                  Ratings
+                </TabSelect>
+                <TabSelect
+                  isActive={selectedTab === "notification"}
+                  onClick={() => setSelectedTab("notification")}
+                >
+                  Notifications Preference
+                </TabSelect>
+              </nav>
+              <div className="p-2">
+                <TabPanel hidden={selectedTab !== "contactInfo"}>
+                  <ContactInfo />
+                </TabPanel>
+                <TabPanel hidden={selectedTab !== "irctData"}>
+                  Wallet Transaction
+                </TabPanel>
+                <TabPanel hidden={selectedTab !== "ratings"}>
+                  Delivery Boys
+                </TabPanel>
+                <TabPanel hidden={selectedTab !== "notification"}>
+                  Store Activities
+                </TabPanel>
               </div>
             </div>
           </div>
