@@ -4,8 +4,14 @@ import GridTable from "./components/GridTable";
 import Button from "../../common-components/Button";
 import { FaDownload, FaEye, FaInfo, FaPen, FaPenAlt } from "react-icons/fa";
 import { TbToolsKitchen3 } from "react-icons/tb";
+import { useNavigate } from "react-router-dom";
 function Restaurant() {
   const [activeState, setActiveState] = useState("15");
+  const navigate = useNavigate();
+
+  const handleRestaurantDetails = () => {
+    navigate("/view-resturant");
+  };
   const tableData = [
     {
       id: 1,
@@ -271,7 +277,11 @@ function Restaurant() {
                   </div>
                   <div className="w-[150px] flex items-center h-9">
                     <div className="flex gap-2 flex-wrap text-black">
-                      <button type="button" className="p-0">
+                      <button
+                        type="button"
+                        className="p-0"
+                        onClick={handleRestaurantDetails}
+                      >
                         <FaEye className="text-blue-500 text-lg" />
                       </button>
                       <button type="button" className="p-0">

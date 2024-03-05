@@ -26,6 +26,7 @@ import Category from "./pages/setting/category/Category";
 import Enquiry from "./pages/enquiry/Enquiry";
 import KeyWord from "./pages/enquiry/serachkeyword/KeyWord";
 import VendorList from "./pages/vendorlist/VendorList";
+import ViewResturant from "./pages/Restaurant/View/ViewResturant";
 function App() {
   const location = useLocation();
   const { pathname } = location;
@@ -42,6 +43,7 @@ function App() {
             <Route path="/orders" element={<Orders />} />
             <Route path="/complaints" element={<Complaints />} />
             <Route path="/restaurant" element={<Restaurant />} />
+            <Route path="/view-resturant" element={<ViewResturant/>}/>
             <Route path="/food-menu" element={<FoodMenu />} />
             <Route path="/add-train" element={<AddTrain />} />
             <Route path="/today-orders" element={<TodayOrders />} />
