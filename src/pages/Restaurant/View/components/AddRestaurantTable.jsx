@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { getResturantFoodMenuService } from "../../services/restaurantservice";
 import Paginate from "../../../../common-components/Paginate";
 import axiosInstance from "../../../../api-config/axiosinstance";
 
@@ -9,19 +8,24 @@ const AddRestaurant_Table = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
   const [loading, setLoading] = useState(true);
-  const fetchFoodMenuList = async (pageNumber, name) => {
+  const [category, setCategory] = useState();
+  const [foodName, setFoodName] = useState();
+
+  const fetchFoodMenuList = async (pageNumber, name, foodName, category) => {
     const response = await axiosInstance.get(`/getFoodMenu`, {
       params: {
         page: pageNumber - 1,
         limit: itemsPerPage,
         resturant_id: name,
+        food_name: foodName,
+        category_name: category,
       },
     });
     console.log("response", response);
     if (response?.data?.success) {
       setLoading(false);
       const foodMenuList = response?.data?.data;
-      console.log("foodMenuList",foodMenuList);
+      console.log("foodMenuList", foodMenuList);
       setFoodMenu(foodMenuList?.foods);
       setTotalFoodListCount(foodMenuList?.totalCount);
     }
@@ -29,18 +33,50 @@ const AddRestaurant_Table = () => {
   const handlePageChange = (pageNumber) => {
     console.log("pageNumber", pageNumber);
     setCurrentPage(pageNumber);
-    fetchFoodMenuList(pageNumber, "ttiU58");
+    fetchFoodMenuList(pageNumber, "ttiU58", foodName, category);
 
     // console.log("Page changed to:", pageNumber);
   };
   useEffect(() => {
-    fetchFoodMenuList(currentPage, "ttiU58");
+    fetchFoodMenuList(currentPage, "ttiU58", foodName, category);
   }, []);
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
   const totalPages = Math.ceil(totalFoodListCount / itemsPerPage);
+
+  //search Filter
+  const setSearchByFoodNameEvent = async (e) => {
+    setFoodName(e.target.value);
+    try {
+      fetchFoodMenuList(1, "ttiU58", foodName, category);
+    } catch (error) {
+      console.error("Error While Geetting Train search", error);
+    }
+  };
+
+  const setSearchByCategoryEvent = async (e) => {
+    setCategory(e.target.value);
+    try {
+      fetchFoodMenuList(1, "ttiU58", foodName, category);
+    } catch (error) {
+      console.error("Error While Geetting Train search", error);
+    }
+  };
   return (
     <div className="h-full w-full bg-white flex flex-col justify-start overflow-hidden">
+      <div className=" flex justify-end items-center p-5">
+        <p className="text-[14px]">Search By Food Name: </p>
+        <input
+          type="text"
+          className="border-[1px] bg-white border-[#aaa] ml-2 h-7"
+          onChange={(e) => setSearchByFoodNameEvent(e)}
+        />
+        <p className="text-[14px] ml-5">Search By Category: </p>
+        <input
+          type="text"
+          className="border-[1px] bg-white border-[#aaa] ml-2 h-7"
+          onChange={(e) => setSearchByCategoryEvent(e)}
+        />
+      </div>
+
       <div className="overflow-y-auto  overflow-visible h-fit">
         <div className="overflow-x-auto  w-full h-fit ">
           <div className="flex flex-col w-fit h-fit px-8">
@@ -97,7 +133,7 @@ const AddRestaurant_Table = () => {
                   </div>
                   <div className="w-[130px] flex items-center h-9">
                     <input type="checkbox"></input>
-                    <img src={data?.image} alt=""/>
+                    <img src={data?.image} alt="" />
                   </div>
                   <div className="w-[130px] flex items-center h-9">
                     <p className="text-[15px] text-black">{data?.food_name}</p>
