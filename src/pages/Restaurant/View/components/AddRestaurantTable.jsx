@@ -5,8 +5,7 @@ import axiosInstance from "../../../../api-config/axiosinstance";
 
 const AddRestaurant_Table = () => {
   const [foodMenu, setFoodMenu] = useState([]);
-  const [trainList, setTrainList] = useState();
-  const [totalTrainListCount, setTotalTrainListCount] = useState(0);
+  const [totalFoodListCount, setTotalFoodListCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
   const [loading, setLoading] = useState(true);
@@ -23,23 +22,22 @@ const AddRestaurant_Table = () => {
       setLoading(false);
       const foodMenuList = response?.data?.data;
       setFoodMenu(foodMenuList?.foods);
-      setTotalTrainListCount(foodMenuList?.totalCount);
+      setTotalFoodListCount(foodMenuList?.totalCount);
     }
   };
   const handlePageChange = (pageNumber) => {
     console.log("pageNumber", pageNumber);
     setCurrentPage(pageNumber);
-    fetchTrainList(pageNumber, "");
+    fetchFoodMenuList(pageNumber, "");
 
     // console.log("Page changed to:", pageNumber);
   };
   useEffect(() => {
-    fetchTrainList(currentPage, "ttiU58");
+    fetchFoodMenuList(currentPage, "ttiU58");
   }, []);
   const startIndex = (currentPage - 1) * 100;
   const endIndex = startIndex + 100;
-  console.log("trainList", trainList);
-  const totalPages = Math.ceil(totalTrainListCount / 100);
+  const totalPages = Math.ceil(totalFoodListCount / 100);
   return (
     <div className="h-full w-full bg-white flex flex-col justify-start overflow-hidden">
       <div className="overflow-y-auto  overflow-visible h-fit">
