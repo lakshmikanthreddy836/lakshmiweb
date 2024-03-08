@@ -42,4 +42,18 @@ const getResturantFoodMenuService = async (restaurantId) => {
   }
 };
 
-export { getResturantInfoService, getResturantFoodMenuService };
+async function csvUploadservice(formData) {
+  try {
+    const response = await axiosInstance.post(`/importFoodMenu`, formData);
+
+    return response;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+}
+
+export {
+  getResturantInfoService,
+  getResturantFoodMenuService,
+  csvUploadservice,
+};

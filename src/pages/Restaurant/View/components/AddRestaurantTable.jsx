@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Paginate from "../../../../common-components/Paginate";
 import axiosInstance from "../../../../api-config/axiosinstance";
+import { useNavigate } from "react-router";
 
 const AddRestaurant_Table = () => {
   const [foodMenu, setFoodMenu] = useState([]);
@@ -10,6 +11,7 @@ const AddRestaurant_Table = () => {
   const [loading, setLoading] = useState(true);
   const [category, setCategory] = useState();
   const [foodName, setFoodName] = useState();
+  const navigate = useNavigate();
 
   const fetchFoodMenuList = async (pageNumber, name, foodName, category) => {
     const response = await axiosInstance.get(`/getFoodMenu`, {
@@ -60,6 +62,10 @@ const AddRestaurant_Table = () => {
       console.error("Error While Geetting Train search", error);
     }
   };
+
+  const importRestaurant = () => {
+    navigate("/importRestaurant");
+  };
   return (
     <div className="h-full w-full bg-white flex flex-col justify-start overflow-hidden">
       <div className=" flex justify-end items-center p-5">
@@ -75,6 +81,15 @@ const AddRestaurant_Table = () => {
           className="border-[1px] bg-white border-[#aaa] ml-2 h-7"
           onChange={(e) => setSearchByCategoryEvent(e)}
         />
+
+        <div className="ml-5">
+          <button
+            onClick={importRestaurant}
+            className="bg-red-500 p-2 text-white"
+          >
+            Upload CVG
+          </button>
+        </div>
       </div>
 
       <div className="overflow-y-auto  overflow-visible h-fit">
