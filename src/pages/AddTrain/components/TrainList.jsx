@@ -75,7 +75,10 @@ const TrainList = () => {
           ) : (
             <div>
               {trainList?.map((data, index) => (
-                <div className="flex items-center w-full border-b-[1.5px] border-gray-300 h-12">
+                <div
+                  key={index}
+                  className="flex items-center w-full border-b-[1.5px] border-gray-300 h-12"
+                >
                   <div className="w-[10%]">
                     <p className="font-medium text-[15px]">{data?.id}</p>
                   </div>

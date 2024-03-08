@@ -1,155 +1,45 @@
-import { useState } from "react";
-import { FaDownload, FaEye, FaInfo, FaPen, FaPenAlt } from "react-icons/fa";
-import { TbToolsKitchen3 } from "react-icons/tb";
+import { useEffect, useState } from "react";
+import { getResturantFoodMenuService } from "../../services/restaurantservice";
+import Paginate from "../../../../common-components/Paginate";
+import axiosInstance from "../../../../api-config/axiosinstance";
 
 const AddRestaurant_Table = () => {
-  const [activeState, setActiveState] = useState("15");
-  const tableData = [
-    {
-      id: 1,
-      name: "Las Cruces International Airport",
-      opening_time: "6/17/2023",
-      closing_time: "4/18/2023",
-      station: "Calabozo Airport",
-      min_order: 42,
-      item_no: "8",
-      status: true,
-      join_date: "6/11/2023",
-      action: false,
-    },
-    {
-      id: 2,
-      name: "Kristiansund Airport (Kvernberget)",
-      opening_time: "3/5/2023",
-      closing_time: "12/4/2023",
-      station: "Beatrice Municipal Airport",
-      min_order: 74,
-      item_no: "7",
-      status: true,
-      join_date: "6/17/2023",
-      action: false,
-    },
-    {
-      id: 3,
-      name: "Everett-Stewart Regional Airport",
-      opening_time: "8/29/2023",
-      closing_time: "8/26/2023",
-      station: "April Point Seaplane Base",
-      min_order: 80,
-      item_no: "8",
-      status: false,
-      join_date: "10/1/2023",
-      action: false,
-    },
-    {
-      id: 4,
-      name: "JAGS McCartney International Airport",
-      opening_time: "9/13/2023",
-      closing_time: "11/6/2023",
-      station: "Thornhill Air Base",
-      min_order: 48,
-      item_no: "9",
-      status: true,
-      join_date: "6/3/2023",
-      action: false,
-    },
-    {
-      id: 5,
-      name: "Chiquimula Airport",
-      opening_time: "7/10/2023",
-      closing_time: "3/10/2023",
-      station: "Quthing Airport",
-      min_order: 60,
-      item_no: "3",
-      status: true,
-      join_date: "10/9/2023",
-      action: true,
-    },
-    {
-      id: 6,
-      name: "Geneina Airport",
-      opening_time: "12/13/2023",
-      closing_time: "11/23/2023",
-      station: "General Francisco J. Mujica International Airport",
-      min_order: 36,
-      item_no: "4",
-      status: true,
-      join_date: "11/17/2023",
-      action: true,
-    },
-    {
-      id: 7,
-      name: "Marana Regional Airport",
-      opening_time: "5/25/2023",
-      closing_time: "11/18/2023",
-      station: "Tiksi Airport",
-      min_order: 75,
-      item_no: "5",
-      status: false,
-      join_date: "9/29/2023",
-      action: true,
-    },
-    {
-      id: 8,
-      name: "Solovki Airport",
-      opening_time: "9/27/2023",
-      closing_time: "2/12/2023",
-      station: "Addison Airport",
-      min_order: 61,
-      item_no: "6",
-      status: true,
-      join_date: "9/10/2023",
-      action: false,
-    },
-    {
-      id: 9,
-      name: "Aalborg Airport",
-      opening_time: "5/26/2023",
-      closing_time: "5/30/2023",
-      station: "Xingning Airport",
-      min_order: 54,
-      item_no: "7",
-      status: true,
-      join_date: "12/21/2023",
-      action: false,
-    },
-    {
-      id: 10,
-      name: "German Olano Airport",
-      opening_time: "12/20/2023",
-      closing_time: "3/12/2023",
-      station: "Wuvulu Island Airport",
-      min_order: 24,
-      item_no: "8",
-      status: false,
-      join_date: "10/8/2023",
-      action: true,
-    },
-    {
-      id: 11,
-      name: "Fuvahmulah Airport",
-      opening_time: "6/18/2023",
-      closing_time: "10/11/2023",
-      station: "Roanne-Renaison Airport",
-      min_order: 61,
-      item_no: "0",
-      status: false,
-      join_date: "6/9/2023",
-      action: true,
-    },
-    {
-      id: 12,
-      name: "Kaédi Airport",
-      opening_time: "1/6/2024",
-      closing_time: "1/4/2024",
-      station: "Rogue Valley International Medford Airport",
-      min_order: 3,
-      item_no: "7",
-      status: true,
-      join_date: "2/2/2024",
-      action: false,
-    },
-  ];
+  const [foodMenu, setFoodMenu] = useState([]);
+  const [trainList, setTrainList] = useState();
+  const [totalTrainListCount, setTotalTrainListCount] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5;
+  const [loading, setLoading] = useState(true);
+  const fetchTrainList = async (pageNumber, name) => {
+    const response = await axiosInstance.get(`/getFoodMenu`, {
+      params: {
+        page: pageNumber - 1,
+        limit: itemsPerPage,
+        resturant_id: name,
+      },
+    });
+    console.log("response", response);
+    if (response?.data?.success) {
+      setLoading(false);
+      const foodMenuList = response?.data?.data;
+      setFoodMenu(foodMenuList?.foods);
+      setTotalTrainListCount(foodMenuList?.totalCount);
+    }
+  };
+  const handlePageChange = (pageNumber) => {
+    console.log("pageNumber", pageNumber);
+    setCurrentPage(pageNumber);
+    fetchTrainList(pageNumber, "");
+
+    // console.log("Page changed to:", pageNumber);
+  };
+  useEffect(() => {
+    fetchTrainList(currentPage, "ttiU58");
+  }, []);
+  const startIndex = (currentPage - 1) * 100;
+  const endIndex = startIndex + 100;
+  console.log("trainList", trainList);
+  const totalPages = Math.ceil(totalTrainListCount / 100);
   return (
     <div className="h-full w-full bg-white flex flex-col justify-start overflow-hidden">
       <div className="overflow-y-auto  overflow-visible h-fit">
@@ -198,8 +88,11 @@ const AddRestaurant_Table = () => {
               </div>
             </div>
             <div className="flex flex-col">
-              {tableData?.map((data, index) => (
-                <div className="flex w-fit  h-[50px] items-center border-b-[1px] border-[#aaa]">
+              {foodMenu?.map((data, index) => (
+                <div
+                  key={index}
+                  className="flex w-fit  h-[50px] items-center border-b-[1px] border-[#aaa]"
+                >
                   <div className="w-[50px] flex items-center h-9">
                     <p className="text-[15px] text-black">{index + 1}</p>
                   </div>
@@ -207,7 +100,7 @@ const AddRestaurant_Table = () => {
                     <input type="checkbox"></input>
                   </div>
                   <div className="w-[130px] flex items-center h-9">
-                    <p className="text-[15px] text-black">NORTH INDIAN THALI</p>
+                    <p className="text-[15px] text-black">{data?.food_name}</p>
                   </div>
                   <div className="w-[130px] flex items-center h-9 ">
                     <button className="text-[15px] p-2 bg-green-500 rounded-full "></button>
@@ -215,8 +108,8 @@ const AddRestaurant_Table = () => {
                   <div className="w-[250px] flex items-center h-9">
                     <input
                       className="border p-1"
-                      defaultValue="NORTH INDIAN THALI"
-                    ></input>
+                      defaultValue={data?.food_name}
+                    />
                   </div>
                   <div className="w-[140px]  flex items-center h-9">
                     <div>
@@ -225,22 +118,37 @@ const AddRestaurant_Table = () => {
                         name="pricingType"
                         className="mt-1 ml-2 px-1 pr-10 h-8 bg-white border shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none text-[15px]"
                       >
-                        <option value="Thali">Thali</option>
-                        <option value="Combo">Combo</option>
+                        {/* {data?.categoryInfo.map((item, index) => ( */}
+                        <option value={data?.categoryInfo.category_name}>
+                          {data?.categoryInfo.category_name}
+                        </option>
+                        {/* ))} */}
                       </select>
                     </div>
                   </div>
                   <div className="w-[220px]  flex items-center h-10">
-                    <input className="border p-1 m-2"></input>
+                    <input
+                      className="border p-1 m-2"
+                      defaultValue={data?.food_discription}
+                    />
                   </div>
                   <div className="w-[100px] flex items-center h-9">
-                    <input className="border p-1 m-2"></input>
+                    <input
+                      className="border p-1 m-2"
+                      defaultValue={data?.cost_price}
+                    />
                   </div>
                   <div className="w-[100px] flex items-center h-9">
-                    <input className="border p-1 m-2"></input>
+                    <input
+                      className="border p-1 m-2"
+                      defaultValue={data?.percentage_increase}
+                    />
                   </div>
                   <div className="w-[100px] flex items-center h-9">
-                    <input className="border p-1 m-2"></input>
+                    <input
+                      className="border p-1 m-2"
+                      defaultValue={data?.selling_price}
+                    />
                   </div>
                   <div className="w-[150px] flex items-center h-9">
                     <div className="flex gap-2 flex-wrap text-black">
@@ -268,6 +176,22 @@ const AddRestaurant_Table = () => {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+
+        <div className="h-fit flex justify-between w-full items-center">
+          <div className="flex gap-1 items-center">
+            <p className="font-semibold text-[15px] text-black">
+              Total Records:
+            </p>
+            {/* <p className="text-[15px]">{totalItemCount}</p> */}
+          </div>
+          <div>
+            <Paginate
+              totalPages={totalPages}
+              currentPage={currentPage}
+              onPageChange={handlePageChange}
+            />
           </div>
         </div>
       </div>

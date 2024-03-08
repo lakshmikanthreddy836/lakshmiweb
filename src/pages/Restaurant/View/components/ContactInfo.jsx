@@ -1,4 +1,6 @@
-const ContactInfo = () => {
+const ContactInfo = (props) => {
+  const setData = props?.data2;
+  console.log("set data2", setData);
   return (
     <div className="tab-content" style={{ boxSizing: "border-box" }}>
       <div
@@ -39,7 +41,7 @@ const ContactInfo = () => {
                   borderTop: "1px solid rgb(222, 226, 230)",
                 }}
               >
-                9390219693 / 8985689693
+                {setData?.phone}
               </td>
             </tr>
             <tr style={{ boxSizing: "border-box" }}>
@@ -99,7 +101,7 @@ const ContactInfo = () => {
                   borderTop: "1px solid rgb(222, 226, 230)",
                 }}
               >
-                kanhajirestaurant1@gmail.com
+                {setData?.email}
               </td>
             </tr>
             <tr style={{ boxSizing: "border-box" }}>

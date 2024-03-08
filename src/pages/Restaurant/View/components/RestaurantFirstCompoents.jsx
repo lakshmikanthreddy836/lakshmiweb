@@ -2,13 +2,15 @@ import { TabPanel, useTabs } from "react-headless-tabs";
 import { TabSelect } from "./TabSelect";
 import ContactInfo from "./ContactInfo";
 
-const RestaurantFirstCompoents = () => {
+const RestaurantFirstCompoents = (props) => {
   const [selectedTab, setSelectedTab] = useTabs([
     "contactInfo",
     "irctData",
     "ratings",
     "notification",
   ]);
+  const setData = props?.data;
+  console.log("set data", setData);
   return (
     <div>
       <div className="mx-auto flex flex-row ">
@@ -879,7 +881,7 @@ const RestaurantFirstCompoents = () => {
               </nav>
               <div className="p-2">
                 <TabPanel hidden={selectedTab !== "contactInfo"}>
-                  <ContactInfo />
+                  <ContactInfo data2={setData?.resturant.userInfo} />
                 </TabPanel>
                 <TabPanel hidden={selectedTab !== "irctData"}>
                   Wallet Transaction
