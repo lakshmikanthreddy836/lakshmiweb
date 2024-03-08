@@ -10,7 +10,7 @@ const AddRestaurant_Table = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
   const [loading, setLoading] = useState(true);
-  const fetchTrainList = async (pageNumber, name) => {
+  const fetchFoodMenuList = async (pageNumber, name) => {
     const response = await axiosInstance.get(`/getFoodMenu`, {
       params: {
         page: pageNumber - 1,
