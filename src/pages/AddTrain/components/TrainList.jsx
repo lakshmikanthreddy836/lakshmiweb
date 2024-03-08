@@ -37,10 +37,10 @@ const TrainList = () => {
   useEffect(() => {
     fetchTrainList(currentPage, "POORVA");
   }, []);
-  const startIndex = (currentPage - 1) * 100;
-  const endIndex = startIndex + 100;
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
   console.log("trainList", trainList);
-  const totalPages = Math.ceil(totalTrainListCount / 100);
+  const totalPages = Math.ceil(totalTrainListCount / itemsPerPage);
 
   return (
     <div className="w-[95%] h-full mt-10">

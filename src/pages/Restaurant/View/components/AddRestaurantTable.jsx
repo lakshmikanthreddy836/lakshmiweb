@@ -21,6 +21,7 @@ const AddRestaurant_Table = () => {
     if (response?.data?.success) {
       setLoading(false);
       const foodMenuList = response?.data?.data;
+      console.log("foodMenuList",foodMenuList);
       setFoodMenu(foodMenuList?.foods);
       setTotalFoodListCount(foodMenuList?.totalCount);
     }
@@ -28,16 +29,16 @@ const AddRestaurant_Table = () => {
   const handlePageChange = (pageNumber) => {
     console.log("pageNumber", pageNumber);
     setCurrentPage(pageNumber);
-    fetchFoodMenuList(pageNumber, "");
+    fetchFoodMenuList(pageNumber, "ttiU58");
 
     // console.log("Page changed to:", pageNumber);
   };
   useEffect(() => {
     fetchFoodMenuList(currentPage, "ttiU58");
   }, []);
-  const startIndex = (currentPage - 1) * 100;
-  const endIndex = startIndex + 100;
-  const totalPages = Math.ceil(totalFoodListCount / 100);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const totalPages = Math.ceil(totalFoodListCount / itemsPerPage);
   return (
     <div className="h-full w-full bg-white flex flex-col justify-start overflow-hidden">
       <div className="overflow-y-auto  overflow-visible h-fit">
@@ -96,6 +97,7 @@ const AddRestaurant_Table = () => {
                   </div>
                   <div className="w-[130px] flex items-center h-9">
                     <input type="checkbox"></input>
+                    <img src={data?.image} alt=""/>
                   </div>
                   <div className="w-[130px] flex items-center h-9">
                     <p className="text-[15px] text-black">{data?.food_name}</p>
@@ -182,7 +184,7 @@ const AddRestaurant_Table = () => {
             <p className="font-semibold text-[15px] text-black">
               Total Records:
             </p>
-            {/* <p className="text-[15px]">{totalItemCount}</p> */}
+            <p className="text-[15px]">{totalFoodListCount}</p>
           </div>
           <div>
             <Paginate

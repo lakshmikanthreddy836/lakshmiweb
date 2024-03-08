@@ -238,7 +238,7 @@ function Restaurant() {
             </div>
             <div className="flex flex-col">
               {tableData?.map((data, index) => (
-                <div className="flex w-fit  h-[50px] items-center border-b-[1px] border-[#aaa]">
+                <div key= {data.resturant_id} className="flex w-fit  h-[50px] items-center border-b-[1px] border-[#aaa]">
                   <div className="w-[50px] flex items-center h-9">
                     <p className="text-[15px] text-black">{index + 1}</p>
                   </div>
