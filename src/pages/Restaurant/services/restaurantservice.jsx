@@ -61,7 +61,17 @@ async function categoryService() {
   }
 }
 
+async function upDateFood(formData) {
+  try {
+    const response = await axiosInstance.get(`/addAndUpdateFood`, formData);
+    return response;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+}
+
 export {
+  upDateFood,
   categoryService,
   getResturantInfoService,
   getResturantFoodMenuService,
