@@ -1,159 +1,17 @@
-import React, { useEffect, useState } from "react";
-import Title from "../../common-components/Title";
-import GridTable from "./components/GridTable";
-import Button from "../../common-components/Button";
-import { FaDownload, FaEye, FaInfo, FaPen, FaPenAlt } from "react-icons/fa";
+import { useEffect, useState } from "react";
+import { FaDownload, FaEye, FaInfo, FaPenAlt } from "react-icons/fa";
 import { TbToolsKitchen3 } from "react-icons/tb";
 import { RestaurantDetails } from "../../Services/RestaurantDetails";
 import AnimateLoader from "../../common-components/AnimateLoader";
+import { useNavigate } from "react-router-dom";
 function Restaurant() {
-  const [activeState, setActiveState] = useState("15");
-  const tableData = [
-    {
-      id: 1,
-      name: "Las Cruces International Airport",
-      opening_time: "6/17/2023",
-      closing_time: "4/18/2023",
-      station: "Calabozo Airport",
-      min_order: 42,
-      item_no: "8",
-      status: true,
-      join_date: "6/11/2023",
-      action: false,
-    },
-    {
-      id: 2,
-      name: "Kristiansund Airport (Kvernberget)",
-      opening_time: "3/5/2023",
-      closing_time: "12/4/2023",
-      station: "Beatrice Municipal Airport",
-      min_order: 74,
-      item_no: "7",
-      status: true,
-      join_date: "6/17/2023",
-      action: false,
-    },
-    {
-      id: 3,
-      name: "Everett-Stewart Regional Airport",
-      opening_time: "8/29/2023",
-      closing_time: "8/26/2023",
-      station: "April Point Seaplane Base",
-      min_order: 80,
-      item_no: "8",
-      status: false,
-      join_date: "10/1/2023",
-      action: false,
-    },
-    {
-      id: 4,
-      name: "JAGS McCartney International Airport",
-      opening_time: "9/13/2023",
-      closing_time: "11/6/2023",
-      station: "Thornhill Air Base",
-      min_order: 48,
-      item_no: "9",
-      status: true,
-      join_date: "6/3/2023",
-      action: false,
-    },
-    {
-      id: 5,
-      name: "Chiquimula Airport",
-      opening_time: "7/10/2023",
-      closing_time: "3/10/2023",
-      station: "Quthing Airport",
-      min_order: 60,
-      item_no: "3",
-      status: true,
-      join_date: "10/9/2023",
-      action: true,
-    },
-    {
-      id: 6,
-      name: "Geneina Airport",
-      opening_time: "12/13/2023",
-      closing_time: "11/23/2023",
-      station: "General Francisco J. Mujica International Airport",
-      min_order: 36,
-      item_no: "4",
-      status: true,
-      join_date: "11/17/2023",
-      action: true,
-    },
-    {
-      id: 7,
-      name: "Marana Regional Airport",
-      opening_time: "5/25/2023",
-      closing_time: "11/18/2023",
-      station: "Tiksi Airport",
-      min_order: 75,
-      item_no: "5",
-      status: false,
-      join_date: "9/29/2023",
-      action: true,
-    },
-    {
-      id: 8,
-      name: "Solovki Airport",
-      opening_time: "9/27/2023",
-      closing_time: "2/12/2023",
-      station: "Addison Airport",
-      min_order: 61,
-      item_no: "6",
-      status: true,
-      join_date: "9/10/2023",
-      action: false,
-    },
-    {
-      id: 9,
-      name: "Aalborg Airport",
-      opening_time: "5/26/2023",
-      closing_time: "5/30/2023",
-      station: "Xingning Airport",
-      min_order: 54,
-      item_no: "7",
-      status: true,
-      join_date: "12/21/2023",
-      action: false,
-    },
-    {
-      id: 10,
-      name: "German Olano Airport",
-      opening_time: "12/20/2023",
-      closing_time: "3/12/2023",
-      station: "Wuvulu Island Airport",
-      min_order: 24,
-      item_no: "8",
-      status: false,
-      join_date: "10/8/2023",
-      action: true,
-    },
-    {
-      id: 11,
-      name: "Fuvahmulah Airport",
-      opening_time: "6/18/2023",
-      closing_time: "10/11/2023",
-      station: "Roanne-Renaison Airport",
-      min_order: 61,
-      item_no: "0",
-      status: false,
-      join_date: "6/9/2023",
-      action: true,
-    },
-    {
-      id: 12,
-      name: "Kaédi Airport",
-      opening_time: "1/6/2024",
-      closing_time: "1/4/2024",
-      station: "Rogue Valley International Medford Airport",
-      min_order: 3,
-      item_no: "7",
-      status: true,
-      join_date: "2/2/2024",
-      action: false,
-    },
-  ];
+  const [activeState, setActiveState] = useState(0);
+  const navigate = useNavigate();
+
+  const handleRestaurantDetails = (rest_id) => {
+    navigate(`/view-resturant?res_id=${rest_id}`);
+  };
+  
   const [restaurantDetails, setRestaurantDetails] = useState();
   const [loading, setLoading] = useState(true);
   const fetchRestaurantDetails = async () => {
@@ -167,6 +25,7 @@ function Restaurant() {
       setLoading(false);
       const restaurant_details = response?.data?.data;
       setRestaurantDetails(restaurant_details?.resturants);
+      setActiveState(restaurant_details?.totalActiveCount);
       // setTotalTrainListCount(trainListArray?.totalCount);
     }
     // console.log("result is", result);
@@ -309,7 +168,7 @@ function Restaurant() {
                     </div>
                     <div className="w-[150px] flex items-center h-9">
                       <div className="flex gap-2 flex-wrap text-black">
-                        <button type="button" className="p-0">
+                        <button type="button" className="p-0" onClick={() => handleRestaurantDetails(data.resturant_id)}>
                           <FaEye className="text-blue-500 text-lg" />
                         </button>
                         <button type="button" className="p-0">

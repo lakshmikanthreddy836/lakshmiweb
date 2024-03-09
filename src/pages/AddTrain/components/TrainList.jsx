@@ -38,20 +38,16 @@ const TrainList = () => {
     }
   };
   const handlePageChange = (pageNumber) => {
-    console.log("pageNumber", pageNumber);
     setCurrentPage(pageNumber);
     fetchTrainList(pageNumber, "");
 
-    // console.log("Page changed to:", pageNumber);
   };
   useEffect(() => {
     fetchTrainList(currentPage);
   }, []);
-
-  const startIndex = (currentPage - 1) * 100;
-  const endIndex = startIndex + 100;
-  console.log("trainList", trainList);
-  const totalPages = Math.ceil(totalTrainListCount / 100);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const totalPages = Math.ceil(totalTrainListCount / itemsPerPage);
 
   //Delete train Functionality
   const handleDeleteTrain = (id) => {
