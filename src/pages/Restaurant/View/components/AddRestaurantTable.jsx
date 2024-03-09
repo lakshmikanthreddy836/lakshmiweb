@@ -13,6 +13,11 @@ const AddRestaurant_Table = (props) => {
   const [foodName, setFoodName] = useState();
   const navigate = useNavigate();
 
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const rest_id = queryParams.get("res_id");
+  console.log("rest_id", rest_id);
+
   const setData = props?.data2;
   console.log("category pass", setData);
 
@@ -38,12 +43,12 @@ const AddRestaurant_Table = (props) => {
   const handlePageChange = (pageNumber) => {
     console.log("pageNumber", pageNumber);
     setCurrentPage(pageNumber);
-    fetchFoodMenuList(pageNumber, "ttiU58", foodName, category);
+    fetchFoodMenuList(pageNumber, rest_id, foodName, category);
 
     // console.log("Page changed to:", pageNumber);
   };
   useEffect(() => {
-    fetchFoodMenuList(currentPage, "ttiU58", foodName, category);
+    fetchFoodMenuList(currentPage, rest_id, foodName, category);
   }, []);
   const totalPages = Math.ceil(totalFoodListCount / itemsPerPage);
 
@@ -51,7 +56,7 @@ const AddRestaurant_Table = (props) => {
   const setSearchByFoodNameEvent = async (e) => {
     setFoodName(e.target.value);
     try {
-      fetchFoodMenuList(1, "ttiU58", foodName, category);
+      fetchFoodMenuList(1, rest_id, foodName, category);
     } catch (error) {
       console.error("Error While Geetting Train search", error);
     }
@@ -60,10 +65,37 @@ const AddRestaurant_Table = (props) => {
   const setSearchByCategoryEvent = async (e) => {
     setCategory(e.target.value);
     try {
-      fetchFoodMenuList(1, "ttiU58", foodName, category);
+      fetchFoodMenuList(1, rest_id, foodName, category);
     } catch (error) {
       console.error("Error While Geetting Train search", error);
     }
+  };
+
+  const handleUpdate = async (data) => {
+    console.log("update data", data);
+    const formData = new FormData();
+    formData.append("food_image", data?.image);
+    formData.append("category_id", data?.category_id);
+    formData.append("resturant_id", data?.resturant_id);
+    formData.append("food_name", data?.food_name);
+    formData.append("food_discription", data?.food_discription);
+    formData.append("available_from", data?.available_from);
+    formData.append("available_to", data?.available_to);
+    formData.append("food_type", data?.food_type);
+    formData.append("cost_price", data?.cost_price);
+    formData.append("percentage_increase", data?.percentage_increase);
+    formData.append("selling_price", data?.selling_price);
+    console.log("Food Menu ", formData);
+    try {
+      const response = await upDateFood(formData);
+      console.log("Food Menu Updated", response);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  const handleAddFood = () => {
+    navigate(`/add-food?rest_id=${rest_id}`);
   };
 
   const importRestaurant = () => {
@@ -91,6 +123,11 @@ const AddRestaurant_Table = (props) => {
             className="bg-red-500 p-2 text-white"
           >
             Upload CVG
+          </button>
+        </div>
+        <div className="ml-5">
+          <button onClick={handleAddFood} className="bg-red-500 p-2 text-white">
+            Add Food Menu
           </button>
         </div>
       </div>
@@ -208,6 +245,7 @@ const AddRestaurant_Table = (props) => {
                   <div className="w-[150px] flex items-center h-9">
                     <div className="flex gap-2 flex-wrap text-black">
                       <button
+                        onClick={() => handleUpdate(data)}
                         type="button"
                         className=" bg-green-500 p-2 text-white rounded"
                       >
