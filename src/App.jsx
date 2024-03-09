@@ -35,6 +35,8 @@ import ImportTrain from "./pages/AddTrain/components/ImportTrain";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import ViewResturant from "./pages/Restaurant/View/ViewResturant";
 import ImportRestaurant from "./pages/Restaurant/View/components/UploadRestaurant";
+
+
 function App() {
   const location = useLocation();
   const { pathname } = location;

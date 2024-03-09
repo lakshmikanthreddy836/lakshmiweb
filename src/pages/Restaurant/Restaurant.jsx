@@ -1,25 +1,35 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { FaDownload, FaEye, FaInfo, FaPenAlt } from "react-icons/fa";
 import { TbToolsKitchen3 } from "react-icons/tb";
 import { RestaurantDetails } from "../../Services/RestaurantDetails";
 import AnimateLoader from "../../common-components/AnimateLoader";
 import { useNavigate } from "react-router-dom";
-import AnimateLoader from "../../common-components/AnimateLoader";
-import { RestaurantDetails } from "../../Services/RestaurantDetails";
+import { debounce } from "../../utils/commonFunc";
+// import AnimateLoader from "../../common-components/AnimateLoader";
+// import { RestaurantDetails } from "../../Services/RestaurantDetails";
+
+
 function Restaurant() {
-  const [activeState, setActiveState] = useState(0);
   const navigate = useNavigate();
+
+  const [activeState, setActiveState] = useState(0);
+  const [restaurantDetails, setRestaurantDetails] = useState();
+  const [loading, setLoading] = useState(true);
+  const [filterData, setFilterData] = useState({ pageCount: 10, resturantSearch: "" })
+
+  useEffect(() => {
+    fetchRestaurantDetails();
+  }, []);
 
   const handleRestaurantDetails = (rest_id) => {
     navigate(`/view-resturant?res_id=${rest_id}`);
   };
-  const [restaurantDetails, setRestaurantDetails] = useState();
-  const [loading, setLoading] = useState(true);
-  const fetchRestaurantDetails = async () => {
+
+  const fetchRestaurantDetails = async (updatedFilters) => {
     const payload = {
       page: 0,
-      limit: "",
-      filter: "",
+      limit: updatedFilters?.pageCount || "",
+      filter: updatedFilters?.resturantSearch || "",
     };
     const response = await RestaurantDetails(payload);
     if (response?.data?.success) {
@@ -31,9 +41,7 @@ function Restaurant() {
     }
     // console.log("result is", result);
   };
-  useEffect(() => {
-    fetchRestaurantDetails();
-  }, []);
+
   const dateTimeFormat = (dateTime) => {
     const dateString = dateTime;
     const date = new Date(dateString);
@@ -45,7 +53,23 @@ function Restaurant() {
     const formattedDate = `${day}/${month}/${year}`;
     return formattedDate;
   };
-  console.log("restaurantDetails", restaurantDetails);
+
+  const debounceFn = useMemo(() => debounce((updatedFilters) => {
+    //Hit Api after all seach is Done
+    fetchRestaurantDetails(updatedFilters)
+  }, 500), []);
+
+  const handleChangePageCountSearch = (e) => {
+    const { name, value } = e.target;
+
+    let updatedFilters = { ...filterData }
+    updatedFilters = { ...updatedFilters, [name]: value }
+    setFilterData(updatedFilters)
+    setLoading(true)
+
+    debounceFn(updatedFilters)
+  }
+
   return (
     <div className="h-full w-full bg-white flex flex-col justify-start overflow-hidden">
       <div className="overflow-y-auto p-3 overflow-visible h-fit">
@@ -63,8 +87,10 @@ function Restaurant() {
             <div>
               <select
                 id="pricingType"
-                name="pricingType"
+                name="pageCount"
+                value={filterData.pageCount}
                 className="mt-1 ml-2 px-1 h-8 bg-white border shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none  rounded-md text-[15px]"
+                onChange={handleChangePageCountSearch}
               >
                 <option value="10">10</option>
                 <option value="25">25</option>
@@ -79,6 +105,9 @@ function Restaurant() {
             <input
               type="text"
               className="bg-white text-black pl-2 border-[1px] border-[#aaa] ml-1 h-8 focus:outline-none"
+              onChange={handleChangePageCountSearch}
+              value={filterData.resturantSearch || ""}
+              name="resturantSearch"
             />
           </div>
         </div>
@@ -123,7 +152,7 @@ function Restaurant() {
                 <AnimateLoader count={3} />
               ) : (
                 restaurantDetails?.map((data, index) => (
-                  <div key = {data.resturant_id} className="flex w-fit  h-[50px] items-center border-b-[1px] border-[#aaa]">
+                  <div key={data.resturant_id} className="flex w-fit  h-[50px] items-center border-b-[1px] border-[#aaa]">
                     <div className="w-[50px] flex items-center h-9">
                       <p className="text-[15px] text-black">{index + 1}</p>
                     </div>

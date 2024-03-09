@@ -7,13 +7,15 @@ import { useLocation } from "react-router";
 const ViewResturant = () => {
   const [restaurantInfo, setRestaurantInfo] = useState();
   const location = useLocation();
+
   const queryParams = new URLSearchParams(location.search);
   const rest_id = queryParams.get("res_id");
-  console.log("rest_id", rest_id);
+
   useEffect(() => {
     window.scrollTo(0, 0);
     getRestaurant();
   }, []);
+  
   const getRestaurant = async () => {
     try {
       const response = await getResturantInfoService(rest_id);

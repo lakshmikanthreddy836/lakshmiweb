@@ -10,7 +10,7 @@ const   RestaurantFirstCompoents = (props) => {
     "notification",
   ]);
   const resturantInfo = props?.data;
-  console.log("RestaurantFirstCompoents",resturantInfo);
+
   return (
     <div>
       <div className="mx-auto flex flex-row ">

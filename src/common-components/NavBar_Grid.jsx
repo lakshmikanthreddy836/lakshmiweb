@@ -1,6 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const NavBar_Grid = () => {
+  const navigate = useNavigate();
+
+  const goback = () => {
+    navigate(-1);
+  }
+
   return (
     // <div className="bg-[#ffd4ce] text-sm text-gray-500 leading-none border-2 border-gray-200  inline-flex">
     //   <div className=" text-white h-12 w-full">Nav bar</div>
@@ -9,7 +15,7 @@ const NavBar_Grid = () => {
 
     <header className="lg:px-8 px-2 bg-[#ffd4ce] flex flex-wrap items-center  shadow-md">
       <div className="flex-1 flex justify-between items-center">
-        <a href="#" className="text-[14px]">
+        <a href="javascript:void(0);" className="text-[14px]" onClick={() => { goback() }}>
           back
         </a>
       </div>
