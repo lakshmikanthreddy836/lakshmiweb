@@ -1,6 +1,8 @@
 import { TabPanel, useTabs } from "react-headless-tabs";
 import { TabSelector } from "./TabSelector";
 import AddRestaurant_Table from "./AddRestaurantTable";
+import { useEffect, useState } from "react";
+import { categoryService } from "../../services/restaurantservice";
 
 const Add_Restaurant_Tab = () => {
   const [selectedTab, setSelectedTab] = useTabs([
@@ -9,6 +11,23 @@ const Add_Restaurant_Tab = () => {
     "deliveryBoys",
     "storeActivity",
   ]);
+  const [category, setCategory] = useState();
+  const getCategory = async () => {
+    try {
+      const response = await categoryService();
+      const category = response?.data?.data;
+      setCategory(category?.categories);
+
+      console.log("setCategory info response", response);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    getCategory();
+  }, []);
   return (
     <>
       <nav className="flex border-b border-gray-300 w-full">
@@ -39,7 +58,7 @@ const Add_Restaurant_Tab = () => {
       </nav>
       <div className="p-2">
         <TabPanel hidden={selectedTab !== "storeMenu"}>
-          <AddRestaurant_Table />
+          <AddRestaurant_Table data2={category} />
         </TabPanel>
         <TabPanel hidden={selectedTab !== "wallet"}>
           Wallet Transaction

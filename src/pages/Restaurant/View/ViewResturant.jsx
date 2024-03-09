@@ -6,6 +6,7 @@ import { useLocation } from "react-router";
 
 const ViewResturant = () => {
   const [restaurantInfo, setRestaurantInfo] = useState();
+
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const rest_id = queryParams.get("res_id");
@@ -23,6 +24,7 @@ const ViewResturant = () => {
       console.error("Error fetching data:", error);
     }
   };
+
   return (
     <>
       <div className="bg-white pl-4 h-full overflow-y-auto overflow-x-auto w-full">

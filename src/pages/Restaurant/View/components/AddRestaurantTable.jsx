@@ -3,7 +3,7 @@ import Paginate from "../../../../common-components/Paginate";
 import axiosInstance from "../../../../api-config/axiosinstance";
 import { useNavigate } from "react-router";
 
-const AddRestaurant_Table = () => {
+const AddRestaurant_Table = (props) => {
   const [foodMenu, setFoodMenu] = useState([]);
   const [totalFoodListCount, setTotalFoodListCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
@@ -12,6 +12,9 @@ const AddRestaurant_Table = () => {
   const [category, setCategory] = useState();
   const [foodName, setFoodName] = useState();
   const navigate = useNavigate();
+
+  const setData = props?.data2;
+  console.log("category pass", setData);
 
   const fetchFoodMenuList = async (pageNumber, name, foodName, category) => {
     const response = await axiosInstance.get(`/getFoodMenu`, {
@@ -165,15 +168,16 @@ const AddRestaurant_Table = () => {
                   <div className="w-[140px]  flex items-center h-9">
                     <div>
                       <select
+                        defaultValue={data?.categoryInfo?.category_name}
                         id="pricingType"
                         name="pricingType"
                         className="mt-1 ml-2 px-1 pr-10 h-8 bg-white border shadow-300 border-slate-300 placeholder-slate-400 focus:outline-none text-[15px]"
                       >
-                        {/* {data?.categoryInfo.map((item, index) => ( */}
-                        <option value={data?.categoryInfo.category_name}>
-                          {data?.categoryInfo.category_name}
-                        </option>
-                        {/* ))} */}
+                        {setData?.map((item, index) => (
+                          <option key={index} value={item?.id}>
+                            {item?.category_name}
+                          </option>
+                        ))}
                       </select>
                     </div>
                   </div>

@@ -52,7 +52,17 @@ async function csvUploadservice(formData) {
   }
 }
 
+async function categoryService() {
+  try {
+    const response = await axiosInstance.get(`/getCategory`);
+    return response;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+}
+
 export {
+  categoryService,
   getResturantInfoService,
   getResturantFoodMenuService,
   csvUploadservice,
