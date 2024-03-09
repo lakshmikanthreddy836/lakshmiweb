@@ -35,9 +35,7 @@ const Login = () => {
         credentials.username,
         credentials.password
       );
-      console.log("response is", response);
       const result = response.data;
-      console.log("result is", result);
       localStorage.setItem("token", result.token);
       navigate("/home");
       ShowSucessmessages("Successfully logged in");
@@ -49,7 +47,6 @@ const Login = () => {
 
     }
   };
-  console.log("credentials", credentials);
 
   return (
     <div className="bg-gray-100 flex items-center justify-center h-screen w-screen">

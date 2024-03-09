@@ -3,7 +3,6 @@ import {csvUploadservice} from "../../../Services/Train"
 const ImportTrain = () => {
      const [csvFile, setCsvFile] = useState();
      const uploadScrapCsv = async (e) => {
-          console.log("file ", e.target.files[0]);
       
           try {
             const file = e.target.files[0];
@@ -13,7 +12,6 @@ const ImportTrain = () => {
           }
         };
         const csvUploadEvent = async () => {
-          console.log("csvUploadEvent working");
           try {
             const formData = new FormData();
             formData.append("import_train", csvFile);

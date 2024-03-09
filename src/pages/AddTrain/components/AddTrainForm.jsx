@@ -20,7 +20,6 @@ const AddTrainForm = () => {
         train_number: value.train_number
       }
       const response = await  axiosInstance.post(`/saveAndUpdateTrain`,trainDetail);
-      console.log(response);
     }catch(error){
       console.log(error);
     } 

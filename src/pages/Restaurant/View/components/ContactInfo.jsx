@@ -41,7 +41,7 @@ const ContactInfo = (props) => {
                   borderTop: "1px solid rgb(222, 226, 230)",
                 }}
               >
-                {setData?.phone}
+                {setData?.contact_person_phone_number}
               </td>
             </tr>
             <tr style={{ boxSizing: "border-box" }}>
@@ -61,7 +61,7 @@ const ContactInfo = (props) => {
                   borderTop: "1px solid rgb(222, 226, 230)",
                 }}
               >
-                Sunil Sharma
+                {setData?.contact_person_name} 
               </td>
             </tr>
             <tr style={{ boxSizing: "border-box" }}>
@@ -81,7 +81,7 @@ const ContactInfo = (props) => {
                   borderTop: "1px solid rgb(222, 226, 230)",
                 }}
               >
-                N/A
+                {setData?.userInfo?.kyc_verified.toUpperCase()}
               </td>
             </tr>
             <tr style={{ boxSizing: "border-box" }}>
@@ -101,7 +101,7 @@ const ContactInfo = (props) => {
                   borderTop: "1px solid rgb(222, 226, 230)",
                 }}
               >
-                {setData?.email}
+                {setData?.resturant_email}
               </td>
             </tr>
             <tr style={{ boxSizing: "border-box" }}>
@@ -121,7 +121,7 @@ const ContactInfo = (props) => {
                   borderTop: "1px solid rgb(222, 226, 230)",
                 }}
               >
-                Visakhapatnam
+                {setData?.city}
               </td>
             </tr>
             <tr style={{ boxSizing: "border-box" }}>
@@ -147,9 +147,9 @@ const ContactInfo = (props) => {
                     fontWeight: "bolder",
                   }}
                 >
-                  Manju Sharma
+                  {setData?.userInfo?.first_name} {setData?.userInfo?.last_name} {setData?.userInfo?.sir_name}
                 </strong>
-                <span>&nbsp;</span>/ kanhajirestaurant1@gmail.com / 9390219693
+                <span>&nbsp;</span>/ {setData?.userInfo?.email} / {setData?.userInfo?.phone}
               </td>
             </tr>
             <tr style={{ boxSizing: "border-box" }}>
@@ -169,7 +169,7 @@ const ContactInfo = (props) => {
                   borderTop: "1px solid rgb(222, 226, 230)",
                 }}
               >
-                A/C Name: ; A/C No. ; IFSC Code: ; Bank Name &amp; Branch -
+                A/C Name: {setData?.account_holder_name}; A/C No. {setData?.account_number}; IFSC Code: {setData?.ifsc_code}; Bank Name {setData?.bank_name} &amp; Branch - {setData?.branch_name}
               </td>
             </tr>
           </tbody>

@@ -61,7 +61,6 @@ const Form_Add_Restaurant = () => {
   });
 
   const [useId, setUserId] = useState("");
-  console.log("restaurantDetailsData", restaurantDetailsData);
   const submitFirstForm = async () => {
     const payloadData = {
       email: addRestaurantData.owner_email,
@@ -76,13 +75,11 @@ const Form_Add_Restaurant = () => {
     if (response?.success) {
       const result = response?.data?.user_id;
       setUserId(result);
-      console.log("result is", result);
       ShowSucessmessages("Details added successfully");
       setSecondStep("secondstep");
     }
     // setAddRestaurantData({});
   };
-  console.log("useId", useId);
   const [gstphoto, setGstPhoto] = useState(null);
   const [kitechenphoto, setKItchenPhoto] = useState(null);
   const [counterphoto, setCounterPhoto] = useState(null);
@@ -103,27 +100,21 @@ const Form_Add_Restaurant = () => {
   const handleImageChange = async (e, handleImageChange) => {
     if (handleImageChange == "gstphoto") {
       const file = e.target.files[0];
-      console.log("event is", file);
       setGstPhoto(file);
     } else if (handleImageChange == "kitchenphoto") {
       const file = e.target.files[0];
-      console.log("event is", file);
       setKItchenPhoto(file);
     } else if (handleImageChange == "counterphoto") {
       const file = e.target.files[0];
-      console.log("event is", file);
       setCounterPhoto(file);
     } else if (handleImageChange == "fassiphoto") {
       const file = e.target.files[0];
-      console.log("event is", file);
       setFassaiPhoto(file);
     } else if (handleImageChange == "hoadingphoto") {
       const file = e.target.files[0];
-      console.log("event is", file);
       sehoadingBoardPhoto(file);
     } else if (handleImageChange == "foodmenuphoto") {
       const file = e.target.files[0];
-      console.log("event is", file);
       setFoodMenuPhoto(file);
     }
 
@@ -202,11 +193,9 @@ const Form_Add_Restaurant = () => {
       fssai_number: restaurantDetailsData?.fssai_number,
       brand_name: restaurantDetailsData?.brand_name,
     };
-    console.log("payloadData", payloadData);
     let response = await AddRestaurantDetails(payloadData);
     if (response?.success) {
       const result = response.data;
-      console.log("result is", result);
       ShowSucessmessages("Restaurant details added successfully");
       // window.location.reload()
       // setSecondStep("secondstep");

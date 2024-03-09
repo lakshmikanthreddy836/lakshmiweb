@@ -19,7 +19,6 @@ const AddTrain = () => {
   const handleDownloadCsv = async () => {
     try {
       let response = await DownloadTrainCsv();
-      console.log(response.data);
       const trainResponse = response.data;
       await csvDownload(trainResponse);
     } catch (error) {

@@ -17,9 +17,8 @@ const ViewResturant = () => {
   }, []);
   const getRestaurant = async () => {
     try {
-      const response = await getResturantInfoService("ttiU58");
+      const response = await getResturantInfoService(rest_id);
       setRestaurantInfo(response?.data);
-      console.log("restaurant info response", response);
     } catch (error) {
       console.error("Error fetching data:", error);
     }

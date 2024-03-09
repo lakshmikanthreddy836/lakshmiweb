@@ -2,15 +2,15 @@ import { TabPanel, useTabs } from "react-headless-tabs";
 import { TabSelect } from "./TabSelect";
 import ContactInfo from "./ContactInfo";
 
-const RestaurantFirstCompoents = (props) => {
+const   RestaurantFirstCompoents = (props) => {
   const [selectedTab, setSelectedTab] = useTabs([
     "contactInfo",
     "irctData",
     "ratings",
     "notification",
   ]);
-  const setData = props?.data;
-  console.log("set data", setData);
+  const resturantInfo = props?.data;
+  console.log("RestaurantFirstCompoents",resturantInfo);
   return (
     <div>
       <div className="mx-auto flex flex-row ">
@@ -24,8 +24,8 @@ const RestaurantFirstCompoents = (props) => {
               />
             </div>
             <div className="w-8/12 ">
-              <h2 className="text-3xl ml-4 mt-4 ">Kanha Ji Restaurant</h2>
-              <h4 className="text-sm ml-4 ">(XYZ RESTAURANT)</h4>
+              <h2 className="text-3xl ml-4 mt-4 ">{resturantInfo?.resturant?.resturant_name}</h2>
+              <h4 className="text-sm ml-4 ">({resturantInfo?.resturant?.resturant_name})</h4>
             </div>
           </div>
           <div className="mt-2 border mx-4 flex flex-col  rounded-lg pl-4 pr-4">
@@ -49,7 +49,7 @@ const RestaurantFirstCompoents = (props) => {
                   </p>
                 </div>
                 <div className="inline-flex bg-green-500 rounded-xl  pl-2 pr-2 items-start text-base font-semibold text-gray-900 ">
-                  ₹ 0
+                  ₹ {resturantInfo?.resturant?.security_deposit}
                 </div>
               </div>
             </div>
@@ -61,7 +61,7 @@ const RestaurantFirstCompoents = (props) => {
                   </p>
                 </div>
                 <div className="inline-flex bg-yellow-500 rounded-xl  pl-2 pr-2 items-start text-base font-semibold text-gray-900 ">
-                  ₹ 0
+                  ₹ {resturantInfo?.resturant?.commission}
                 </div>
               </div>
             </div>
@@ -73,7 +73,7 @@ const RestaurantFirstCompoents = (props) => {
                   </p>
                 </div>
                 <div className="inline-flex bg-gray-900 rounded-xl  pl-2 pr-2 items-start text-base font-semibold text-white ">
-                  Active
+                {resturantInfo?.resturant?.status}
                 </div>
               </div>
             </div>
@@ -85,7 +85,7 @@ const RestaurantFirstCompoents = (props) => {
                   </p>
                 </div>
                 <div className="inline-flex bg-green-400 rounded-xl  pl-2 pr-2 items-start text-base font-semibold text-gray-900 ">
-                  Vegetarian
+                  {resturantInfo?.resturant?.food_type}
                 </div>
               </div>
             </div>
@@ -121,7 +121,7 @@ const RestaurantFirstCompoents = (props) => {
                   </p>
                 </div>
                 <div className="inline-flex items-start text-base font-semibold text-gray-900 ">
-                  Vendor
+                {resturantInfo?.resturant?.deliver_type}
                 </div>
               </div>
             </div>
@@ -133,7 +133,7 @@ const RestaurantFirstCompoents = (props) => {
                   </p>
                 </div>
                 <div className="inline-flex items-start text-base font-semibold text-gray-900 ">
-                  ₹ 0
+                  ₹ {resturantInfo?.resturant?.customer_charge}
                 </div>
               </div>
             </div>
@@ -145,7 +145,7 @@ const RestaurantFirstCompoents = (props) => {
                   </p>
                 </div>
                 <div className="inline-flex items-start text-base font-semibold text-gray-900 ">
-                  ₹ 0
+                  ₹ {resturantInfo?.resturant?.vendor_charge}
                 </div>
               </div>
             </div>
@@ -157,7 +157,7 @@ const RestaurantFirstCompoents = (props) => {
                   </p>
                 </div>
                 <div className="inline-flex  bg-blue-500 rounded-xl  pl-2 pr-2 items-start text-base font-semibold text-gray-900 ">
-                  02:03:2024 00:00
+                {new Date(resturantInfo?.resturant?.createdAt).toLocaleDateString()}
                 </div>
               </div>
             </div>
@@ -169,7 +169,7 @@ const RestaurantFirstCompoents = (props) => {
                   </p>
                 </div>
                 <div className="inline-flex bg-blue-500 rounded-xl  pl-2 pr-2 items-start text-base font-semibold text-gray-900 ">
-                  02-03-2024 00:00
+                {new Date(resturantInfo?.resturant?.updatedAt).toLocaleDateString()}
                 </div>
               </div>
             </div>
@@ -181,7 +181,7 @@ const RestaurantFirstCompoents = (props) => {
                   </p>
                 </div>
                 <div className="inline-flex items-start text-base font-semibold text-gray-900 ">
-                  0
+                  {resturantInfo?.resturant?.sale_price_capping}
                 </div>
               </div>
             </div>
@@ -241,7 +241,7 @@ const RestaurantFirstCompoents = (props) => {
                     border: "1px solid rgb(222, 226, 230)",
                   }}
                 >
-                  Food In Train
+                  {resturantInfo?.resturant?.facilities}
                   <div
                     style={{ color: "rgba(0,0,0,0.01)", width: 0, height: 0 }}
                   >
@@ -314,6 +314,7 @@ const RestaurantFirstCompoents = (props) => {
                     border: "1px solid rgb(222, 226, 230)",
                   }}
                 >
+                  {resturantInfo?.resturant?.open_before_time}
                   <br />
                 </td>
                 <td
@@ -382,7 +383,7 @@ const RestaurantFirstCompoents = (props) => {
                     border: "1px solid rgb(222, 226, 230)",
                   }}
                 >
-                  99
+                  {resturantInfo?.resturant?.min_order_value}
                 </th>
                 <td
                   style={{
@@ -400,7 +401,7 @@ const RestaurantFirstCompoents = (props) => {
                     border: "1px solid rgb(222, 226, 230)",
                   }}
                 >
-                  Visakhapatnam Junction
+                  {resturantInfo?.resturant?.stationInfo?.station_name}
                 </td>
               </tr>
               <tr style={{ boxSizing: "border-box" }}>
@@ -420,7 +421,7 @@ const RestaurantFirstCompoents = (props) => {
                     border: "1px solid rgb(222, 226, 230)",
                   }}
                 >
-                  100 Miter
+                  {resturantInfo?.resturant?.station_distance}
                 </td>
                 <td
                   style={{
@@ -458,7 +459,7 @@ const RestaurantFirstCompoents = (props) => {
                     border: "1px solid rgb(222, 226, 230)",
                   }}
                 >
-                  10:00 to 23:00
+                  {resturantInfo?.resturant?.open_time} to {resturantInfo?.resturant?.close_time}
                 </td>
                 <td
                   style={{
@@ -554,7 +555,7 @@ const RestaurantFirstCompoents = (props) => {
                     border: "1px solid rgb(222, 226, 230)",
                   }}
                 >
-                  0
+                  {resturantInfo?.resturant?.group_discount}
                 </td>
                 <td
                   style={{
@@ -881,7 +882,7 @@ const RestaurantFirstCompoents = (props) => {
               </nav>
               <div className="p-2">
                 <TabPanel hidden={selectedTab !== "contactInfo"}>
-                  <ContactInfo data2={setData?.resturant.userInfo} />
+                  <ContactInfo data2={resturantInfo?.resturant} />
                 </TabPanel>
                 <TabPanel hidden={selectedTab !== "irctData"}>
                   Wallet Transaction

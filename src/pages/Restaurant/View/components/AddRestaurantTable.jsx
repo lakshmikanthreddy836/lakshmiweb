@@ -13,8 +13,8 @@ const AddRestaurant_Table = (props) => {
   const [foodName, setFoodName] = useState();
   const navigate = useNavigate();
 
-  const setData = props?.data2;
-  console.log("category pass", setData);
+  const resturantTableData = props?.data2;
+  console.log("resturantTableData pass", resturantTableData);
 
   const fetchFoodMenuList = async (pageNumber, name, foodName, category) => {
     const response = await axiosInstance.get(`/getFoodMenu`, {
@@ -38,12 +38,12 @@ const AddRestaurant_Table = (props) => {
   const handlePageChange = (pageNumber) => {
     console.log("pageNumber", pageNumber);
     setCurrentPage(pageNumber);
-    fetchFoodMenuList(pageNumber, "ttiU58", foodName, category);
+    fetchFoodMenuList(pageNumber, resturantTableData.resturant.resturant_id, foodName, category);
 
     // console.log("Page changed to:", pageNumber);
   };
   useEffect(() => {
-    fetchFoodMenuList(currentPage, "ttiU58", foodName, category);
+    fetchFoodMenuList(currentPage, resturantTableData.resturant.resturant_id, foodName, category);
   }, []);
   const totalPages = Math.ceil(totalFoodListCount / itemsPerPage);
 
@@ -51,7 +51,7 @@ const AddRestaurant_Table = (props) => {
   const setSearchByFoodNameEvent = async (e) => {
     setFoodName(e.target.value);
     try {
-      fetchFoodMenuList(1, "ttiU58", foodName, category);
+      fetchFoodMenuList(1, resturantTableData.resturant.resturant_id, foodName, category);
     } catch (error) {
       console.error("Error While Geetting Train search", error);
     }
@@ -67,7 +67,7 @@ const AddRestaurant_Table = (props) => {
   };
 
   const importRestaurant = () => {
-    navigate("/importRestaurant");
+    navigate(`/importRestaurant?res_id=${resturantTableData.resturant.resturant_id}`);
   };
   return (
     <div className="h-full w-full bg-white flex flex-col justify-start overflow-hidden">

@@ -17,7 +17,8 @@ const ImportRestaurant = () => {
     console.log("csvUploadEvent working");
     try {
       const formData = new FormData();
-      formData.append("import_train", csvFile);
+
+      formData.append("import_fsv", csvFile);
       await csvUploadservice(formData);
     } catch (error) {
       console.error("error message", error);

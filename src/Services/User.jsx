@@ -8,13 +8,11 @@ const loginAdmin = async (email, password) => {
   };
   try {
     const resp = await axiosInstance.post("/login", payload);
-    console.log("response is", resp);
     const dataObject = resp.data;
     return dataObject;
   } catch (error) {
     if (error.response) {
       // Handle specific server response errors
-      console.log("error is",error.response.data)
 
       const errorMessage = !error.response.data.error.message
         ? error.response.data.error?._message

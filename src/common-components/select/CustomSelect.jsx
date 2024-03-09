@@ -14,7 +14,6 @@ const CustomSelect = ({
   searchPlaceholder,
   
 }) => {
-  console.log("data.....",data)
   const [selectedValue, setSelectedValue] = useState(value);
   const [selectedIndex, setSelectedIndex] = useState(
     value !== "" ? data.indexOf(value) : null
@@ -48,7 +47,6 @@ const CustomSelect = ({
   }, [handleClickOutside]);
 
   const changeSelectedHandler = (item, name, index) => {
-    console.log("items......",item,index)
     setStationCode()
     setSelectedValue(item);
     setSelectedIndex(index);

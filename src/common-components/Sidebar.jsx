@@ -237,7 +237,6 @@ const Sidebar = () => {
   useEffect(() => {
     fetchMenuDetails();
   }, []);
-  console.log("menuDetails", menuDetails);
 
   return (
     <div className="w-[320px] h-full flex flex-col gap-0 justify-start bg-[#ffd4ce] duration-300 overflow-hidden ">

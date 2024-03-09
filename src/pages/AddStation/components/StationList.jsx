@@ -28,17 +28,14 @@ const StationList = () => {
           if (response?.data?.success) {
                //  setLoading(false);
                const stationListArray = response?.data?.data;
-               console.log(stationListArray)
                setStationList(stationListArray?.stations);
                setTotalTrainListCount(stationListArray?.totalCount);
           }
      };
      const handlePageChange = (pageNumber) => {
-          console.log("pageNumber", pageNumber);
           setCurrentPage(pageNumber);
           fetchStationList(pageNumber, "");
 
-          // console.log("Page changed to:", pageNumber);
      };
      useEffect(() => {
           fetchStationList(currentPage, "A");
@@ -46,7 +43,6 @@ const StationList = () => {
 
      const startIndex = (currentPage - 1) * 100;
      const endIndex = startIndex + 100;
-     console.log("trainList", stationList);
      const totalPages = Math.ceil(totalTrainListCount / 100);
 
      return (

@@ -18,7 +18,6 @@ const AddTrainDetails = () => {
     newFields[index][shift] = value;
     setFields(newFields);
   };
-  console.log("fields", fields);
   return (
     <div className="w-full h-fit addtrainboxshadow mt-10 mx-[2px] flex flex-col gap-3 p-2">
       <div className="flex items-center justify-center">
