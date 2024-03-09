@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import Paginate from "../../../../common-components/Paginate";
 import axiosInstance from "../../../../api-config/axiosinstance";
 import { useNavigate } from "react-router";
+import { useLocation } from "react-router";
+import { upDateFood } from "../../services/restaurantservice";
 
 const AddRestaurant_Table = (props) => {
   const [foodMenu, setFoodMenu] = useState([]);
