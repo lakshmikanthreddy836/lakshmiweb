@@ -6,7 +6,6 @@ import { useLocation } from "react-router";
 
 const ViewResturant = () => {
   const [restaurantInfo, setRestaurantInfo] = useState();
-
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const rest_id = queryParams.get("res_id");
@@ -25,6 +24,10 @@ const ViewResturant = () => {
     }
   };
 
+  // const dataPass = {
+  //   rest_data: restaurantInfo,
+  //   res_id: rest_id,
+  // };
   return (
     <>
       <div className="bg-white pl-4 h-full overflow-y-auto overflow-x-auto w-full">
@@ -32,7 +35,7 @@ const ViewResturant = () => {
           View Resturant
         </div>
         <div>
-          <RestaurantFirstCompoents data={restaurantInfo} />
+          <RestaurantFirstCompoents data={restaurantInfo} data2={rest_id} />
           <div className="bg-white pl-4 h-full w-full overflow-x-auto mt-10">
             <Add_Restaurant_Tab />
           </div>
