@@ -4,6 +4,8 @@ import { TbToolsKitchen3 } from "react-icons/tb";
 import { RestaurantDetails } from "../../Services/RestaurantDetails";
 import AnimateLoader from "../../common-components/AnimateLoader";
 import { useNavigate } from "react-router-dom";
+import AnimateLoader from "../../common-components/AnimateLoader";
+import { RestaurantDetails } from "../../Services/RestaurantDetails";
 function Restaurant() {
   const [activeState, setActiveState] = useState(0);
   const navigate = useNavigate();
@@ -11,7 +13,6 @@ function Restaurant() {
   const handleRestaurantDetails = (rest_id) => {
     navigate(`/view-resturant?res_id=${rest_id}`);
   };
-  
   const [restaurantDetails, setRestaurantDetails] = useState();
   const [loading, setLoading] = useState(true);
   const fetchRestaurantDetails = async () => {
