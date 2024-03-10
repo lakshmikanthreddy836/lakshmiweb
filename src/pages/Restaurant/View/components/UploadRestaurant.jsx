@@ -1,10 +1,18 @@
 import { useState } from "react";
 import { csvUploadservice } from "../../services/restaurantservice";
+import { useLocation } from "react-router";
+import ShowSucessmessages from "../../../../alert-messages/ShowSucessmessages";
+import ShowErrorMessages from "../../../../alert-messages/ShowErrorMessages";
 
 const ImportRestaurant = () => {
-  const [csvFile, setCsvFile] = useState();
+
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const rest_id = queryParams.get("res_id");
+
+  const [csvFile, setCsvFile] = useState(null);
+
   const uploadScrapCsv = async (e) => {
-    console.log("file ", e.target.files[0]);
 
     try {
       const file = e.target.files[0];
@@ -14,14 +22,17 @@ const ImportRestaurant = () => {
     }
   };
   const csvUploadEvent = async () => {
-    console.log("csvUploadEvent working");
     try {
       const formData = new FormData();
-
+      const headers = { "content-type": "multipart/form-data" }
       formData.append("import_fsv", csvFile);
-      await csvUploadservice(formData);
+      formData.append("resturant_id", rest_id);
+      await csvUploadservice(formData, headers);
+      ShowSucessmessages("Successfully logged in");
+      setCsvFile(null)
     } catch (error) {
-      console.error("error message", error);
+      let errMessage = error?.response?.data?.error?._message || ""
+      ShowErrorMessages(errMessage)
     }
   };
   return (

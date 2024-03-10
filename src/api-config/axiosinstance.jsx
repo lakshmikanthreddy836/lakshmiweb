@@ -1,5 +1,6 @@
 import axios from "axios";
 import { serverUrl } from "../api-config/config";
+import ShowErrorMessages from "../alert-messages/ShowErrorMessages";
 
 const axiosInstance = axios.create({
   baseURL: serverUrl,
@@ -31,7 +32,14 @@ axiosInstance.interceptors.response.use(
       window.location.href = "/";
       localStorage.removeItem("token");
     }
-    return Promise.reject(error);
+    // if (error.response && error.response.status === 400) {
+    //   console.log("---------- inside");
+    //   const errorMessage = !error.response.data.error.message
+    //     ? error.response.data.error?._message
+    //     : error.response.data.error.message;
+    //   ShowErrorMessages(errorMessage, "Error");
+    // }
+    throw error;
   }
 );
 

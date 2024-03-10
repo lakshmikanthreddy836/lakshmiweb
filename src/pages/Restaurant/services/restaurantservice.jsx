@@ -42,13 +42,13 @@ const getResturantFoodMenuService = async (restaurantId) => {
   }
 };
 
-async function csvUploadservice(formData) {
+async function csvUploadservice(formData, header) {
   try {
-    const response = await axiosInstance.post(`/importFoodMenu`, formData);
+    const response = await axiosInstance.post(`/importFoodMenu`, formData, header);
 
     return response;
   } catch (error) {
-    console.error("Error fetching data:", error);
+    throw error
   }
 }
 
@@ -57,16 +57,16 @@ async function categoryService() {
     const response = await axiosInstance.get(`/getCategory`);
     return response;
   } catch (error) {
-    console.error("Error fetching data:", error);
+    throw error
   }
 }
 
 async function upDateFood(formData) {
   try {
-    const response = await axiosInstance.get(`/addAndUpdateFood`, formData);
+    const response = await axiosInstance.post(`/addAndUpdateFood`, formData);
     return response;
   } catch (error) {
-    console.error("Error fetching data:", error);
+    console.error("Error Sending data:", error);
   }
 }
 
