@@ -6,7 +6,12 @@ import axiosInstance from "../../../api-config/axiosinstance";
 import CustomSelect from "../../../common-components/select/CustomSelect";
 import { getStationDetails } from "../../../Services/getStationList";
 import { getStateDetails } from "../../../Services/getStateList";
+import { useNavigate } from "react-router-dom";
+
+
 const Form_Add_Restaurant = () => {
+  const navigate = useNavigate();
+
   const [secondStep, setSecondStep] = useState("");
   const [addRestaurantData, setAddRestaurantData] = useState({
     owner_first_name: "",
@@ -197,6 +202,7 @@ const Form_Add_Restaurant = () => {
     if (response?.success) {
       const result = response.data;
       ShowSucessmessages("Restaurant details added successfully");
+      navigate("/restaurant")
       // window.location.reload()
       // setSecondStep("secondstep");
     }

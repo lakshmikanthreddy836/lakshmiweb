@@ -25,7 +25,7 @@ const ImportRestaurant = () => {
     try {
       const formData = new FormData();
       const headers = { "content-type": "multipart/form-data" }
-      formData.append("import_fsv", csvFile);
+      formData.append("import_food", csvFile);
       formData.append("resturant_id", rest_id);
       await csvUploadservice(formData, headers);
       ShowSucessmessages("Successfully logged in");

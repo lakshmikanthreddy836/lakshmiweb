@@ -132,6 +132,7 @@ function App() {
             <Route path="/ticketing-agent" element={<Ticket_Agent />} />
             <Route path="/view_ticket_agent" element={<View_ticket_agent />} />
             <Route path="/add-restaurant" element={<Add_Restaurant />} />
+            <Route path="/add-food" element={<AddFood />} />
             <Route
               path="/Add_Ticket_Agent_form"
               element={<ProtectedComponent Component={Add_Ticket_Agent_form} />}

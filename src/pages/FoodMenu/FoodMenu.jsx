@@ -7,21 +7,23 @@ import { useNavigate } from "react-router-dom";
 import Input from "../../common-components/Input";
 
 const FoodMenu = () => {
-  let navigate = useNavigate(); 
+  let navigate = useNavigate();
+
   const RedirectAddFood = () => {
     let path = '/add-food';
     navigate(path);
   };
+
   return (
     <div className="bg-white p-4">
       <div className="shadow-[0_12px_23px__rgba(198,_202,_205,_0.7)] p-1 items-center mt-2">
         <Title title={"Food Menu"}>
           <div>
             {/* <FaPlus className="size='1.2rem'"/> */}
-            <Button 
-            label='+ Add Item' 
-            style="rounded-none text-white px-2 py-2 bg-[#34334a] hover:bg-[#34334a]/100 focus:ring-2 focus:outline-none focus:ring-[#34334a]/60 font-medium text-center inline-flex items-center dark:focus:ring-[#34334a]/60" 
-            handleClick={RedirectAddFood}
+            <Button
+              label='+ Add Item'
+              style="rounded-none text-white px-2 py-2 bg-[#34334a] hover:bg-[#34334a]/100 focus:ring-2 focus:outline-none focus:ring-[#34334a]/60 font-medium text-center inline-flex items-center dark:focus:ring-[#34334a]/60"
+              handleClick={RedirectAddFood}
             />
           </div>
         </Title>

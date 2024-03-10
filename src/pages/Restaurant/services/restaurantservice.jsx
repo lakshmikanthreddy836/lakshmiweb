@@ -66,7 +66,7 @@ async function upDateFood(formData) {
     const response = await axiosInstance.post(`/addAndUpdateFood`, formData);
     return response;
   } catch (error) {
-    console.error("Error Sending data:", error);
+    throw error
   }
 }
 
