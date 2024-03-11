@@ -35,6 +35,7 @@ import ImportTrain from "./pages/AddTrain/components/ImportTrain";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import ViewResturant from "./pages/Restaurant/View/ViewResturant";
 import ImportRestaurant from "./pages/Restaurant/View/components/UploadRestaurant";
+import Add_New_Order from "./pages/AddNewOrder/AddNewOrder";
 
 
 function App() {
@@ -133,6 +134,7 @@ function App() {
             <Route path="/view_ticket_agent" element={<View_ticket_agent />} />
             <Route path="/add-restaurant" element={<Add_Restaurant />} />
             <Route path="/add-food" element={<AddFood />} />
+            <Route path="/add-new-order" element={<Add_New_Order />} />
             <Route
               path="/Add_Ticket_Agent_form"
               element={<ProtectedComponent Component={Add_Ticket_Agent_form} />}
