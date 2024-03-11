@@ -40,7 +40,7 @@ const NavBar_Grid = () => {
       >
         <nav>
           <ul className="md:flex items-center justify-between text-base   pt-4 md:pt-0">
-            <Link>
+            <Link to="/add-new-order" >
               <li className="inline-flex items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
