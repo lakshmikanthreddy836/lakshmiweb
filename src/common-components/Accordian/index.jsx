@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './index.css'; // Import your custom CSS or define styles in the component
 
-const CustAccordion = ({ title, content }) => {
+const CustAccordion = ({ title, content, btnClass = "" }) => {
   const [isActive, setIsActive] = useState(false);
 
   const toggleAccordion = () => {
@@ -10,7 +10,7 @@ const CustAccordion = ({ title, content }) => {
 
   return (
     <div>
-      <button className={`accordion ${isActive ? 'active' : ''}`} onClick={toggleAccordion}>
+      <button className={`accordion ${isActive ? 'active' : ''} ${btnClass}`} onClick={toggleAccordion}>
         {title}
       </button>
       <div className={`panel ${isActive ? 'show' : ''}`}>
