@@ -1,17 +1,22 @@
 import React, { useState } from "react";
 
 
-const OrderViaPnrCard = () => {
-
+const OrderViaPnrCard = (props) => {
+    const { setOrderVia } = props;
 
     const [searchWithPnr, setSearchPnr] = useState("")
 
 
     const handleInputPnr = (e) => {
         const { name, value } = e.target;
-        if (value.length == 10) return false;
+        if (value.length >= 11) return false;
         let updatedVal = value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');
         setSearchPnr(updatedVal)
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setOrderVia({ pnr: searchWithPnr })
     }
 
     return (
@@ -20,15 +25,13 @@ const OrderViaPnrCard = () => {
                 <h6>Order Via PNR</h6>
             </div>
             <div className="card-body p-4">
-                <form method="" onSubmit={() => { }}>
+                <form method="" onSubmit={handleSubmit}>
                     <div className="">
-                        <input className="form-control w-full" name="pnr_number" id="mobile" type="text"
+                        <input className="form-control w-full"
+                            name="pnr_number" id="mobile" type="text"
                             required
                             value={searchWithPnr || ""}
                             onChange={handleInputPnr}
-                            onkeyup="check(); return false;"
-                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
-                            onkeypress="if(this.value.length==10) return false;"
                             placeholder="Enter 10 digit PNR Number"
                         />
                     </div>
