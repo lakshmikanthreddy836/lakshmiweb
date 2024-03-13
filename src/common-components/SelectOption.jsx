@@ -1,6 +1,6 @@
 // import * as React from 'react';
 
-const SelectOption = ({ label, options, value, onChange, style, name }) => {
+const SelectOption = ({ label, options, value, onChange, style, name, showKey = "value", getKey = "value" }) => {
   return (
     <div>
       {/* <label>{label}</label> */}
@@ -9,7 +9,7 @@ const SelectOption = ({ label, options, value, onChange, style, name }) => {
           {label}
         </option>
         {options.map((option) => (
-          <option key={option.id} value={option.value}>{option.value}</option>
+          <option key={option.id} value={option[getKey]}>{option[showKey]}</option>
         ))}
       </select>
     </div>

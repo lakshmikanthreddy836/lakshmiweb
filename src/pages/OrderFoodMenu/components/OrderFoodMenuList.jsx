@@ -1,10 +1,12 @@
 
 import React, { useMemo, useState } from "react";
 import CustAccordion from "../../../common-components/Accordian";
+import RupeeIcon from "../../../assets/Icons/Rupee";
 
 const OrderFoodMenuList = (props) => {
 
-    const { list = [] } = props;
+    const { list = [], qsParms = {} } = props;
+    const { rest_id, train_name, train_no, min_order, doj, del_st_name, del_st_code, boarding_st } = qsParms
 
     const ContentArrFood = (foodList = []) => {
         return foodList.length ? [...foodList].map((item, index) => {
@@ -34,14 +36,14 @@ const OrderFoodMenuList = (props) => {
             <div className=" card">
                 <div className="text-left bg-gray-100 p-4 flex justify-between">
                     <div>
-                        <div>Delivery At: <span className="font-bold"> Purushottam Exp / 12802</span></div>
-                        <div>Minimum Order: <span className="font-bold"> 199</span></div>
-                        <div>Order Before: <span className="font-bold">  00:45</span></div>
+                        <div>Delivery At: <span className="font-bold"> {del_st_name || "-"} ({del_st_code || "-"})</span></div>
+                        <div>Minimum Order: <span className="font-bold"> ₹ {min_order || "-"}</span></div>
+                        <div>Order Before: <span className="font-bold">  00:45(static) </span></div>
                     </div>
                     <div>
-                        <div>DOJ: <span className="font-bold"> 11/12/2024</span></div>
-                        <div>Train No. : <span className="font-bold"> 12802</span></div>
-                        <div>Train Name: <span className="font-bold">Purushottam Exp</span></div>
+                        <div>DOJ: <span className="font-bold"> {doj || "-"}</span></div>
+                        <div>Train No. : <span className="font-bold"> {train_no || "-"}</span></div>
+                        <div>Train Name: <span className="font-bold">{train_name || "-"}</span></div>
                     </div>
                 </div>
                 <div className="overflow-auto h-[calc(100vh-25vh)]">
@@ -68,7 +70,7 @@ const AccordianContent = ({ item }) => {
                     <span className="font-bold">{food_name || ""} </span>
                 </div>
                 <div className="">
-                    {selling_price || 0}
+                    <span className="font-bold">₹</span>  {selling_price || 0}
                 </div>
                 <div className="pt-4 text-xs">
                     {food_discription}

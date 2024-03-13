@@ -10,9 +10,10 @@ const Add_New_Order = () => {
 
     const [orderVia, setOrderVia] = useState({})
     const [allResturantList, setAllResturantList] = useState([])
+    const [trainDetails, setTrainDetails] = useState({})
 
     useEffect(() => {
-        if ((orderVia?.train_number)) {
+        if ((orderVia?.train_number) || (orderVia?.pnr)) {
             getAllResturantOrderList(orderVia)
         }
     }, [orderVia])
@@ -20,10 +21,11 @@ const Add_New_Order = () => {
     const getAllResturantOrderList = (payload) => {
         GetAllResturantList({ ...payload })
             .then((res) => {
-                if(!res.data?.resp?.length){
+                if (!res.data?.resp?.length) {
                     return ShowErrorMessages("No Record Found!.")
                 }
                 setAllResturantList(res.data?.resp)
+                setTrainDetails(res.data?.trainInfo)
             })
             .catch((err) => { })
     }
@@ -34,13 +36,18 @@ const Add_New_Order = () => {
             <div className="mt-1 grid ">
                 <div className="grid-row flex">
                     <div className="grid-col-4 w-[30%]">
-                        <OrderViaPnrCard />
+                        <OrderViaPnrCard setOrderVia={setOrderVia} />
 
                         <OrderViaNoCard setOrderVia={setOrderVia} />
                     </div>
 
                     <div className="col-8 flex-1">
-                        {allResturantList.length ? <OrderResturantList allList={allResturantList} /> : null}
+                        {allResturantList.length ? <OrderResturantList
+                            allList={allResturantList}
+                            trainDetails={trainDetails}
+                        />
+                            : null
+                        }
                     </div>
                 </div>
             </div>

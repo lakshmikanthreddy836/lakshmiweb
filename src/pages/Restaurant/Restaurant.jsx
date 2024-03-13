@@ -4,7 +4,7 @@ import { TbToolsKitchen3 } from "react-icons/tb";
 import { RestaurantDetails } from "../../Services/RestaurantDetails";
 import AnimateLoader from "../../common-components/AnimateLoader";
 import { useNavigate } from "react-router-dom";
-import { debounce } from "../../utils/commonFunc";
+import { dateTimeFormat, debounce } from "../../utils/commonFunc";
 // import AnimateLoader from "../../common-components/AnimateLoader";
 // import { RestaurantDetails } from "../../Services/RestaurantDetails";
 
@@ -42,17 +42,6 @@ function Restaurant() {
     // console.log("result is", result);
   };
 
-  const dateTimeFormat = (dateTime) => {
-    const dateString = dateTime;
-    const date = new Date(dateString);
-    // Get day, month, and year components
-    const day = date.getDate().toString().padStart(2, "0");
-    const month = (date.getMonth() + 1).toString().padStart(2, "0"); // Months are zero-based
-    const year = date.getFullYear().toString();
-    // Format the date as DD/MM/YYYY
-    const formattedDate = `${day}/${month}/${year}`;
-    return formattedDate;
-  };
 
   const debounceFn = useMemo(() => debounce((updatedFilters) => {
     //Hit Api after all seach is Done
