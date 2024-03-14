@@ -16,7 +16,7 @@ const Order_Food_Menu = () => {
     const { rest_id } = qsParms;
 
     const [restFoodMenuList, setRestFoodMenuList] = useState();
-
+    const [cartItems, setCartitems] = useState({})
 
     useEffect(() => {
         if (rest_id?.length) {
@@ -28,17 +28,34 @@ const Order_Food_Menu = () => {
         }
     }, [rest_id])
 
+    const addDelToCartItems = (item, count) => {
+        let updatedCartItems = { ...cartItems }
+        if (updatedCartItems[item.food_menu_id] && count == "0") {
+            delete updatedCartItems[item.food_menu_id]
+        }
+        else {
+            updatedCartItems[item.food_menu_id] = { count: count, ...item }
+        }
+
+        setCartitems(updatedCartItems)
+    }
+
     return (
         <div className="mt-1 mx-2">
             <h5 className="font-bold">Order Food Menu</h5>
             <div className="mt-1 grid ">
                 <div className="grid-row flex">
                     <div className="grid-col-4 w-[60%]">
-                        <OrderFoodMenuList list={restFoodMenuList} qsParms={qsParms} />
+                        <OrderFoodMenuList
+                            list={restFoodMenuList}
+                            qsParms={qsParms}
+                            cartItems={cartItems}
+                            addDelToCartItems={addDelToCartItems}
+                        />
                     </div>
 
                     <div className="col-8 flex-1">
-                        <PriceBreakUpList />
+                        <PriceBreakUpList cartItems={cartItems} />
                     </div>
                 </div>
             </div>
